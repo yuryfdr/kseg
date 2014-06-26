@@ -1,0 +1,10 @@
+Building KSEG should be simple.
+
+Be sure you have Qt 4.x installed.  At the command line in the
+directory where you untarred kseg, run "qmake" (which creates
+the Makefile) and then "make".
+
+In order for help to work, the help file, kseg_help_en.html,
+must be in the same directory as the language files (*.qm)
+
+Good luck!

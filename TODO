@@ -1,0 +1,4 @@
+ - fix some graphics regressions (select boxes etc) due to migration from Qt3 to Qt4
+ - remove Q3 support classes
+ - some code review
+ - ...

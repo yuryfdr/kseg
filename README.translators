@@ -1,0 +1,38 @@
+Hi!
+
+KSeg is finally ready to be translated.  Note that even though
+it's "KSEG", there is no K in it anymore--only Q.  So the translation
+is entirely Qt based.
+
+Also now there is an additional large kseg_help_en.html file that
+can be translated.
+
+If you've done any Qt translation, you probably know more about it
+than I do, but here are the basic instructions.  Suppose you want
+to translate KSEG into classical Latin:
+
+Install (and be sure you can run) KSEG and Qt Linguist on your machine.
+Linguist is available freely from the TrollTech website
+(http://www.trolltech.com).
+
+1. Copy kseg_en.ts to kseg_la.ts
+2. Add kseg_la.ts to the TRANSLATIONS section of kseg.pro
+3. Run Linguist on kseg_la.ts and do the translation
+4. Do a "make trans" to create kseg_la.qm and try running KSEG.
+5. If you feel brave, translate the help file kseg_help_en.html to
+   kseg_help_la.html (you don't need Qt Linguist for this--it's an html
+   file)
+6. If not satisfied with your translation, goto step 3. (Per aspera ad
+   astra :)
+7. E-mail me kseg_la.ts and kseg_help_la.html
+8. Feel good about yourself :-)
+
+In the construction list (and other places), the translation mechanism
+will not let you get the grammar correct for some languages.  Getting
+it perfect (as opposed to acceptable) would be too difficult (and boring)
+a task.
+
+As an example, I have done a quick and very low quality translation
+into translit Russian, as kseg_xx.ts
+
+Thanks.
