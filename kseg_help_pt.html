@@ -1,0 +1,940 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Ajuda do KSEG</title>
+</head>
+<body>
+<h1>Ajuda do KSEG<br>
+</h1>
+<a name="Top"></a>
+<h2>Navega&ccedil;&atilde;o R&aacute;pida:</h2>
+<a href="#Walk">In&iacute;ciando/Descri&ccedil;&atilde;o Minuciosa</a><br>
+<a href="#Intro">Introdu&ccedil;&atilde;o</a><br>
+<a href="#Selecting">Selecionando</a><br>
+<a href="#Constructing">Construindo</a><br>
+<a href="#Transforms">Transforma&ccedil;&otilde;es</a><br>
+<a href="#Measuring">Medindo e Calculando</a><br>
+<a href="#Editing">Editando ,Corrigindo e Aperfei&ccedil;oando</a><br>
+<a href="#Views">Visualizando e Exportando Imagens</a><br>
+<a href="#Constructions">Constru&ccedil;&otilde;es</a><br>
+<a name="Walk"></a>
+<h2>Iniciando/Descri&ccedil;&atilde;o Minuciosa<br>
+</h2>
+Ap&oacute;s seguir os passos abaixo voc&ecirc; estar&aacute;
+familiarizado com as fun&ccedil;&otilde;es b&aacute;sicas do KSEG e
+pode seguir adiante por conta pr&oacute;pria. Para recursos
+avan&ccedil;ados, leia esse documento completamente.
+<ol>
+  <li>Inicie o KSEG. Voc&ecirc; ver&aacute; uma tela branca de desenho
+(cercada por barras de ferramenta, barras de rolagem, menu, e barra de
+status). </li>
+  <li>Um clique no meio da &aacute;rea branca constr&oacute;i um ponto
+automaticamente chamado de A. Para exibir essa letra A clique em
+Editar/Mostrar R&oacute;tulo.<br>
+  </li>
+  <li> Mantendo a tecla SHIFT pressionada ao mesmo tempo em que
+clica-se com o bot&atilde;o direito novamente em um local diferente
+sobre a tela ser&aacute; constru&iacute;do o ponto B. Uma vez que
+voc&ecirc; manteve pressionada a tecla SHIFT, a sele&ccedil;&atilde;o
+do ponto A n&atilde;o desaparece, isso faz com que ap&oacute;s esse
+passo voc&ecirc; tenha dois pontos selecionados. </li>
+  <li> Escolha "Criar/ Circunfer&ecirc;ncia Por Centro e Ponto" no
+menu. Ser&aacute; constru&iacute;da uma circunfer&ecirc;ncia com centro
+em A e passando sobre o ponto B. A circunfer&ecirc;ncia
+aparecer&aacute; selecionada e os pontos A e B ter&atilde;o suas
+sele&ccedil;&otilde;es respectivas desabilitadas. </li>
+  <li> Selecionando o ponto B com um clique sobre ele usando o
+bot&atilde;o esquerdo do mouse (isso tamb&eacute;m desabilita a
+sele&ccedil;&atilde;o da circunfer&ecirc;ncia). Mantendo a tecla SHIFT
+pressionada clique com o bot&atilde;o esquerdo do mouse sobre o ponto A
+para selecion&aacute;-lo. </li>
+  <li> Escolha "Criar/ Circunfer&ecirc;ncia Por Centro e Ponto"
+novamente no menu. Agora ser&aacute; constru&iacute;da uma
+circunfer&ecirc;ncia com centro em B (pelo fato de voc&ecirc;
+t&ecirc;-lo selecionado em primeiro lugar) e passando sobre o ponto A. </li>
+  <li> Mantendo a tecla SHIFT pressionada selecione a primeira
+circunfer&ecirc;ncia constru&iacute;da clicando sobre ela. Voc&ecirc;
+ter&aacute; agora ambas as circunfer&ecirc;ncias selecionadas.<br>
+  </li>
+  <li> Escolha "Criar/Ponto de Intersec&ccedil;&atilde;o" no menu.
+Dois pontos aparecem nas intersec&ccedil;&otilde;es entre as duas
+circunfer&ecirc;ncias, ambos selecionados. </li>
+  <li>Escolha "Criar/Reta" no menu. Isso construir&aacute; a mediatriz
+do segmento que inicia-se no ponto A e vai at&eacute; o ponto B. </li>
+  <li>Agora arraste o ponto A mantendo o bot&atilde;o esquerdo do mouse
+pressionado. Isso lhe dar&aacute; uma id&eacute;ia do que o KSEG faz. </li>
+</ol>
+Evidentemente, esse n&atilde;o &eacute; a mais eficiente caminho para
+construir uma mediatriz no KSEG (ainda que esse seja o melhor caminho
+usando r&eacute;gua e compasso), mas a inten&ccedil;&atilde;o &eacute;
+mostrar
+como constru&ccedil;&atilde;o e sele&ccedil;&atilde;o trabalham.
+<br>
+<br>
+<a href="#Top">In&iacute;cio</a> <a name="Intro"></a>
+<h2>Introdu&ccedil;&atilde;o</h2>
+KSEG &eacute; uma ferramenta pensada para permitir a voc&ecirc;
+visualizar facilmente as propriedades din&acirc;micas de
+constru&ccedil;&otilde;es geom&eacute;tricas usando r&eacute;gua e
+compasso e fazer explora&ccedil;&otilde;es geom&eacute;tricas o mais
+r&aacute;pido e facilmente poss&iacute;vel. Algumas vezes sentei para
+usar o KSEG e descobri uma propriedade geom&eacute;trica que antes
+n&atilde;o conhecia.
+<p>Com KSEG, voc&ecirc; cria uma constru&ccedil;&atilde;o
+din&acirc;mica inicialmente colocando pontos na tela e usando-os para
+construir outros objetos, como retas e circunfer&ecirc;ncias.
+Ent&atilde;o voc&ecirc; pode arrastar os pontos que voc&ecirc; criou e
+assistir &agrave; constru&ccedil;&atilde;o inteira acompanhar esse
+movimento. O KSEG &eacute; capaz de muito mais, evidentemente, mas isso
+&eacute; apenas uma id&eacute;ia b&aacute;sica. Eu tamb&eacute;m
+freq&uuml;entemente uso ele para gerar diagramas geom&eacute;tricos de
+alta qualidade para usar com LaTeX. Eu descobri que o caminho mais
+f&aacute;cil para levar uma figura do KSEG para o LaTeX &eacute;
+imprimir do KSEG para um arquivo .ps, converter esse arquivo para o
+formato EPS, colocar notas na figura usando o XFIG, e export&aacute;-la
+para o formato PS/LaTeX.
+</p>
+<p> <b>Uma quest&atilde;o de terminologia:</b> Uso o termo
+"Constru&ccedil;&atilde;o" para referir-me tanto ao tipo de documento
+semelhante a uma macro no KSEG quanto para referir-me a v&aacute;rios
+objetos geom&eacute;tricos que s&atilde;o dependentes uns dos outros.
+Isso &eacute; esclarecido considerando o contexto no qual me refiro,
+mas nesse documento utilizarei "Constru&ccedil;&atilde;o", com inicial
+mai&uacute;scula, para referir-me ao arquivo e usarei
+"constru&ccedil;&atilde;o", com inicial min&uacute;scula, para
+referir-me a v&aacute;rios objetos geom&eacute;tricos dependentes uns
+dos outros.
+</p>
+<h3>Objetos Geom&eacute;tricos</h3>
+Pontos, retas, medi&ccedil;&otilde;es, c&aacute;lculos, lugares
+geom&eacute;tricos, etc. s&atilde;o todos "objetos geom&eacute;tricos".
+Um objeto geom&eacute;trico pode ter objetos geom&eacute;tricos pais
+dos quais &eacute; proveniente. Por exemplo se voc&ecirc;
+constr&oacute;i dois pontos e a reta que passa por esses dois pontos,
+ent&atilde;o os pontos s&atilde;o os pais da reta e a reta &eacute;
+filha desses dois pontos . Quando voc&ecirc; arrasta um ponto livre,
+todos os seus descendentes s&atilde;o recalculados. Quando voc&ecirc;
+arrasta um objeto que possui pais&nbsp; (isso &eacute; chamado
+arrastamento reverso), um complicado algoritmo determina quais
+pais mover seguindo a posi&ccedil;&atilde;o designada pelo
+objeto que voc&ecirc; est&aacute; arrastando.
+<p>Um objeto geom&eacute;trico pode ser "n&atilde;o-existente" no
+sentido geom&eacute;trico, como o ponto de intersec&ccedil;&atilde;o
+entre duas circunfer&ecirc;ncias disjuntas. Se as circunfer&ecirc;ncias
+forem posteriormente movidas de forma a se interceptarem, os pontos
+passam a existir (na lista de Constru&ccedil;&atilde;o aparecem com um
+"n&atilde;o existe" entre par&ecirc;ntesis). Filhos de
+n&atilde;o-existentes s&atilde;o
+tamb&eacute;m n&atilde;o existentes (com exce&ccedil;&atilde;o dos
+lugares
+geom&eacute;tricos, para maiores detalhes veja a
+documenta&ccedil;&atilde;o dos lugares geom&eacute;tricos que segue
+adiante). Ent&atilde;o se voc&ecirc; est&aacute; arrastando um ponto em
+uma dada regi&atilde;o e a maior parte de sua constru&ccedil;&atilde;o
+desaparecer subitamente porque dois segmentos de reta n&atilde;o mais
+se interceptam (os objetos que desapareceram s&atilde;o os descendentes
+do ponto de intersec&ccedil;&atilde;o), n&atilde;o se preocupe,&nbsp;
+ela
+retornar&aacute; quando a intersec&ccedil;&atilde;o retornar
+tamb&eacute;m.<br>
+</p>
+<p><a href="#Top">In&iacute;cio</a> <a name="Selecting"></a></p>
+<h2>Selecionando</h2>
+De modo geral para construir novos objetos, voc&ecirc; precisa
+selecionar objetos previamente existentes. Aqui est&atilde;o suas
+op&ccedil;&otilde;es para fazer isso:<br>
+<ul>
+  <li>Clicando com o bot&atilde;o esquerdo do mouse em uma
+regi&atilde;o vazia desabilita a sele&ccedil;&atilde;o de todos os
+objetos atualmente selecionados. </li>
+  <li>Clicando com o bot&atilde;o esquerdo do mouse sobre um objeto
+n&atilde;o selecionado faz com que aquele objeto seja selecionado e
+desabilita a sele&ccedil;&atilde;o de todos os outros objetos
+existentes anteriormente. </li>
+  <li>Pressionando o bot&atilde;o esquerdo do mouse sobre uma
+regi&atilde;o vazia, arrastando, e soltando em seguida
+selecionar&aacute; todos os objetos contidos dentro do ret&acirc;ngulo
+imagin&aacute;rio assim determinado e desabilita a
+sele&ccedil;&atilde;o dos objetos que est&atilde;o fora desse mesmo
+ret&acirc;ngulo. </li>
+  <li>Mantendo pressionada a tecla SHIFT e clicando sobre um objeto
+selecionar&aacute; esse objeto se ele n&atilde;o estiver selecionado
+anteriormente e desabilitar&aacute; a sele&ccedil;&atilde;o em caso
+contr&aacute;rio. Outros objetos que estavam anteriormente selecionados
+permaneceram selecionados. </li>
+  <li>Mantendo pressionada a tecla SHIFT, pressionando o bot&atilde;o
+esquerdo do mouse sobre uma regi&atilde;o vazia, arrastando, e soltando
+em seguida ir&aacute; adicionar os objetos que est&atilde;o dentro do
+ret&acirc;ngulo imagin&aacute;rio assim determinado &agrave; lista de
+objetos selecionados sem alterar a sele&ccedil;&atilde;o dos j&aacute;
+anteriormente selecionados. </li>
+  <li>Em uma Constru&ccedil;&atilde;o, voc&ecirc; tamb&eacute;m tem a
+op&ccedil;&atilde;o de selecionar objetos atrav&eacute;s da lista de
+Constru&ccedil;&atilde;o. Voc&ecirc; pode clicar ou arrastar ou usar a
+tecla SHIFT. Note que de forma diferente dos outros m&eacute;todos,
+esse m&eacute;todo permite a voc&ecirc; selecionar objetos
+invis&iacute;veis e n&atilde;o existentes. </li>
+</ul>
+Quando voc&ecirc; clica em uma &aacute;rea onde existe mais de um
+objeto, isso &eacute; mais complicado (para o KSEG, isso &eacute;--para
+voc&ecirc; isso ser&aacute; muito intuitivo). Objetos possuem uma
+"preced&ecirc;ncia" (prioridade de sele&ccedil;&atilde;o): pontos
+primeiro, curvas e textos e lugares geom&eacute;tricos em segundo, e
+objetos restantes por &uacute;ltimo. Se objetos com preced&ecirc;ncia
+alta est&atilde;o sob o mouse ent&atilde;o objetos com
+preced&ecirc;ncia baixa s&atilde;o ignorados. Dentro de uma mesma
+preced&ecirc;ncia, o algoritmo comporta-se de forma que
+clicando v&aacute;rias vezes ele percorre as possibilidades de
+sele&ccedil;&atilde;o. A barra de status (localizada na parte inferior
+da tela) &eacute; sempre um bom lugar
+para ver o que acontecer&aacute; a cada clique.
+<h3>Grupos de Sele&ccedil;&atilde;o</h3>
+Um caminho muito poderoso de selecionar m&uacute;ltiplos objetos
+&eacute; usar
+a grupos de sele&ccedil;&atilde;o. Uma sele&ccedil;&atilde;o de grupos
+ocorre com&nbsp; uma cole&ccedil;&atilde;o de&nbsp; objetos&nbsp;
+geom&eacute;trico que voc&ecirc; diz ao KSEG para&nbsp; agrupar e
+trat&aacute;-los de forma conjunta com a finalidade de facilitar
+opera&ccedil;&otilde;es de sele&ccedil;&atilde;o envolvendo esses
+mesmos objetos geom&eacute;tricos. Clicando em "Editar/ Selecionar
+Grupos" abrir&aacute; a janela de gerenciamento da
+sele&ccedil;&atilde;o de grupos (associada a um documento). Quando
+voc&ecirc; abre essa janela ela mostra uma lista com todas as
+sele&ccedil;&otilde;es de grupo que voc&ecirc; tem para o documento
+ativo e tamb&eacute;m todos os grupos pre-definidos. Os grupos
+pr&eacute;-definidos est&atilde;o marcados com um
+asterisco--existe um para cada tipo de objeto o qual agrupa
+todos os objetos daquele tipo(existe um grupo para selecionar todos os
+pontos, outros para todas as retas, outro para todas as semi-retas, e
+assim sucessivamente).
+<p>Quando voc&ecirc; seleciona um grupo (ou v&aacute;rios) na caixa de
+listagem da janela de gerenciamento da sele&ccedil;&atilde;o de grupos
+e clica no bot&atilde;o "Selecionar", todos os objetos daquele grupo
+s&atilde;o selecionados e todos os outros ter&atilde;o sua
+sele&ccedil;&atilde;o desabilitada. Pressionando a tecla SHIFT enquanto
+clica-se no bot&atilde;o "Selecionar" selecionaremos os objetos
+naqueles grupos sem desabilitar a sele&ccedil;&atilde;o dos outros
+objetos que porventura estiverem atualmente selecionados.&nbsp;
+Clicando no bot&atilde;o "Remover Sele&ccedil;&atilde;o"
+desabilitaremos somente a sele&ccedil;&atilde;o dos objetos
+inclu&iacute;dos naquele grupo. Quando voc&ecirc; tem ao menos&nbsp; um
+objeto selecionado o bot&atilde;o "Novo Grupo" est&aacute; habilitado.
+Clique sobre ele para criar um novo grupo que abrange os objetos
+selecionados. Voc&ecirc; n&atilde;o pode apagar os grupos
+pr&eacute;-definidos.<br>
+</p>
+<p></p>
+<p>A caixa de sele&ccedil;&atilde;o "Incluir Itens Invis&iacute;veis"
+somente atinge os grupos previamente existentes. Quando n&atilde;o
+est&aacute; marcada (padr&atilde;o), "Todos os Pontos" refere-se
+somente a pontos n&atilde;o escondidos; quando est&aacute; marcada,
+"Todos os Pontos" refere-se a pontos anteriormente escondidos. Grupos
+que n&atilde;o forem aqueles previamente
+existentes sempre selecionam ou n&atilde;o todos os objetos neles
+inclu&iacute;dos, incluindo os convenientemente escondidos.<br>
+</p>
+<p>Um grupo (n&atilde;o previamente existente) pode estar vazio se
+todos os seus itens s&atilde;o apagados (diretamente ou atrav&eacute;s
+de Desfazer). Cada grupo &eacute; marcado com um sinal de menos mas
+n&atilde;o s&atilde;o apagados automaticamente (posteriormente&nbsp;
+"Desfazer/Refazer" pode ressuscitar objetos nesses grupos). De qualquer
+forma, grupos vazios n&atilde;o s&atilde;o salvos com o documento.<br>
+</p>
+<p><a href="#Top">In&iacute;cio</a> <a name="Constructing"></a></p>
+<h2>Construindo</h2>
+Quando novos objetos s&atilde;o constru&iacute;dos, eles s&atilde;o
+imediatamente selecionados e, com exce&ccedil;&atilde;o dos pontos
+constru&iacute;dos atrav&eacute;s do clique com o bot&atilde;o direito
+e com a tecla SHIFT pressionada, todos os outros objetos ter&atilde;o
+sua
+sele&ccedil;&atilde;o desabilitada.<br>
+<span style="font-weight: bold;"><br>
+</span>
+<h3>Pontos</h3>
+<ul>
+  <li>Para construir um ponto livre, clique usando o bot&atilde;o
+direito do mouse em uma &aacute;rea vazia da folha do KSEG. </li>
+  <li> Para construir um ponto sobre um objeto geom&eacute;trico (reta,
+segmento, semi-reta, circunfer&ecirc;ncia, arco) clique com o
+bot&atilde;o direto sobre o objeto. </li>
+  <li>Para construir um ponto contido na intersec&ccedil;&atilde;o
+entre dois objetos, clique com o bot&atilde;o direito sobre a
+intersec&ccedil;&atilde;o. Alternativamente, selecione as duas curvas e
+escolha "Criar/Ponto de Intersec&ccedil;&atilde;o" no menu. Quando
+os dois objetos em quest&atilde;o possuem dois pontos de
+intersec&ccedil;&atilde;o (ao menos possivelmente) a
+op&ccedil;&atilde;o do menu construir&aacute; ambos, enquanto que o
+clique com o bot&atilde;o direito construir&aacute; apenas um.<br>
+  </li>
+  <li> Para construir o(s) ponto(s) m&eacute;dio(s) de segmentos de
+reta, selecione-os e escolha "Criar/Ponto(s) M&eacute;dio(s)". </li>
+</ul>
+Existe tamb&eacute;m dois outros tipos de pontos--extremidades e pontos
+centrais. S&atilde;o muito usados em Constru&ccedil;&otilde;es,
+onde voc&ecirc; pode ter algo como pegar um segmento mas n&atilde;o
+suas extremidades ou uma circunfer&ecirc;ncia mas n&atilde;o seu
+centro. Para construir as extremidades de um segmento , semi-reta, ou
+um arco, selecione o objeto e v&aacute; para "Criar/Extremidade(s)".
+Para construir o ponto central de uma circunfer&ecirc;ncia ou de um
+arco, selecione esse objeto e v&aacute; para "Criar/Ponto
+Central".&nbsp;<br>
+<h3>Segmentos</h3>
+Existe somente um caminho para criar um segmento de reta--selecione
+dois ou mais pontos e escolha "Criar/Segmento(s)". Se dois pontos
+estiverem selecionados, um segmento ser&aacute; constru&iacute;do. Se n
+&gt; 2 pontos estiverem selecionados ent&atilde;o n segmentos
+ser&atilde;o
+constru&iacute;dos.
+<h3>Semi-retas</h3>
+<ul>
+  <li> Voc&ecirc; pode construir uma semi-reta iniciando-se em um ponto
+e passando por outro selecionando os dois pontos ( nessa ordem ) e indo
+"Criar/Semi-reta". Selecione mais de dois pontos para construir
+m&uacute;ltiplas semi-retas. </li>
+  <li> Para construir a bissetriz de um &acirc;ngulo, selecione
+tr&ecirc;s pontos definindo o &acirc;ngulo e v&aacute; para
+"Criar/Bissetriz". A bissetriz sempre divide a parte aguda de um
+&acirc;ngulo. </li>
+</ul>
+<h3>Retas</h3>
+<ul>
+  <li>Para construir uma reta, selecione dois ou mais pontos e
+v&aacute; para "Criar/Linha(s) Reta(s)". </li>
+  <li> Para construir uma reta paralela a outra reta e passando por
+um ponto dado, selecione o ponto e a reta diretora (voc&ecirc;
+tamb&eacute;m pode usar um segmento ou uma semi-reta se lhe for
+conveniente) e v&aacute; para "Criar/Reta Paralela". Voc&ecirc;
+tamb&eacute;m pode selecionar m&uacute;ltiplos pontos ou v&aacute;rios
+objetos
+retil&iacute;neos (mas n&atilde;o ambos). </li>
+  <li> Para construir uma reta perpendicular, selecione de maneira
+semelhante &agrave; feita para reta paralela, mas escolha
+"Criar/Reta(s) Perpendicular(es). do menu substituindo a
+op&ccedil;&atilde;o correspondente no item anterior. </li>
+</ul>
+<h3>Circunfer&ecirc;ncia</h3>
+<ul>
+  <li>Para construir uma circunfer&ecirc;ncia com centro conhecido e um
+ponto sobre essa circunfer&ecirc;ncia tamb&eacute;m conhecido,
+selecione o centro o ponto nessa ordem e v&aacute; para
+"Criar/Circunfer&ecirc;ncia Por Centro e Ponto". </li>
+  <li>Para construir uma circunfer&ecirc;ncia com centro e raio ambos
+conhecidos, selecione o ponto central e um segmento de reta cujo
+comprimento seja&nbsp; igual ao comprimento do raio desejado e escolha
+"Criar/Circunfer&ecirc;ncia Por Centro e Raio". </li>
+</ul>
+<h3>Arcos</h3>
+Um arco somente pode ser constru&iacute;do pela sele&ccedil;&atilde;o
+de tr&ecirc;s pontos e indo para "Criar/Arco Por Tr&ecirc;s Pontos".
+<h3>Lugares Geom&eacute;tricos</h3>
+Um lugar geom&eacute;trico &eacute; um objeto que representa o caminho
+de outro objeto (o objeto "direcionado") conforme o movimento de um
+ponto (diretor) sobre uma curva. Para construir um lugar
+geom&eacute;trico, selecione um ponto sobre a curva e o descendente
+desse ponto. O objeto diretor pode ser um ponto, uma curva, ou outro
+lugar geom&eacute;trico (mas isso pode tornar o KSEG realmente lento).
+Um lugar geom&eacute;trico poder&aacute; existir da mesma forma se o
+objeto direcionado &eacute; n&atilde;o-existente, desde que o objeto
+direcionado possa existir quando estiver em uma posi&ccedil;&atilde;o
+diferente.&nbsp;<br>
+<p>Por exemplo. seja L uma reta, seja A um ponto sobre L, seja B um
+ponto n&atilde;o pertencente a L, e seja K uma reta passando por A e
+perpendicular ao segmento AB. Ent&atilde;o K &eacute; o objeto dirigido
+e A &eacute; o objeto diretor, (selecione A e K, em qualquer
+ordem,&nbsp; e clique em "Criar/Lugar Geom&eacute;trico") a envolvente
+do lugar geom&eacute;trico tra&ccedil;ado por K &eacute; a
+par&aacute;bola com foco no ponto B e tangente &agrave; reta L.
+</p>
+<p>Como um lugar geom&eacute;trico &eacute; um conjunto de objetos
+geom&eacute;tricos infinitos, KSEG n&atilde;o pode calcul&aacute;-lo
+exatamente. Ao inv&eacute;s disso, ele aproxima o lugar
+geom&eacute;trico por amostragem. Voc&ecirc; pode escolher o
+n&uacute;mero de amostras que o KSEG executa para um lugar
+geom&eacute;trico em particular atrav&eacute;s de um duplo clique sobre
+o lugar geom&eacute;trico ou selecionando o lugar geom&eacute;trico e
+escolhendo "Editar/Escolher N&uacute;mero de Amostragens". Um caso
+especial&nbsp; ocorre quando o objeto dirigido &eacute; um ponto. Nesse
+caso, KSEG automaticamente conecta os pontos da amostragem e usa um
+algoritmo adaptativo para tentar construir o lugar
+geom&eacute;trico de forma precisa, homog&ecirc;nea e r&aacute;pida.
+Nesse caso o n&uacute;mero de amostragens voc&ecirc; especifica
+&eacute; apenas um limite superior sobre o n&uacute;mero de amostragens
+atualmente executado--o algoritmo pode decidir parar a
+amostragem se pensar que o lugar geom&eacute;trico est&aacute; perfeito
+o suficiente. Esse algoritmo adaptativo geralmente resulta em
+lugares geom&eacute;tricos de melhor apar&ecirc;ncia se comparados a
+outros gerados por programas similares ao KSEG.
+</p>
+<h3>Objetos Preenchidos (Azurados/Hachurados)<br>
+</h3>
+<ul>
+  <li>Para construir os pontos internos de um pol&iacute;gono,
+selecione tr&ecirc;s ou mais pontos e escolha "Criar/Pontos Internos do
+Pol&iacute;gono. </li>
+  <li>Para construir um setor circular, selecione um arco e escolha
+"Criar/Setor Circular". Para um segmento circular, selecione um arco e
+escolha "Criar/Segmento Circular". </li>
+  <li>Para construir um c&iacute;rculo, selecione uma
+circunfer&ecirc;ncia e escolha "Criar/C&iacute;rculo". </li>
+</ul>
+<a href="#Top">In&iacute;cio</a> <a name="Transforms"></a>
+<h2>Transforma&ccedil;&otilde;es</h2>
+KSEG permite a voc&ecirc; aplicar algumas transforma&ccedil;&otilde;es
+afins a objetos geom&eacute;tricos. O procedimento geral &eacute;
+"selecionar" alguns objetos para definir a&nbsp;
+transforma&ccedil;&atilde;o usando os itens do menu
+"Transforma&ccedil;&atilde;o/Selecionar *". Ent&atilde;o voc&ecirc;
+seleciona os objetos para aplicar a transforma&ccedil;&atilde;o,
+escolhe a a&ccedil;&atilde;o apropriada no menu de
+transforma&ccedil;&otilde;es, e as c&oacute;pias transformadas dos
+objetos
+selecionados ser&atilde;o criadas. Aqui existem detalhes:
+<p>Selecionando:
+</p>
+<ul>
+  <li> Para selecionar um vetor, selecione dois pontos e v&aacute; para
+"Transforma&ccedil;&otilde;es/Selecionar Vetor". O sentido do vetor
+ser&aacute; do primeiro ponto selecionado para o segundo. </li>
+  <li> Para selecionar uma reta de reflex&atilde;o (espelho),
+selecione uma reta, um segmento, ou uma semi-reta e v&aacute; para
+"Transforma&ccedil;&otilde;es/Selecionar Reta de Reflex&atilde;o". </li>
+  <li> Para selecionar um centro, selecione um ponto e v&aacute; para
+"Transforma&ccedil;&otilde;es/Selecionar Centro". </li>
+  <li>Para selecionar um &acirc;ngulo, selecione quaisquer tr&ecirc;s
+pontos ou medi&ccedil;&atilde;o simples ou c&aacute;lculo de
+&acirc;ngulo e v&aacute; para "Transforma&ccedil;&otilde;es/Selecionar
+&Acirc;ngulo". </li>
+  <li> Para escolher uma raz&atilde;o, selecione dois segmentos de reta
+quaisquer ou uma medida simples ou c&aacute;lculo e v&aacute; para
+"Transforma&ccedil;&otilde;es/Escolher Raz&atilde;o". </li>
+</ul>
+Os grupos de objetos s&atilde;o marcados com amarelo para permitir a
+voc&ecirc; saber quais transforma&ccedil;&otilde;es
+ir&atilde;o
+ocorrer. Se voc&ecirc; terminou com as transforma&ccedil;&otilde;es e
+quer livrar-se das sele&ccedil;&otilde;es amarelas (por raz&otilde;es
+est&eacute;ticas ou de captura de tela--elas n&atilde;o aparecem na
+impress&atilde;o), v&aacute; para "Transforma&ccedil;&otilde;es/Limpar
+Sele&ccedil;&atilde;o".
+<ul>
+  <li>Para transladar objetos, voc&ecirc; precisa ter um vetor
+selecionado. </li>
+  <li> Para refletir objetos, voc&ecirc; precisa ter uma reta de
+reflex&atilde;o (espelho) selecionada. </li>
+  <li> Para aplicar uma homotetia a objetos, voc&ecirc; precisa
+especificar um centro e uma raz&atilde;o. </li>
+  <li>Para rotacionar objetos, voc&ecirc; precisa especificar um centro
+de rota&ccedil;&atilde;o
+e um &acirc;ngulo. </li>
+</ul>
+Estando pronto para aplicar uma transforma&ccedil;&atilde;o a objetos
+com uma medi&ccedil;&atilde;o ou um c&aacute;lculo selecionado para
+raz&atilde;o ou &acirc;ngulo facilmente permite a voc&ecirc; criar
+constru&ccedil;&otilde;es imposs&iacute;veis com r&eacute;gua e
+compasso. Voc&ecirc; deve ser cuidadoso com isso, mas voc&ecirc; pode
+tamb&eacute;m ser feliz--o exemplo disponibilizado no arquivo cood.seg
+mostra como isso permite fazer um gr&aacute;fico de curvas
+param&eacute;tricas do KSEG com lugar geom&eacute;trico.<br>
+<br>
+<a href="#Top">In&iacute;cio</a> <a name="Measuring"></a>
+<h2>Medindo e Calculando<br>
+</h2>
+Voc&ecirc; pode medir v&aacute;rias quantidade geom&eacute;tricas com
+KSEG e executar c&aacute;lculos com as medi&ccedil;&otilde;es. Todas as
+unidades de dist&acirc;ncia est&atilde;o em pixels e &acirc;ngulos
+est&atilde;o em graus. Aqui est&aacute; o que voc&ecirc; pode medir:
+<ul>
+  <li> Para medir a dist&acirc;ncia entre um ponto e qualquer curva ou
+outro ponto, selecione os dois objetos geom&eacute;tricos e v&aacute;
+para "Medir/Dist&acirc;ncia". </li>
+  <li> Para medir o comprimento de um segmento de reta, selecione o
+segmento de reta e v&aacute; para "Medir/Comprimento". </li>
+  <li> Para medir a circunfer&ecirc;ncia,
+selecione a circunfer&ecirc;ncia e v&aacute; para
+"Medir/Circunfer&ecirc;ncia". </li>
+  <li> Para medir comprimento de um arco, selecione o arco e v&aacute;
+para "Medir/Comprimento do Arco". </li>
+  <li> Para medir o raio de um arco ou circunfer&ecirc;ncia, selecione
+o objeto e v&aacute; para "Medir/Raio". </li>
+  <li> Para medir o &acirc;ngulo definido por tr&ecirc;s pontos,
+selecione os tr&ecirc;s pontos e v&aacute; para "Medir/&Acirc;ngulo". </li>
+  <li> Para medir a raz&atilde;o entre comprimentos de dois segmentos
+de reta, selecione os segmentos e v&aacute; para "Medir/Raz&atilde;o". </li>
+  <li> Para medir a inclina&ccedil;&atilde;o de um segmento de reta,
+uma semi-reta, ou uma reta, selecione o objeto e v&aacute; para
+"Medir/Inclina&ccedil;&atilde;o". </li>
+  <li> Para medir a &aacute;rea de um objeto hachurado, selecione o
+pol&iacute;gono, setor circular, segmento circular, ou c&iacute;rculo e
+v&aacute; para "Medir/&Aacute;rea". Se voc&ecirc; tem um "mau"
+pol&iacute;gono (com um n&atilde;o formado por uma curva fechada
+simples), essa medi&ccedil;&atilde;o de "&aacute;rea" n&atilde;o
+ser&aacute; igual &agrave; medida da &aacute;rea que parece ter na
+tela. </li>
+</ul>
+Voc&ecirc; pode combinar algumas medi&ccedil;&otilde;es em um
+c&aacute;lculo. Para criar um c&aacute;lculo, selecione qualquer
+"Medir/Calcular..." no menu ou d&ecirc; um duplo clique sobre uma
+medi&ccedil;&atilde;o existente. O menu de op&ccedil;&otilde;es
+criar&aacute; um c&aacute;lculo "vazio" se nada estiver selecionado mas
+se uma medi&ccedil;&atilde;o ou c&aacute;lculo estiver selecionado,
+isso criar&aacute; um c&aacute;lculo com refer&ecirc;ncias a essa
+sele&ccedil;&atilde;o. Dando um duplo clique sobre uma
+medi&ccedil;&atilde;o cria um c&aacute;lculo referenciando a
+medi&ccedil;&atilde;o sobre a qual voc&ecirc; deu um duplo clique. Em
+qualquer caso, a janela de edi&ccedil;&atilde;o de c&aacute;lculo
+aparece onde voc&ecirc; quer colocar a f&oacute;rmula a ser calculada.
+Se o seu duplo clique se d&aacute; sobre um c&aacute;lculo j&aacute;
+existente a janela retornar&aacute; permitindo que voc&ecirc;
+altere o c&aacute;lculo.
+<p>O desfazer na parte dos c&aacute;lculos &eacute; completamente
+separado do desfazer do KSEG e &eacute; perdido assim que a janela de
+edi&ccedil;&atilde;o de c&aacute;lculos &eacute; fechada.
+</p>
+<p>Enquanto na janela de edi&ccedil;&atilde;o de c&aacute;lculos,
+voc&ecirc; pode colocar n&uacute;meros, as opera&ccedil;&otilde;es
+aritm&eacute;ticas usuais, ra&iacute;zes, expoentes, e
+fra&ccedil;&otilde;es a partir da barra de ferramentas (ou use as
+teclas de atalho CTRL+2, CTRL+6, CTRL+/). Voc&ecirc; pode tamb&eacute;m
+usar as seguintes fun&ccedil;&otilde;es:</p>
+sqrt, log, exp, floor(arredondar para baixo), ceil(arredondar para
+cima), fabs(m&oacute;dulo), sin, cos, tan, sinh, cosh,
+tanh, asin, acos, atan, asinh, acosh, atanh
+<p>Note que as fun&ccedil;&otilde;es acima trabalham com radianos, em
+oposi&ccedil;&atilde;o &agrave;s
+medi&ccedil;&otilde;es/transforma&ccedil;&otilde;es que s&atilde;o
+dadas em graus. Eu sei que isso decepciona, mas&nbsp; o &uacute;nico
+caminho sensato para corrigir isso &eacute; adicionar suporte a
+unidades.&nbsp;<br>
+</p>
+<p>Finalmente, voc&ecirc; pode referenciar outra medi&ccedil;&atilde;o
+e
+outro c&aacute;lculo atrav&eacute;s de um clique com o bot&atilde;o
+esquerdo sobre ele na janela principal do KSEG enquanto o editor de
+c&aacute;lculo estiver aberto. N&atilde;o &eacute; permitido
+referenciar c&aacute;lculos que voc&ecirc; est&aacute; editando
+atualmente.<br>
+</p>
+<p>Sinto-me na obriga&ccedil;&atilde;o de dizer que essa &eacute; a
+parte do KSEG que menos me agrada. N&atilde;o tem suporte
+razo&aacute;vel a quaisquer unidades e os c&aacute;lculos s&atilde;o
+muito desajeitados. Finalmente, a codifica&ccedil;&atilde;o das
+f&oacute;rmulas &eacute; grande e lenta ( e com alguns bugs).<br>
+<br>
+<a href="#Top">In&iacute;cio</a> <a name="Editing"></a></p>
+<h2>Editando, Corrigindo e Aperfei&ccedil;oando</h2>
+<h3>Modifica&ccedil;&otilde;es na Apar&ecirc;ncia e R&oacute;tulos</h3>
+Voc&ecirc; pode especificar como quer que um objeto
+geom&eacute;trico em particular seja desenhado selecionando o objeto
+(ou alguns deles) e indo para "Editar/Cor", "Editar/Estilo da Reta",
+"Editar/Tamanho do Ponto", ou "Editar/Fonte", como lhe parecer
+apropriado. Indo a esses menus sem objetos selecionados poder&aacute;
+modificar a apar&ecirc;ncia padr&atilde;o dos objetos posteriormente
+constru&iacute;dos. Sempre que cores,fontes, etc. n&atilde;o estiverem
+dispon&iacute;veis na barra de ferramentas voc&ecirc; pode clicar sobre
+a reta pontilhada no topo desses menus para "rasgar" e obter um efeito
+similar a uma barra de ferramentas.
+<p>Pontos e v&aacute;rias curvas possuem r&oacute;tulos que voc&ecirc;
+pode mostrar (eles n&atilde;o s&atilde;o mostrados por padr&atilde;o)
+selecionando os objeto(s) e indo para "Editar/Mostrar
+R&oacute;tulo(s)". Esses r&oacute;tulos podem ser modificados
+selecionado o objeto e indo para "Editar/Alterar R&oacute;tulo" ou
+dando um duplo clique sobre o r&oacute;tulo se ele estiver
+vis&iacute;vel. Voc&ecirc; pode igualmente usar r&oacute;tulos
+sobrescritos e subscritos convenientemente com outro efeito que
+voc&ecirc; puder imaginar :-) Voc&ecirc; pode arrastar um r&oacute;tulo
+para mov&ecirc;-lo relativamente ao objeto ao qual ele est&aacute; se
+referindo.<br>
+</p>
+<h3>Reconstruindo<br>
+</h3>
+Nada &eacute; mais frustrante que gastar meia hora sobre uma
+constru&ccedil;&atilde;o elaborada e ent&atilde;o descobrir que
+voc&ecirc; cometeu um pequeno erro no in&iacute;cio. O mecanismo de
+reconstru&ccedil;&atilde;o do KSEG permitir&aacute; a voc&ecirc;
+facilmente corrigir isso. Para reconstruir um ponto, pressione CTRL,
+com o bot&atilde;o esquerdo do mouse pressionado arraste o ponto, e
+solte-o sobre os objeto(s) que voc&ecirc; gostaria de reconstruir sobre
+esse ponto.<br>
+<br>
+<p>Por exemplo, suponha que voc&ecirc; construa um tri&acirc;ngulo ABC
+ent&atilde;o fez uma longa constru&ccedil;&atilde;o de um centro ainda
+por descobrir, e ent&atilde;o decide investigar o comportamento desse
+centro quando ABC for is&oacute;sceles. Para fazer AB=BC, construa uma
+circunfer&ecirc;ncia com centro em B e passando por A. Ent&atilde;o
+pressione CTRL e arraste o ponto C para algum ponto sobre a
+circunfer&ecirc;ncia. Ap&oacute;s voc&ecirc; soltar o bot&atilde;o do
+mouse, C ser&aacute; constru&iacute;do situado sobre a
+circunfer&ecirc;ncia e ent&atilde;o ABC ser&aacute; is&oacute;sceles.
+Se voc&ecirc; decidir fazer ABC novamente arbitr&aacute;rio, pressione
+CTRL, e novamente arraste C da circunfer&ecirc;ncia e solte-o sobre uma
+regi&atilde;o vazia.<br>
+</p>
+<p>Ent&atilde;o:
+</p>
+<ul>
+  <li>Pressionando CTRL e come&ccedil;ando a arrastar um ponto
+imediatamente o torna livre. </li>
+  <li>Soltando o ponto sobre uma regi&atilde;o vazia ainda o
+torna
+livre. </li>
+  <li>Soltando o ponto sobre uma curva constru&iacute;da o ponto
+fica vinculado &agrave; curva. </li>
+  <li>Soltando o ponto sobre a intersec&ccedil;&atilde;o de duas curvas
+constr&oacute;i o ponto vinculando-o &agrave;quela
+intersec&ccedil;&atilde;o. </li>
+  <li>Soltando o ponto sobre outro ponto juntaremos os dois pontos.
+Internamente, o ponto arrastado desaparecer&aacute; e todos os seus
+descendentes ser&atilde;o transferidos para o ponto sobre o qual foi
+arrastado.<br>
+  </li>
+</ul>
+Tudo isso pode ser desfeito evidentemente com CTRL+Z
+("Editar/Desfazer"). A barra de status far&aacute; o melhor para
+mant&ecirc;-lo informado do que acontecer&aacute; se voc&ecirc; soltar
+o ponto.
+<p>Algumas vezes KSEG n&atilde;o permitir&aacute; a voc&ecirc; fazer a
+reconstru&ccedil;&atilde;o que voc&ecirc; quer. Isso &eacute; por boas
+raz&otilde;es ( embora possa ser bug ): voc&ecirc; n&atilde;o pode
+reconstruir um ponto baseando-se em um de seus descendentes. Voc&ecirc;
+tamb&eacute;m n&atilde;o pode reconstruir um ponto se fazendo isso
+quebrar&aacute; a depend&ecirc;ncia de um ponto dirigido, em um lugar
+geom&eacute;trico, em rela&ccedil;&atilde;o a seu ponto diretor (
+voc&ecirc; tamb&eacute;m nunca pode reconstruir um ponto que &eacute; o
+diretor de algum lugar geom&eacute;trico). Finalmente, existem
+complicadas regras em Constru&ccedil;&otilde;es &agrave;s quais tentam
+garantir que voc&ecirc; n&atilde;o misture uma Constru&ccedil;&atilde;o
+com uma reconstru&ccedil;&atilde;o. Por exemplo, voc&ecirc; n&atilde;o
+estar&aacute; apto a reconstruir um ponto "Conhecido" em uma curva
+"Final". Se voc&ecirc; descobrir que KSEG permite a voc&ecirc; executar
+uma reconstru&ccedil;&atilde;o que pode fazer uma
+Constru&ccedil;&atilde;o inv&aacute;lida, por favor me avise.<br>
+</p>
+<p><br>
+<a href="#Top">In&iacute;cio</a> <a name="Views"></a></p>
+<h2>Visualizando e Exportando Imagens<br>
+</h2>
+<h3>Vendo de Forma Panor&acirc;mica e Modificando o Tamanho<br>
+</h3>
+Com o objetivo de ter uma vis&atilde;o melhor de sua
+constru&ccedil;&atilde;o, KSEG&nbsp; permite a voc&ecirc; ampliar ou
+reduzir e mover-se em torno de sua constru&ccedil;&atilde;o. Para
+modificar o tamanho, v&aacute; para
+"Visualiza&ccedil;&atilde;o/Amplia&ccedil;&atilde;o". O cursor do mouse
+ser&aacute; mudado em uma lupa (quando sobre a &aacute;rea de desenho).
+Pressione o bot&atilde;o esquerdo do mouse e arraste para cima ou para
+baixo para aumentar ou diminuir a amplia&ccedil;&atilde;o. A
+amplia&ccedil;&atilde;o ocorre em torno do ponto onde o bot&atilde;o do
+mouse foi pressionado. Ap&oacute;s soltar o bot&atilde;o do mouse, o
+cursor volta &agrave; seta normal. A amplia&ccedil;&atilde;o corrente
+sempre &eacute; mostrada na barra de status. Note que independentemente
+da amplia&ccedil;&atilde;o, coisas como pontos, espessura da reta, e
+fontes n&atilde;o mudam de tamanho. Vis&atilde;o panor&acirc;mica
+trabalha de forma similar &agrave; amplia&ccedil;&atilde;o--v&aacute;
+para
+"Visualiza&ccedil;&atilde;o/Panor&acirc;mica", pressione o bot&atilde;o
+esquerdo do mouse e arraste em todas as dire&ccedil;&otilde;es.
+Alternativamente, voc&ecirc; pode ter uma vis&atilde;o panor&acirc;mica
+sem ir ao menu--apenas pressione o bot&atilde;o do meio do mouse e mova
+o cursor.<br>
+<p>Se voc&ecirc; for para "Visualiza&ccedil;&atilde;o/Ajustar &agrave;
+janela", KSEG far&aacute; automaticamente a vis&atilde;o
+panor&acirc;mica e amplia&ccedil;&atilde;o da imagem de forma que ela
+adapte-se ao campo de vis&atilde;o. Se voc&ecirc; escolhe
+"Visualiza&ccedil;&atilde;o/Tamanho Original(100%)", KSEG
+ajustar&aacute; a amplia&ccedil;&atilde;o para 100% e a vis&atilde;o
+panor&acirc;mica da imagem retornara ao original.
+</p>
+<h3>Visualiza&ccedil;&otilde;es M&uacute;ltiplas</h3>
+Para criar outra visualiza&ccedil;&atilde;o (em outra janela) do
+documento corrente, v&aacute; para "Visualiza&ccedil;&atilde;o/Duplicar
+Janela". Uma nova Janela aparecer&aacute;. Ajustando a panor&acirc;mica
+e a amplia&ccedil;&atilde;o em uma visualiza&ccedil;&atilde;o
+n&atilde;o
+afetar&aacute; outra visualiza&ccedil;&atilde;o, mas modificando o
+documento ou selecionando objetos em uma se refletir&aacute; em todas
+as visualiza&ccedil;&otilde;es daquele documento. Ent&atilde;o se
+voc&ecirc; arrastar um ponto em torno de sua posi&ccedil;&atilde;o
+original em uma visualiza&ccedil;&atilde;o voc&ecirc; ver&aacute; ele
+efetuando o mesmo movimento em todas as visualiza&ccedil;&otilde;es.
+Voc&ecirc; pode usar visualiza&ccedil;&otilde;es para, por exemplo
+trabalhar em uma pequena parte de um desenho (ou fazer movimentos
+precisos em uma &aacute;rea com grande amplia&ccedil;&atilde;o)
+enquanto simultaneamente v&ecirc; os efeitos sobre o desenho inteiro em
+uma visualiza&ccedil;&atilde;o diferente.<br>
+<br>
+<h3>Exportando Uma Imagem</h3>
+Voc&ecirc; pode exportar o conte&uacute;do de uma
+visualiza&ccedil;&atilde;o corrente para um arquivo de imagem (em
+alguns formatos populares). Para fazer isso, v&aacute; para
+"Arquivo/Exportar Para Imagem...". Uma janela aparecer&aacute; que
+permite a voc&ecirc; escolher o formato do arquivo e se voc&ecirc; quer
+que
+a imagem seja de "Alta Qualidade". Clique em OK e ent&atilde;o escolha
+o nome do arquivo na caixa de di&aacute;logo que aparece. As
+dimens&otilde;es da imagem ser&atilde;o as dimens&otilde;es da
+visualiza&ccedil;&atilde;o
+corrente.<br>
+<br>
+Se voc&ecirc; selecionar "Imagem de Alta Qualidade", KSEG
+demorar&aacute; mais tempo para exportar, mas a imagem ser&aacute;
+antialiased e desenhada com precis&atilde;o de subpixels. Essa
+op&ccedil;&atilde;o &eacute; poderosa para fazer gr&aacute;ficos para
+web, mas ter&aacute; uma apar&ecirc;ncia p&eacute;ssima se voc&ecirc;
+imprimir (pior que a vers&atilde;o de baixa qualidade). Tamb&eacute;m,
+certamente n&atilde;o use a op&ccedil;&atilde;o de alta qualidade&nbsp;
+se voc&ecirc; est&aacute; exportando&nbsp; para uma imagem em preto e
+branco&nbsp; (mas em tons de cinza funciona bem)--a apar&ecirc;ncia
+ser&aacute; horr&iacute;vel. Usando baixa qualidade &eacute;
+"seguro"desde que a imagem exportada seja exatamente o que est&aacute;
+na tela.<br>
+<p><br>
+<a href="#Top">In&iacute;cio</a> <a name="Constructions"></a></p>
+<h2>Constru&ccedil;&otilde;es</h2>
+Constru&ccedil;&otilde;es s&atilde;o provavelmente o mais poderoso
+recurso do KSEG. Uma Constru&ccedil;&atilde;o &eacute; como um desenho
+normal do KSEG, exceto que pode ser executada em outro desenho do KSEG
+( ou Constru&ccedil;&atilde;o). Primeiro, um exemplo simples:<br>
+<h3>Descri&ccedil;&atilde;o Minuciosa do exemplo da
+Circunfer&ecirc;ncia Circunscrita<br>
+</h3>
+Essa parte conduzir&aacute; voc&ecirc; atrav&eacute;s da
+constru&ccedil;&atilde;o de arquivo exemplo de Constru&ccedil;&atilde;o
+circumcicle.sec. Nesse caminho, explicarei o que cada passo significa.
+Essa Constru&ccedil;&atilde;o ir&aacute;, dados tr&ecirc;s pontos,
+construir a circunfer&ecirc;ncia que passa por eles.
+<ol>
+  <li> Crie uma nova Constru&ccedil;&atilde;o indo para
+"Arquivo/Constru&ccedil;&atilde;o". </li>
+  <li> Construa tr&ecirc;s pontos A, B e C. Esses pontos representaram
+os &uacute;nicos conhecidos para a Constru&ccedil;&atilde;o. </li>
+  <li> Selecione A, B e C e fa&ccedil;a-os "Conhecidos" indo para
+"Constru&ccedil;&atilde;o/Definir Conhecido". Isso permite ao KSEG
+saber que esses pontos ser&atilde;o conhecidos para a
+Constru&ccedil;&atilde;o
+quando ela for executada novamente. </li>
+  <li> Construa os segmentos de reta AB e BC e seus pontos
+m&eacute;dios, D, e E. </li>
+  <li> Construa a reta passando por D e perpendicular a AB e a reta que
+passa por E e &eacute; perpendicular a BC. Construa a
+intersec&ccedil;&atilde;o F entre as duas. Essa
+intersec&ccedil;&atilde;o &eacute; o circuncentro do tri&acirc;ngulo
+ABC. </li>
+  <li>Agora construa a circunfer&ecirc;ncia com centro em F e passando
+pelo ponto A. Essa &eacute; a circunfer&ecirc;ncia desejada. </li>
+  <li>Agora selecione todos os objetos que voc&ecirc; construiu exceto
+a circunfer&ecirc;ncia circunscrita e os tr&ecirc;s pontos conhecidos e
+v&aacute; para "Editar/Ocultar Objetos" para torn&aacute;-los ocultos.
+Fazemos isso por que quando executarmos a Constru&ccedil;&atilde;o, os
+objetos intermedi&aacute;rios da constru&ccedil;&atilde;o congestione a
+tela--queremos apenas a circunfer&ecirc;ncia circunscrita. </li>
+  <li> &Eacute; isso! Teste a Constru&ccedil;&atilde;o criando um novo
+desenho (com "Arquivo/Desenho"), construindo tr&ecirc;s pontos no
+desenho, selecionando esses tr&ecirc;s ponto e indo para "Executar/Sem
+Nome" ( assumindo que voc&ecirc; n&atilde;o gravou a
+Constru&ccedil;&atilde;o).A circunfer&ecirc;ncia circunscrita
+aparecer&aacute; magicamente. </li>
+</ol>
+<h3>Constru&ccedil;&otilde;es N&atilde;o Recursivas</h3>
+O maior poder de Constru&ccedil;&otilde;es vem de sua habilidade de ser
+recursivo. Portanto, Constru&ccedil;&otilde;es n&atilde;o-recursivas
+s&atilde;o muito simples--o exemplo de circunfer&ecirc;ncia
+circunscrita acima abrange praticamente tudo que existe para saber
+sobre isso. Aqui est&aacute; alguns detalhes (eles se aplicam a
+Constru&ccedil;&otilde;es recursivas convenientemente):&nbsp;<br>
+<ul>
+  <li> Objetos com pais podem ser marcados como Conhecidos.
+Nesse caso, freq&uuml;entemente faz sentido n&atilde;o construir os
+pais, se eles n&atilde;o ser&atilde;o usados para nada al&eacute;m
+disso. Alguns objetos s&atilde;o marcados "(n&atilde;o
+constru&iacute;do)" na Lista de Constru&ccedil;&atilde;o.
+    <p>Tecnicamente, aqui est&aacute; a regra: Imagine o relacionamento
+ascendente-descendente como um diagrama de Venn sobre objetos. Se cada
+caminho&nbsp; ( no diagrama de Venn ) de um objeto A para cada objeto
+sem filhos tem ao menos um objeto Conhecido, ent&atilde;o A n&atilde;o
+&eacute; constru&iacute;do. </p>
+  </li>
+  <li>Voc&ecirc; poder&aacute; n&atilde;o ser permitido marcar como
+Conhecido objetos os quais s&atilde;o necess&aacute;rios para a
+defini&ccedil;&atilde;o de um lugar geom&eacute;trico. Por
+exemplo,&nbsp; voc&ecirc; pode n&atilde;o ser permitido marcar o ponto
+diretor como Conhecido porque KSEG n&atilde;o pode garantir que esse
+ponto estar&aacute; contido em uma curva quando a
+constru&ccedil;&atilde;o for executada. <br>
+  </li>
+  <li>&Eacute; poss&iacute;vel para os objetos selecionados serem
+promovidos a objetos Conhecidos mesmo que os tipos desses objetos sejam
+diferentes. Por exemplo, se em uma Constru&ccedil;&atilde;o,
+voc&ecirc; cria o segmento S, marca como Conhecido, e constr&oacute;i
+um ponto sobre esse segmento, voc&ecirc; pode selecionar ( em um
+documento diferente) um arco, circunfer&ecirc;ncia, , semi-reta, ou
+segmento, executar essa constru&ccedil;&atilde;o, e um ponto
+aparecer&aacute; sobre o objeto que voc&ecirc; selecionou. Contudo, se
+na Constru&ccedil;&atilde;o voc&ecirc; constr&oacute;i uma reta
+perpendicular a S passando pelo ponto, voc&ecirc; pode n&atilde;o estar
+apto a execut&aacute;-la sobre uma circunfer&ecirc;ncia ou sobre um
+arco.
+    <p>O algoritmo que promove objetos selecionados a objetos
+Conhecidos n&atilde;o &eacute; trivial (mas ele ainda n&atilde;o
+&eacute; muito bom teoricamente de qualquer forma). A primeira coisa
+que &eacute; tentada &eacute; igualar a ordem selecionada &agrave;
+ordem
+do Conhecido. Se isso n&atilde;o funciona, uma busca &eacute; tentada
+(isso realmente pode fazer uma compara&ccedil;&atilde;o um a um, mas
+isso &eacute; mais trabalhoso para implementar e o valor disso &eacute;
+question&aacute;vel). Algumas vezes pode n&atilde;o ser permitido
+igualar os objetos selecionados a Conhecidos mesmo quando a
+equipara&ccedil;&atilde;o &eacute; poss&iacute;vel (e o item no menu
+Executar ser&aacute; desabilitado). Nesse caso apenas selecione os
+objetos em uma ordem diferente, dentro das possibilidades dos
+Conhecidos. </p>
+  </li>
+  <li>Pontos livres (bem como medi&ccedil;&otilde;es e c&aacute;lculos)
+que
+n&atilde;o s&atilde;o marcados como Conhecidos podem ser colocados
+randomicamente(aleat&oacute;riamente). Pontos contidos em curvas
+ser&atilde;o colocados em
+posi&ccedil;&otilde;es randomicas sobre essa curva. </li>
+  <li> Executar/Rapidamente &eacute; um recurso muito
+conveniente para acessar uma biblioteca de Constru&ccedil;&otilde;es
+que voc&ecirc; usa freq&uuml;entemente. Selecione o diret&oacute;rio no
+qual voc&ecirc; guarda suas Constru&ccedil;&otilde;es favoritas com
+"Executar/Rapidamente/Escolher Diret&oacute;rio...", ent&atilde;o
+selecione alguns objetos&nbsp; no documento corrente que correspondem
+aos Conhecidos de uma das Constru&ccedil;&otilde;es naquele
+diret&oacute;rio e v&aacute; para
+"Executa/Rapidamente/NomedoArquivodeConstru&ccedil;&atilde;o.sec" para
+execut&aacute;-la sem precisar
+abrir a constru&ccedil;&atilde;o. Para isso funcionar o KSEG pesquisa
+as Constru&ccedil;&otilde;es no diret&oacute;rio e habilita as que os
+Conhecidos coincidirem com os objetos selecionados atualmente. </li>
+  <li> "Arquivo/Copiar Como Constru&ccedil;&atilde;o" permite a
+voc&ecirc; fazer um desenho e convert&ecirc;-lo para um arquivo de
+Constru&ccedil;&atilde;o. Isso &eacute; &uacute;til se voc&ecirc;
+est&aacute; executando como desenho e descobre algo que pode aplicar a
+outros desenhos--v&aacute; para "Arquivo/Copiar Como
+Constru&ccedil;&atilde;o" e uma nova constru&ccedil;&atilde;o aparece
+contendo os mesmos objetos geom&eacute;tricos que o desenho. Voc&ecirc;
+pode tamb&eacute;m apagar objetos que voc&ecirc; n&atilde;o precisa,
+marcar algum objeto Conhecido e aplicar a constru&ccedil;&atilde;o a
+outros documentos. </li>
+</ul>
+<h3>Constru&ccedil;&otilde;es Recursivas</h3>
+O melhor de usar Constru&ccedil;&otilde;es &eacute;
+recursividade. Ela permite a voc&ecirc; construir fractais,
+convenientemente com repeti&ccedil;&otilde;es de
+Constru&ccedil;&otilde;es apenas. Para um exemplo simples, veja
+tractrix.sec (use um segmento curto e intensidade de
+repeti&ccedil;&atilde;o como 30). Para um exemplo mais complicado ( com
+m&uacute;ltiplos ramos de recurs&atilde;o), veja dragon.sec, o qual
+constr&oacute;i um fractal.&nbsp;<br>
+<p>Uma Constru&ccedil;&atilde;o torna-se recursiva quando voc&ecirc;
+insere "objetos" de repeti&ccedil;&atilde;o dentro dela (eles
+s&atilde;o
+n&atilde;o s&atilde;o realmente objetos geom&eacute;tricos, eles apenas
+pretendem ser). Para inserir uma repeti&ccedil;&atilde;o, selecione
+alguns objetos os quais s&atilde;o promovidos a Conhecidos e v&aacute;
+para "Constru&ccedil;&atilde;o/Repetir Passos". Uma
+repeti&ccedil;&atilde;o diz ao KSEG que ap&oacute;s todos os outros
+passos na Constru&ccedil;&atilde;o terem sido executados, ele
+dever&aacute; repetir a Constru&ccedil;&atilde;o recursivamente,
+iniciando com os objetos selecionados na hora que a
+repeti&ccedil;&atilde;o
+&eacute; especificada. Evidentemente KSEG n&atilde;o faz isso para
+sempre--quando voc&ecirc; executa um Constru&ccedil;&atilde;o
+recursiva, KSEG pergunta a voc&ecirc; pela intensidade m&aacute;xima da
+repeti&ccedil;&atilde;o. Seja cuidadoso--se voc&ecirc; tem mais de uma
+repeti&ccedil;&atilde;o em uma Constru&ccedil;&atilde;o, o
+n&uacute;mero de objetos que o KSEG tem para construir &eacute;
+exponencial no tamanho m&aacute;ximo da repeti&ccedil;&atilde;o--em
+outras palavras, mantenha a intensidade de repeti&ccedil;&atilde;o
+pequena.. No meu antigo sistema de 350mhz, KSEG pode suportar 100.000
+objetos confortavelmente--o que pode ser suficiente para qualquer coisa
+que posso pensar.
+</p>
+<p>Lembre-se que ao inserir uma repeti&ccedil;&atilde;o em uma
+Constru&ccedil;&atilde;o, o conjunto de objetos Conhecidos torna-se
+fixo (voc&ecirc; n&atilde;o estar&aacute; apto a marcar novos objetos
+como Conhecidos, passando os objetos atualmente Conhecidos para objetos
+do tipo Normal, apagando um objeto Conhecido apaga-se todas as
+repeti&ccedil;&otilde;es, etc.) Isso &eacute; para prevenir as
+repeti&ccedil;&otilde;es tornem-se inv&aacute;lidas. Para alterar o
+conjunto de objetos Conhecidos apague primeiro a
+repeti&ccedil;&atilde;o.
+</p>
+<p>Voc&ecirc; tamb&eacute;m pode definir os objetos em "Final" e
+"Inicial" numa Constru&ccedil;&atilde;o recursiva. Objetos finais
+s&atilde;o simples: eles s&atilde;o somente constru&iacute;dos na etapa
+final da repeti&ccedil;&atilde;o. Isso &eacute; pr&aacute;tico para
+muitas coisas, particularmente para fractais que somente mostram o
+n&iacute;vel mais alto de detalhes--veja dragon.sec ou sierp2.sec.
+Descendentes de objetos Finais tamb&eacute;m podem ser
+constru&iacute;dos somente na etapa final da
+repeti&ccedil;&atilde;o--eles s&atilde;o marcados como "(Final)"&nbsp;
+na lista de Constru&ccedil;&atilde;o.
+</p>
+<p>"Definir Inicial" &eacute; complicado--isso &eacute; um recurso
+"avan&ccedil;ado". N&atilde;o est&aacute; com toda sua for&ccedil;a,
+but it has enough weird effects for it to be really
+hard to figure out sometimes. Um objeto Inicial &eacute; somente
+constru&iacute;do uma vez ( no primeiro n&iacute;vel de intensidade de
+repeti&ccedil;&atilde;o). Quaisquer objetos cujos pais
+s&atilde;o inicial (ou implicitamente inicial) tornam-se implicitamente
+Iniciais e est&atilde;o marcados como "Inicial" na Lista de
+Constru&ccedil;&atilde;o. Para uma boa ilustra&ccedil;&atilde;o, veja
+sierp.sec: primeiro execute-a normalmente (note que os lados maiores do
+tri&acirc;ngulo s&atilde;o constru&iacute;dos somente uma vez) e
+ent&atilde;o construa o ponto P sobre o segmento inicial s_9 e contrua
+o segmento de reta PC (de P para o Conhecido ponto C). Execute
+novamente e observe o efeito. Objetos iniciais podem ser usados para
+economizar mem&oacute;ria (como em koch.sec) ou para seus efeitos.&nbsp;<br>
+</p>
+<p>Em Constru&ccedil;&otilde;es recursivas, quando trabalhamos com
+Definir Final/Definir Conhecido/Definir Inicial, KSEG far&aacute; o
+melhor para previnir configura&ccedil;&otilde;es inv&aacute;lidas ou
+desprovidas de significado, como um Inicial ou Conhecido tendo pais que
+s&atilde;o objetos
+Finais. Pode n&atilde;o ser &oacute;bvio o que KSEG
+est&aacute; fazendo, mas &eacute; geralmente correto (se voc&ecirc;
+descobrir um caso onde isso n&atilde;o &eacute;, me mande um e-mail por
+favor, com a constru&ccedil;&atilde;o v&aacute;lida e a
+descri&ccedil;&atilde;o da a&ccedil;&atilde;o que faz isso
+inv&aacute;lido).<br>
+</p>
+<h3>Exemplo de Constru&ccedil;&atilde;o Recursiva
+</h3>
+<ol>
+  <li> Construa tr&ecirc;s pontos A, B e C, os segmentos AB, BC e CA e
+os pontos m&eacute;dios respectivos desses tr&ecirc;s segmentos (E, F e
+G).<br>
+  </li>
+  <li> Selecione os pontos A, B e C e v&aacute; em
+"Constru&ccedil;&atilde;o/Definir Conhecido". Antes a lista de
+Constru&ccedil;&atilde;o do KSEG informava que "Ponto A est&aacute;
+livre" , com a execu&ccedil;&atilde;o do passo atual ela passar&aacute;
+a informar "Conhecido(1) Ponto A", ocorrendo algo parecido com os
+pontos B e C.<br>
+  </li>
+  <li> Selecione D, E e F e clique em "Constru&ccedil;&atilde;o/Repetir
+Passos". Ser&aacute; acrescentado uma linha 10 &agrave; lista de
+Constru&ccedil;&atilde;o. Grave a Constru&ccedil;&atilde;o com o nome
+de "triangulos" (sem acento mesmo) e v&aacute; para "Arquivo/Desenho".<br>
+  </li>
+  <li> No desenho construa tr&ecirc;s pontos quaisquer e selecione-os. <br>
+  </li>
+  <li>V&aacute; para "Executar/Rapidamente". Voc&ecirc; dever&aacute;
+ver "triangulos.sec" habilitado. Clique sobre "triangulos.sec".
+Abrir-se-&aacute; uma janela.<br>
+  </li>
+  <li>Informe a "Intensidade de Repeti&ccedil;&atilde;o" e clique sobre
+o OK.<br>
+  </li>
+</ol>
+<p>
+</p>
+<p><a href="#Top">In&iacute;cio</a> </p>
+<p align="right">Ilya Baran<br>
+ibaran@mit.edu<br>
+http://www.mit.edu/~ibaran/
+</p>
+</body>
+</html>

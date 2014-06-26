@@ -1,0 +1,890 @@
+<html>
+<head>
+<title>KSEG Help</title>
+</head>
+    
+<body>
+<h1>KSEG Help</h1>
+
+<a name="Top"></a>
+<h2>Salto veloce:</h2>
+      
+<a href="#Walk">Partenza/Un rapido sguardo</a><br>
+<a href="#Intro">Introduzione</a><br>
+<a href="#Selecting">Selezione</a><br>
+<a href="#Constructing">Costruzioni</a><br>
+<a href="#Transforms">Trasformazioni</a><br>
+<a href="#Measuring">Misure e Calcoli</a><br>
+<a href="#Editing">Editare e Rivincolare</a><br>
+<a href="#Views">Viste ed esportazione di immagini</a><br>
+<a href="#Constructions">Costruzioni</a><br>
+
+<a name="Walk"></a>
+<h2>Partenza/Un rapido sguardo</h2>
+
+Fatto cio' che segue, avrai dimistichezza con le piu' fondamentali
+funzioni di KSEG e potrai lavorare per conto tuo.  
+Per le caratteristiche avanzate leggere tutto il documento.
+
+<ol>
+
+<li> Lanciare KSEG.  Si vedra' un canovaccio bianco della finestra dello
+schema (circondato da barre di strumenti, barre da scrollare e barre di stato).
+
+<li> Click destro al centro del canovaccio per costruire il punto A.
+
+<li> Premere SHIFT mentre si clicca ancora in 
+un punto diverso per costruire il punto B.  
+Dato che si sta premendo SHIFT, il punto A non e' deselezionato,
+cosi' dopo questo passo si dovrebbero avere due punti selezionati.
+
+<li> Scegliere "Nuovo/Cerchio dal Centro e un Punto" dal menu.  Cio'
+dovrebbe costruire un cerchio centrato nel punto A e passante per B
+Tale cerchio apparira' selezionato e i punti A e B deselezionati.
+
+<li> Scegliere il punto B cliccando su di esso (questo deseleziona anche
+il cerchio).  Poi tenendo SHIFT e il click sinistro sul punto A selezionarlo.
+
+<li>Scegliere "Nuovo/Cerchio dal Centro e un Punto" dal menu di nuovo.  Ora
+cio' dovrebbe costruire un cerchio centrato in B (poiche' lo hai selezionato prima) passing through A.
+
+<li> Premendo SHIFT e selezionando il primo cerchio che hai costruito
+cliccandolo.  Dovresti avere ora entrambi i cerchi selezionati.
+
+<li> Scegliere "Nuovo/Punti di intersezione" dal menu. Dovrebbero apparire
+due punti alle intersezioni dei due cerchi, entrambi
+selezionati.
+
+<li> Scegliere "Nuovo/Retta" dal menu.  Questo costruira' l'asse
+dei punti A e B.
+
+<li> Ora si trascini il punto A col bottone sinistro del mouse.  
+Questo dovrebbe darti un'idea di cio' che KSEG fa.
+</ol>
+
+Naturalmente questo non e' il modo piu' efficiente per costruire
+un asse in KSEG (benche' sia un modo
+riga-e-compasso), ma il punto e' di mostrare come funzionano
+la selezione e la costruzione. 
+
+<br><br><a href="#Top">Indietro</a>
+
+<a name="Intro"></a>
+<h2>Introduzione</h2>
+
+KSEG e' uno strumento disegnato per permetterti di visualizzare facilmente
+le proprieta' dinamiche delle costruzioni con riga e compasso e di fare 
+esplorazioni il piu' facilmente e velocemente possibile.
+Quasi ogni volta che mi siedo per giocare con KSEG , scopro proprieta'
+geometriche che prima non conoscevo.
+
+<p>
+
+Con KSEG, si creano costruzioni dinamiche ponendo prima punti
+sullo schermo e poi utilizzandoli per costruire altri oggetti,
+quali rette e cerchi. Quindi si possono trascinare i punti creati
+e guardare la risposta dell'intera costruzione.
+
+C'e' molto di piu' ovviamente in KSEG, ma questa e' l'idea base.
+Spesso lo uso per generare diagrammi geometrici da utilizzare
+con LaTeX. Trovo che il modo piu' facile per farlo e' di stampare
+da KSEG a file .ps, convertirlo in EPS, annotarlo in XFIG,
+e esportarlo in formato PS/LaTeX.
+
+<p> <b>Un problema terminologico:</b> Uso il termine "Costruzione" per
+referirmi al tipo di documento di genere macro in KSEG cosi' come
+un mazzo di oggetti geometrici che possono dipendere l'un l'altro.
+E' di solito chiaro dal contesto cio' che intendo, ma in questo
+documento scrivero' maiuscolo "Costruzioni" per riferirmi al tipo
+di documento e usero' il carattere minuscolo "costruzione" per 
+riferirmi al mazzo di oggetti geometrici
+
+<h3>Oggetti Geometrici</h3>
+
+Punti, rette, misure, calcoli, luoghi, etc. sono tutti
+"oggetti geometrici".  Un oggetto geometrico puo' avere oggetti
+geometrici genitori da cui dipende.
+Ad esempio se si costruiscono due punti ed una
+Retta per essi, allora i punti sono genitori della Retta e la
+Retta e' un figlio dei punti.  Quando si trascina un punto libero, 
+tutti i suoi discendenti sono ricalcolati.  Quando si trascina un oggetto che
+ha genitori (questo e' detto trascinamento inverso), un algoritmo
+complicato determina quali genitori muovere 
+per avere il moto desiderato degli oggetti che si stanno trascinando.
+ 
+
+<p>
+
+Un oggetto geometrico puo' essere "non-esistente" nel senso geometrico,
+come i punti di intersezione dei cerchi che non si intersecano.
+Se i cerchi sono successivamente mossi insieme, i punti
+riesistono di nuovo.  
+Figli di oggetti non esistenti sono pure
+non-esistenti (ad eccezione del luogo, per dettagli si veda la documentazione
+sul luogo sotto).  
+Cosi' se si sta trascinando un punto e tutto di una costruzione scompare
+improvvisamente (gli oggetti che scomparvero sono i discendenti
+del punto di intersezione), non preoccuparti, ritornera' non appena
+si intersecheranno ancora.
+
+<br><br><a href="#Top">Indietro</a>
+
+<a name="Selecting"></a>
+<h2>Selezionare</h2>
+
+Per costruire nuovi oggetti, solitamente bisogna selezionare quelli
+esistenti.  Ecco le tue opzioni per farlo:
+
+<ul>
+<li> Cliccando col sinistro su un punto vuoto, si deselezionano tutti
+quegli oggetti attualmente selezionati
+
+<li> Cliccando col sinistro su un oggetto non selezionato si seleziona
+quell'oggetto e si deselezionano tutti gli altri.
+
+<li> Premendo col sinistro su uno spot vuoto,
+trascinando , e rilasciando saranno selezionati tutti gli oggetti
+che intersecano il rettangolo trascinato e
+deselezionati tutti gli altri.
+
+<li> Premendo shift  click sinistro su un oggetto sara' selezionato l'oggetto
+se non gia' selezionato e deselezionato altrimenti.
+Altri oggetti che possono esser stati selezionati rimangono tali.
+
+<li>Premendo shift, premendo il tasto sinistro del mouse su un punto
+vuoto, trascinando, e rilasciando si aggiungeranno tutti gli
+oggetti che intersecano il rettangolo trascinato alla
+selezione.
+
+<li>In una Costruzione, hai anche l'opzione di selezionare oggetti
+mediante la lista di Costruzione.  Puoi cliccare o trascinare o usare shift.
+Nota che diversamente dagli altri metodi, cio' ti permette di selezionare
+oggetti invisibili e non-esistenti.
+
+</ul>
+
+Quando si clicca in un punto dove c'e' piu' di un oggetto
+le cose sono molto complicate
+(per KSEG, cioe'--per te sembrerebbero molto intuitive).
+Gli oggetti hanno una "precedenza" di selezione : prima i punti,
+le curve e testo e i luoghi per secondi, ed infine gli oggetti pieni.
+Se gli oggetti con una piu' alta precedenza sono sotto il mouse
+allora gli oggetti con precedenza piu' bassa sono ignorata.
+Entro una singola precedenza, l'algoritmo e' tale che cliccando
+piu' volte si  cicla attraverso alcune possibilita' di selezione.
+La barra di stato e' sempre un buon luogo per cercare cio' che accade se clicchi.
+
+<h3>Gruppi di selezione</h3>
+
+Un modo piu' potente di selezionare oggetti multipli e' l'uso 
+della selezione di gruppi.
+Un gruppo selezionato e' un insieme di oggetti
+con cui si dice a KSEG  di raggrupparli insieme per rendere piu'
+facile fare le selezioni con essi.
+
+Andando a "Edita/selezione Gruppi..." porta il gruppo di selezione
+nella finestra di gestione (associata a un documento).  Quando la apri, essa
+visualizza in una lista tutti i gruppi di selezione che hai per il documento
+in aggiunta ai gruppi insiti di gruppi di selezione . 
+I gruppi di selezione  built-in (insiti) sono marcati con un asterisco--
+ce n'e' uno per ogni tipo di oggetto che raggruppa tutti gli oggetti di quel tipo.
+
+<p>
+
+Quando si seleziona un gruppo (o alcuni) nella lista della gestione
+della selezione e si clicca il bottone select, tutti gli oggetti di quel gruppo
+sono selezionati e tutti gli altri sono deselezionati.
+Premendo shift mentre si clicca il bottone di selezione selezionera' gli
+oggetti in quel gruppo senza deselezionare altri oggetti che possono essere 
+attualmente selezionati.
+Cliccando il bottone di Deselezione saranno deselezionati solo gli oggetti
+nel gruppo.  Quando hai almeno un oggetto selezionato, the 
+Il bottone Nuovo Gruppo e' abilitato.  Cliccalo per creare un nuovo gruppo
+consistente degli oggetti selezionati.  
+Non si possono cancellare gruppi built-in.
+
+<p>
+
+Il checkbox Affect Invisible Items influenza soltanto i gruppi di
+selezione precostruiti (built-in)
+Quando e' non marcato (default), "Tutti i punti" si riferisce solo
+ai punti non-nascosti; quando e' marcato,
+"Tutti i punti" si riferisce anche a quelli marcati.
+I gruppi che non sono built-in 
+selezionano/deselezionano sempre tutti gli oggetti in esso, 
+compresi quelli nascosti.
+
+<p>
+
+Un gruppo (non-pre-costruito) puo' diventare vuoto se tutti i suoi
+items sono cancellati (direttamente o mediante undo). Tali gruppi sono marcati
+con un segno meno ma non sono automaticamente cancellati (poiche' undo/redo 
+puo' riportare oggetti in vita).
+Comunque , gruppi vuoti non sono salvati col documento.
+
+<br><br><a href="#Top">Indietro</a>
+
+<a name="Constructing"></a>
+<h2>Costruzione</h2>
+
+Quando sono costruiti nuovi oggetti, essi sono immediatamente selezionati e,
+ad eccezione dei punti costruiti col click destro con shift abbassato,
+tutti gli altri oggetti sono deselezionati.
+
+<h3>Punti</h3>
+
+<ul>
+
+<li> Per costruire un punto libero, click destro su un'area vuota del
+foglio KSEG.
+
+<li> Per costruire un punto vincolato ad una curva (Retta, segmento, semiretta,
+cerchio, arco), click destro sulla curva.
+
+<li> Per costruire un punto vincolato ad una intersezione di due
+curve, click destro sull'intersezione.  Alternativamente, selezionare le
+due curve e Scegliere "Nuovo/Intersezione punto(i)" dal menu.  Quando
+le due curve hanno due punti di intersezione (almeno potenzialmente) l'opzione
+di menu costruira' entrambi essi, mentre cliccando col destro
+ne costruira' solo uno.
+
+<li> Per costruire il(i) punto(i) medio(i) di uno o piu' segmenti di Retta,
+ selezionarli e Scegliere "Nuovo/Punto Medio(i)".
+
+</ul>
+
+<h3>Segmenti</h3>
+
+C'e' un solo modo per fare un segmento di retta--selezionare due o piu'
+punti e Scegliere "Nuovo/Segmento(i)".  Se due punti sono selezionati, un
+segmento sara' costruito.  Se <i>n</i> &gt; 2 punti sono selezionati
+allora <i>n</i> segmenti saranno costruiti.
+
+<h3>Semirette</h3>
+
+<ul><li> Puoi costruire una semiretta da un punto mediante un altro
+selezionando due punti (nell'ordine) e andando a "Nuovo/Semiretta".  
+selezionare piu' di due punti per costruire semirette multiple.
+
+<li> Per costruire la bisettrice di un angolo, selezionare tre punti
+che definiscono l' angolo e andare a "Nuovo/Bisettrice dell'Angolo".
+La bisettrice biseca sempre la parte acuta dell'angolo.
+
+</ul>
+
+<h3>Rette</h3>
+<ul>
+
+<li> Per costruire una Retta, selezionare due o piu' punti e andare a "Nuovo/Retta(e)".
+
+<li> Per costruire a Retta parallela ad una data per un punto,
+selezionare il punto e la Retta (puoi usare altrettanto bene un segmento o una
+semiretta)
+e vai a "Nuovo/Retta Parallela".  Puoi selezionare come oggetti punti multipli 
+o rette multiple (ma non entrambe).
+
+<li> Per costruire una Retta perpendicolare, selezionare 
+come per la retta parallela, ma
+Scegliere "Nuovo/Perpendicolare Retta(e)" dal menu, invece.
+
+</ul>
+
+<h3>Cerchi</h3>
+<ul>
+
+<li>Per costruire un cerchio con dato centro per un dato punto, selezionare
+il centro e poi il punto per cui il cerchio deve passare e andare a
+"Nuovo/Cerchio di Centro e Punto".
+
+<li>Per costruire un cerchio con un dato centro e un dato raggios, selezionare
+il punto centro e un segmento di retta la cui lunghezza sara' il raggio.
+Scegliere "Nuovo/Cerchio di Centro e Raggio".
+
+</ul>
+
+<h3>Archi</h3>
+Un arco puo' solamente essere construito selezionando tre punti e andando
+a "Nuovo/Arco Per Tre Punti".
+
+<h3>Luoghi</h3>
+
+Un luogo e' un oggetto geometrico che rappresenta il cammino di un altro
+oggetto geometrico  (l' oggetto "portatore") come un punto (il "portato") che
+si muove lungo una curva.  Per costruire un luogo, selezionare un punto su
+una curva e un discendente di quel punto.  L'oggetto portatore puo' essere un
+punto, una curva, o anche un altro luogo (ma questo puo' essere davvero lento).  
+Un luogo puo' esistere anche se l'oggetto portatore e' non-esistente, 
+poiche' oggetto portatore puo' esistere quando il portato e' in una posizione 
+diversa.
+
+<p>
+
+Per esempio, sia <i>L</i> una Retta, sia
+<i>A</i> un punto su <i>L</i>, sia <i>B</i> un punto non su
+<i>L</i>, e sia <i>K</i> la retta per <i>A</i> perpendicolare
+ad <i>AB</i>.  Allora se <i>K</i> e' l' oggetto portato e <i>A</i> e'
+il portatore, lo sviluppo del luogo tracciato da <i>K</i> e' la
+parabola con <i>B</i> nel suo fuoco che e' tangente a <i>L</i>.
+
+<p>
+
+Poiche' un luogo e' un insieme infinito di oggetti geometrici, KSEG 
+non puo' calcolarlo esattamente.  Invece, esso approssima il luogo per campioni.
+Puoi cambiare il numero di campioni con cui KSEG esegue un particolare
+luogo sia col doppio-clic su quel luogo o selezionandolo e scegliendo
+"Edita/Cambia il Numero di campioni..."  Un caso speciale e' quando
+l' oggetto portato e' un punto.  In questo caso, KSEG 
+connette automaticamente punti campioni e usa un algoritmo adattativo 
+per provare di fare il luogo in modo veloce, con esito liscio e accurato. In questo caso, il numero di campioni
+che specifichi e' solo un limite superiore dei campioni effettivamente eseguito--
+l'algoritmo puo' decidere di fermare il campionamento se il luogo e' 
+abbastanza buono. Questo algoritmo adattativo generalmente
+risulta molto migliore guardando i luoghi confrontati a quelli
+generati da programmi simili a KSEG.
+
+<h3>Oggetti pieni</h3>
+<ul>
+
+<li>Per costruire l'interno di un poligono, selezionare tre o piu' punti e
+Scegliere "Nuovo/Poligono".
+
+<li>Per costruire un settore circolare, selezionare un arco e Scegliere "Nuovo/
+Settore circolare". Per un segmento circolare, selezionare un arco e
+Scegliere "Nuovo/Segmento circolare".
+
+<li>Per costruire un interno di un cerchio, selezionare un cerchio e Scegliere
+"Nuovo/Interno del Cerchio".
+
+</ul>
+
+<a href="#Top">Indietro</a>
+
+<a name="Transforms"></a>
+<h2>Trasformazioni</h2>
+
+KSEG consente di applicare alcune trasformazioni geometriche ad
+oggetti geometrici. La procedura generale e' di "Scegliere" alcuni
+oggetti per definire
+la trasformazione mediante le voci "Trasformazione/Scegliere *" del menu. Poi
+si selezioneranno gli oggetti da trasformare, Si scelga l'azione appropriata
+dal menu trasformazione, e  le copie trasformate degli oggetti selezionati
+saranno creati.  Ecco i dettagli:
+
+<p>
+
+Scelta:
+
+<ul>
+
+<li> Per Scegliere un vettore, selezionare due punti e andare a "Trasformazione/Scegliere
+Vettore".  Il vettore sara' definito dal primo punto selezionato fino al secondo.
+
+<li> Per Scegliere una riflessione, selezionare una retta, un segmento, o una
+semiretta e andare a
+"Trasformazione/Scegliere Riflessione".
+
+<li> Per Scegliere un centro, selezionare un punto e andare a "Trasformazioni/Scegliere
+Centro".
+
+<li> Per Scegliere un angolo, selezionare o tre punti o una singola
+misura o calcolo e andare a "Trasformazione/Scegliere Angolo".
+
+<li> Per Scegliere un rapporto, selezionare o due segmenti di retta o una singola
+misura o calcolo e andare a "Trasformazione/Scegliere Rapporto".
+
+</ul>
+
+I gruppi attualmente scelti sono marcati di giallo
+per farti sapere cosa fara' la trasformazione.
+Se stai facendo le trasformazioni e desideri sbarazzarti dei
+contrassegni gialli (per scopi estetici o di schermo attivo--
+--essi non appaiono durante la stampa), vai a
+"Trasformazione/Annulla scelti".
+
+<ul>
+
+<li> Per traslare oggetti devi aver scelto un vettore.
+<li> Per riflettere oggetti devi aver scelto un retta.
+<li> Per ridurre in scala oggetti devi aver scelto un centro e un rapporto.
+<li> Per ruotare oggetti, devi aver scelto un centro e un angolo.
+
+</ul>
+
+Essendo in grado di trasformare oggetti con una misura o calcolo
+scelti per il rapporto o l'angolo facilmente ti permette di
+creare costruzioni impossibili con un compasso e una riga.
+Puoi desiderare di essere accurato in cio', ma puo' anche
+essere divertente-- l'esempio del file coord.seg  mostra come
+KSEG puo' fare grafici di curve parametriche come luoghi.
+
+<br><br><a href="#Top">Indietro</a>
+
+<a name="Measuring"></a>
+<h2>Misure e Calcoli</h2>
+
+Puoi misurare varie quantita' geometriche con KSEG ed eseguire
+calcoli con le misure.  Tutte le unita' di distanza sono in pixels
+e gli angoli sono in gradi.  Ecco cosa puoi misurare:
+
+<ul>
+
+<li> Per misurare la distanza tra un punto e o una curva o un altro
+punto, selezionare i due oggetti geometrici e andare a "Misure/Distanza".
+
+<li> Per misurare la lunghezza di un segmento di retta, selezionare il
+segmento di retta e andare a "Misura/Lunghezza".
+
+<li> Per misurare la circonferenza di un cerchio, selezionare il cerchio e
+andare a "Misura/Circonferenza".
+
+<li> Per misurare la lunghezza di un arco, selezionare l' arco e andare a
+"Misura/Lunghezza d'Arco".
+
+<li> Per misurare il raggio di un arco o un cerchio, selezionare l' oggetto
+e andare a "Misura/Raggio".
+
+<li> Per misurare l'angolo definito da tre punti, selezionare i tre
+punti e andare a "Misura/Angolo".
+
+<li> Per misurare il rapporto tra le lunghezze 
+di due segmenti di retta,
+selezionarli e andare a "Misura/Rapporto".
+
+<li> Per misurare la pendenza di un segmento di retta, una semiretta, o una retta,
+ selezionare l'oggetto e andare a "Misura/Pendenza".
+
+<li> Per misurare l' area di un oggetto pieno, selezionare il poligono, 
+il settore d'arco. il segmento circolare, o l'interno del cerchio
+e andare a "Misura/Area".  Se hai un "cattivo" poligono (lati che non formano
+una curva semplice chiusa), la sua "area" misurata non sara' uguale all'area 
+sullo schermo che appare avere.
+
+</ul>
+
+Puoi combinare alcune misure in un calcolo.  Per creare un
+calcolo, o "Misura/Calcolo..." dal menu o
+doppio click su una misura esistente.  L'opzione di menu crea un
+calcolo "vuoto" se nulla era stato selezionato ma se una misura
+o calcolo era stato selezionato, crea un calcolo con riferimenti
+a quello selezionato.  Il doppio click crea un calcolo che
+si riferisce alla misura su cui hai fatto il doppio click.
+In entrambi i case, la finestra di editor di calcolo appare in
+cui puoi introdurre la formula che desideri calcolare.
+Se fai doppio click su un calcolo esistente, 
+una finestra di editor di calcolo uscira' , permettendoti
+di editare quel calcolo.
+
+<p>
+
+Lo stack di annullamento nell'editor di calcolo e' completamente separato dallo
+stack di annullamento nel resto di KSEG ed e' perso non appena la
+finestra di editor di calcolo e' chiusa.
+
+<p>
+
+Entro la finestra di editor di calcolo, si possono introdurre numeri, 
+solite operazioni aritmetiche, selezionare radici, potenze, e frazioni dalla
+barra degli strumenti (o usare le combinazioni di tasti CTRL+2, CTRL+6, CTRL+/).  
+Si possono anche usare le seguenti funzioni:
+
+<p> sqrt, log, exp, floor, ceil, fabs, sin, cos, tan, sinh, cosh,
+tanh, asin, acos, atan, asinh, acosh, atanh
+
+<p>
+
+Nota che le precedenti funzioni lavorano con i radianti, in contrasto con le
+misure/trasformazioni che sono in gradi.  So che questo disturba,
+ma il solo modo ragionevole per aggiustarlo e' di aggiungere il supporto
+dell'unita'. 
+
+<p>
+
+Infine, puoi riferire altre misure e calcoli col
+click sinistro su di essi nella finestra principale KSEG mentre l'editor
+di calcolo e' aperto.
+Non e' consentito riferirsi a calcoli che si sta editando.
+
+<p>
+
+Devo dire che questa e' la parte di KSEG di cui sono meno felice
+Non c'e' supporto per qualsiasi unita' ragionevole e i calcoli
+sono imbarazzanti.
+Infine, il codice della formula e' brutto e lento (e un po' bacato).
+
+<br><br><a href="#Top">Indietro</a>
+
+<a name="Editing"></a>
+<h2>Editare e Rivincolare</h2>
+
+<h3>Modifica dell'Apparenza ed Etichette</h3>
+
+Puoi specificare come desideri un particolare oggetto geometrico.
+Per disegnarlo selezionare l' oggetto (o alcuni di essi) e andando a
+"Edita/Colore", "Edita/Stile di retta", "Edita/Stile di punto", o "Edita/Font",
+nel modo appropriato. Andando a questi menu senza oggetti selezionati
+si modifichera' l'apparenza di default degli oggetti conseguentemente costruiti.
+Benche' colori, fonts, etc. non siano disponibili nella barra degli strumenti,
+puoi cliccare sulla Retta tratteggiata in cima di uno di questi menu per 
+"tirarlo via" ed avere un effetto simile alla barra degli strumenti.
+
+<p>
+
+Punti e varie curve hanno etichette che puoi visualizzare (esse non
+sono mostrate per default) selezionando l' oggetto(i) e andando a
+"Edita/Mostra Etichetta(e)".  Esse possono essere modificate selezionando
+l' oggetto
+e andando a "Edita/Chambia Etichetta" o cliccando doppiamente sull'etichetta
+se e' mostrata.
+Puoi perfino dare indici alti e bassi alle etichette
+cosi' come altre cose, se puoi immaginare come :-)  
+Puoi trascinare un'etichetta per muoverla relativamente all'oggetto
+cui si riferisce.
+
+<h3>Rivincolare</h3>
+
+Niente e' piu' frustrante di spendere mezz'ora su una 
+costruzione elaborata e poi scoprire che hai fatto un piccolo errore
+all'inizio.
+Il meccanismo di rivincolamento di KSEG spesso ti permettera' 
+di aggiustarlo facilmente.
+
+Per rivincolare un punto, premere CTRL, trascinare col sinistro il punto,
+e lasciarlo sull' oggetto(i) che vorresti rivincolare ad esso.
+
+<p>
+
+
+Per esempio, si supponga di costruire un triangolo <i>ABC</i> poi di fare una lunga
+costruzione di un centro non ancora scoperto, e poi decidere di
+investigare il suo comportamento quando <i>ABC</i> e' isoscele.  Per fare
+<i>AB=BC</i>,si costruisca il cerchio con centro <i>B</i> per
+<i>A</i>.  Poi premendo CTRL e trascinando il punto <i>C</i> sul cerchio.
+Quando lasci il bottone del mouse, <i>C</i> sara' vincolato a giacere sul
+cerchio e cosi' <i>ABC</i> sara' isoscele.  Se decidi
+di fare <i>ABC</i> arbitrario di nuovo, premi CTRL, trascina <i>C</i> del
+cerchio e lascialo su un punto vuoto.
+
+<p>
+
+Cosi':
+
+<ul>
+<li>Premendo CTRL e partendo a trascinare un punto immediatamente si rende
+il punto libero.
+
+<li>Lasciando il punto su uno spot vuoto fa rimanere libero il punto.
+
+<li>Lasciando il punto su una curva si vincola il punto a rimanere su
+quella curva.
+
+<li>Lasciando il punto sull'intersezione di due curve
+si vincola il punto a rimanere su quella intersezione.
+
+<li>Lasciando il punto su un altro punto si uniranno i due punti.
+Internamente, il punto che hai trascinato scomparira' e tutti i suoi
+figli saranno trasferiti al punto su cui ti sei trascinato.
+
+</ul>
+
+Tutto cio' ovviamente e' annullabile con CTRL+Z ("Edita/Annulla").  
+La barra di stato fara' il suo meglio per tenerti informato di cosa accadra'
+se lasci il punto.
+
+<p>
+
+Talvolta KSEG non ti permettera' di rivincolare cio' che desideri.
+Questo e' per buone ragioni (benche' ci possano essere bugs):
+non puoi rivincolare un punto ai suoi discendenti.
+Non puoi neppure rivincolare un punto se facendo cosi' si rompera' 
+la dipendenza di un punto portatore in un luogo sul suo portato
+(non puoi mai rivincolare un punto che il portatore di qualche luogo).
+Infine, ci sono regole complicate nelle 
+Costruzioni che cercano di assicurare che non hai pasticciato
+la Costruzione con un rivincolamento.  Per esempio, non potrai rivincolare
+un punto "Dato"  in una curva "Finale".  Se trovi che KSEG ti permette di
+eseguire un rivincolamento che rende non valida la Costruzion,
+per favore fammelo sapere.
+
+<br><br><a href="#Top">Indietro</a>
+
+<a name="Views"></a>
+<h2>Viste ed esportazione di immagini</h2>
+
+<h3>Spostamento e Zoom</h3>
+
+Per avere una miglior vista della tua costruzione, KSEG ti permette di
+fare lo zoom ingrandendo o rimpicciolendo.  Per zoomare, vai a "Vista/Zoom".  
+Il cursore del mouse cambiera' in uno specchio che ingrandisce (quando e'
+sull'area degli schemi).  Premi il bottone sinistro del mouse e trascina
+su e giu' per zoomare dentro o fuori.  Lo zoom e' nel punto dove il bottone
+del mouse era premuto.  Dopo che il bottone del mouse e' stato rilasciato, 
+il cursore del mouse ritornera' una normale freccia. 
+L' ingrandimento attuale e' sempre mostrato nella barra di stato.  
+Si osservi che, indipendentemente dall'ingrandimento, oggetti come punti, 
+spessori di linea, e fonts non cambiano di grandezza.  
+Lo spostamento funziona in modo simile allo zoom--vai a "Vista/Pannello",
+premi il bottone sinistro del mouse e trascina attorno.  Alternativamente, 
+puoi avere spostamento senza andare nel menu--semplicemente premi il bottone
+centrale del mouse e trascina.
+
+<p>
+
+Se vai a "Vista/Zoom Per riempire", KSEG dara' l'opzione 'spostamento' 
+automaticamente e zoomera' l'immagine in modo che tu possa adattarla alla vista.  
+Se scegli "Vista/Zoom Originale(100%)", KSEG porra' l'ingrandimento al 100%
+e ristabilira' l'immagine originaria.
+
+<h3>Vedute Multiple</h3>
+
+Per creare un'altra vista (in un'altra finestra) del documento attuale, vai
+a "Vista/Nuova Vista".  Apparira' una nuova finestra. Spostamento e zoom
+in una vista non influenzeranno ogni altra vista, ma la modifica del documento
+o la selezione di oggetti in esso si riflette in tutte le viste di quel
+documento.
+Cosi' se trascini un punto in una vista, lo vedrai rispondere
+in tutte le viste.  Puoi usare viste per, ad esempio, lavorare
+su una piccola parte di uno schema (o fare buoni movimenti in una vista zoomata)
+mentre simultaneamente si vedono gli effetti 
+sull'intero schema in una vista differente.
+
+<h3>Esportazione di Immagini</h3>
+
+Puoi esportare il contenuto della vista corrente in un file di immagine
+(in alcuni formati popolari).  Per fare questo, vai a "Vista/Esporta
+Immagine...".  
+Appare un dialogo che ti permette di scegliere il formato del file
+e se desideri che l'immagine sia di "Alta Qualita'".  Clicca OK e
+poi scegli il nome del file nel dialogo che appare.  Le dimensioni
+dell' immagine saranno le dimensioni della vista corrente.
+
+
+<p>
+
+Se scegli "Immagine di alta qualita'", KSEG impieghera' piu' tempo per
+l' esportazione,
+ma l'immagine sara' antialiased e tracciata con precisione subpixel.
+Questa opzione e' buona per fare grafica web, ma puo' apparire orribile se la
+stampi (peggiore della versione di bassa qualita').  Inoltre,
+assicurati di non usare la definizione di alta qualita' se stai esportando
+in una immagine bianco-e-nero (ma scala di grigio e' buono)--apparira' brutta.
+L'uso del modo di bassa qualita' e' il piu' "sicuro" poiche' l'immagine 
+esportata e' esattamente cio' che sta sullo schermo.
+
+<br><br><a href="#Top">Indietro</a>
+
+<a name="Constructions"></a>
+<h2>Costruzioni</h2>
+
+Le Costruzioni sono probabilmente la caratteristica piu' potente
+di KSEG. Una Costruzione e' come un normale schema KSEG , tranne che
+puo' essere eseguito da un altro schizzo KSEG (o costruzione).
+Prima di tutto, un semplice esempio:
+
+<h3>Sguardo su un esempio di circocerchio</h3>
+
+Questa parte ti portera' attraverso la costruzione
+dell'esempio di Costruzione circumcircle.sec .
+Nel prosieguo, spieghero' cosa significa ogni passo.
+Questa Costruzione costruira', dati tre punti,
+il cerchio che passa per essi.
+
+<ol>
+
+<li> Si Crei una nuova Costruzione andando in "File/Nuova Costruzione".
+
+<li> Si costruiscano tre punti A, B, e C.  Questi punti rappresenteranno
+i dati per la Costruzione.
+
+<li> selezionare A, B, e C e renderli "Dati" andando a
+"Costruzione/Rendi Dati".  Questo permette a KSEG di sapere che questi punti
+saranno dati alla Costruzione quando sara' rieseguita.
+
+<li> Costruire i segmenti di retta AB e BC e i loro punti medi, D, e E.
+
+<li> Costruire la Retta per D perpendicolare ad AB e la Retta
+per E perpendicolare a BC.  Costruire la loro intersezione F.
+Questo e' il circocentro del triangolo ABC.
+
+<li> Ora si costruisca il cerchio con centro F che passa per il
+punto A.  Questo e' il circocerchio desiderato.
+
+<li> Ora seleziona tutti gli oggetti che hai costruito eccetto il
+circocerchio e i tre Dati punti e va a "Edit/Nascondi oggetti"
+per renderli nascosti.  Facciamo questo perche' quando rilanceremo
+la Costruzione, non desidereremo gli oggetti intermedi della costruzione
+ingombrando lo schermo--desideriamo solo il circocerchio.
+
+<li> Questo e' tutto!  Testa la Costruzione creando un nuovo schizzo 
+(con "File/Nuovo Sketch"), costruendo tre punti nello sketch, selezionandoli
+e andando a "Esegui/Senza Titolo" (assumendo che tu non abbia salvato la
+Costruzione). Un circocerchio dovrebbe apparire magicamente!
+
+</ol>
+
+<h3>Costruzioni Non-Ricorsive</h3>
+
+La maggior parte della potenza delle Costruzioni viene dalla loro capacita'
+di essere ricorsive.  Quindi, Costruzioni non-ricorsive sono molto semplici
+--il precedente esempio di circocerchio riguarda quasi ogni cosa da sapere
+su di esse.
+Ecco alcuni dettagli (si applicano altrettanto alle Costruzioni ricorsive):
+
+<ul>
+
+<li> oggetti con genitori possono essere marcati come Dato.
+In questo caso, spesso non ha senso per costruire i genitori
+se essi non sono altrimenti utili. Tali oggetti sono marcati "(non costruiti)" 
+nella lista Costruzione.
+
+<p> Tecnicamente, questa e' la regola: Immagina la relazione
+genitore-figlio come un grafo diretto sugli oggetti.  Se ogni cammino 
+(nel grafo diretto) dall' oggetto <i>A</i> ad ogni oggetto senza
+figli ha almeno un oggetto Dato, allora <i>A</i> non e'
+costruito.
+
+<li> Non e' permesso marcare oggetti Dati che sono 
+necessari per la definizione di un luogo.  Per esempio, non puoi marcare
+il punto Portatore come Dato perche' KSEG non puo' garantire che esso e'
+vincolato ad una curva quando la Costruzione e' rilanciata.
+
+<li>E' possibile per gli oggetti selezionati di essere messi in
+corrispondenza con gli
+oggetti Dati i cui tipi sono diversi. Per esempio, se in una Costruzione,
+crei il segmento <i>S</i>, marcalo come Dato, costruisci un punto
+su di esso, allora puoi selezionare (in un documento diverso) un arco, 
+cerchio, semiretta,
+retta, o segmento, eseguire questa Costruzione, e un punto apparira' 
+sull' oggetto che hai selezionato.  Tuttavia, se nella Costruzione hai
+costruito una retta perpendicolare a <i>S</i> per il punto, non potrai
+eseguire quella Costruzione su un cerchio o un arco.
+
+<p> L' algoritmo che fa corrispondere gli oggetti selezionati con gli
+oggetti Dati non e' banale (ma non e' neppure molto buono
+teoricamente).  
+La prima cosa che tenta e' la corrispondenza dell'ordine selezionato al
+Dato ordine.  Se questo non funziona, viene tentata una ricerca
+(dovrebbe veramente fare una corrispondenza bipartita, 
+ma occorre molto lavoro per implementarlo e il suo valore e' dubbio).
+Talvolta puo' non essere capace di corrispondere gli
+oggetti selezionati ai Dati anche quando tale corrispondenza e' possibile 
+(e la voce nel menu Esegui sara' disabilitata).  
+In quel caso, selezionare solo gli
+oggetti in un ordine diverso, piu' vicino all'ordine Dato.
+
+<li> Punti liberi (cosi' come le misure e i calcoli) che non sono
+marcati come Dati saranno posti casualmente.  I Punti vincolati a
+curve saranno posti in posizioni casuali sulla curva.
+
+<li> "Esegui direttamente" e' una caratteristica molto maneggevole
+per accedere a librerie di Costruzioni comunemente in uso.
+Selezionare la directory che memorizza
+le tue Costruzioni favorite con "Esegui/Esegui direttamente/Cambia
+Directory...", poi selezionare alcuni oggetti nel tuo documento attuale che
+corrisponde ai Dati di una delle Costruzioni in quella directory
+e andare a "Esegui/Esegui direttamente/Costruzioni NomeFile.sec" per eseguire
+senza caricare effettivamente la Costruzione.  Perche' questo funzioni,
+KSEG ricerca le Costruzioni nella directory e abilita quelle i cui Dati
+corrispondono agli oggetti attualmente selezionati.
+
+<li> "Copia come Costruzione" ti permette di prendere uno
+ a schizzo e cambiarlo in un documento Costruzione.
+Questo e' potente se stai lavorando su uno schizzo e trovi qualcosa che ti
+piacerebbe applicare ad altri schizzi.. vai a "File/Copia come Costruzione"
+e una nuova Costruzione
+appare contenente gli stessi oggetti geometrici dello schizzo.
+Puoi allora cancellare gli oggetti che non ti servono, 
+marcare alcuni  oggetti come "Dati" ed applicare la Costruzione 
+ad altri documenti.
+
+</ul>
+
+<h3>Costruzioni Ricorsive</h3>
+
+Il modo piu' disinvolto di usare "Costruzioni" e' quello ricorsivo.  
+Questo ti permette di costruire frattali, cosi' come ripetere
+Costruzioni multiple.
+Per un esempio semplice , si veda tractix.sec (usare un segmento corto e
+profondita' di ricorsione come 30).
+Per un esempio piu' complicato (con rami multipli di ricorsione), 
+si veda dragon.sec, che costruisce un frattale.
+
+<p>
+
+Una Costruzione diventa ricorsiva quando si inseriscono "oggetti" ciclo
+in essi (essi non sono veramente oggetti geometrici, essi
+pretendono solo di esserlo).
+Per inserire un ciclo, selezionare alcuni oggetti che possono corrispondere
+con i Dati e andare in  "Costruzione/Ciclo ricorsivo".  Un ciclo dice a KSEG 
+che dopo tutti gli altri passi eseguiti nella Costruzione,
+dovrebbe ripetersi ricorsivamente la Costruzione, partendo con gli oggetti 
+selezionati quando il ciclo viene specificato. Naturalmente, KSEG non fa
+questo sempre-- quando tu ripeti una Construzione ricorsiva, KSEG ti
+domanda il massimo di profondita' ricorsiva.
+Fa attenzione-- se hai piu' di un ciclo nella Costruzione, 
+il numero di oggetti che KSEG ha da construire e' esponenziale nella massima
+prondita' ricorsiva--in altre
+parole, mantieni piccola la profondita' ricorsiva.  
+Sul mio vecchio sistema da 350mhz , KSEG puo' trattare circa 100.000 oggetti
+comodamente--cio' dovrebbe bastare per ogni cosa pensabile.
+
+<p>
+
+Ricorda che non appena inserisci un ciclo in una Costruzione, l'insieme
+degli oggetti Dati diventa fissato (non potrai marcare nuovi
+oggetti come Dati, rendere Dati oggetti normali correntemente, cancellare un
+oggetto Dato che cancella tutti i cicli, etc.). Questo e' per prevenire il fatto
+che i cicli diventino non validi.
+Per cambiare l'insieme di oggetti Dati, cancella prima i cicli.
+
+<p>
+
+Puoi anche fare oggetti in una Costruzione ricorsiva "Finale" o
+"Iniziale".  Oggetti finali sono "schietti": essi sono solo
+costruiti al massimo di profondita' di ricorsione.
+Questo e' utile per molte cose, particolarmente per frattali che 
+mostrano solo il piu' alto livello di dettaglio
+--si veda dragon.sec or sierp2.sec.
+I figli di oggetti finali possono anche essere costruiti solo al
+massimo di profondita' di ricorsione-- essi sono marcati "(finali)" nella 
+lista di Costruzione.
+
+<p>
+
+Gli oggetti iniziali sono complicati -- e' una caratteristica
+"avanzata".
+Non e' tanto potente, ma talvolta ha effetti magici a sufficienza
+da essere difficile da immaginare.
+Un oggetto Iniziale e' solo costruito una volta (all'alto livello della 
+profondita' di ricorsione).  Ogni oggetto di cui tutti i genitori sono
+Iniziali (o implicitamente Iniziali) diventa implicitamente Iniziale
+ed e' marcato con "(iniziale)" nella lista di Costruzione.  Per una buona
+illustrazione, si veda sierp.sec: prima la si lanci normalmente (si noti
+che i lati piu' grandi del 
+triangolo sono costruiti solo una volta) e poi
+costruisci un punto P sul segmento iniziale s_9, costruisci un
+segmento di retta PC (da P al punto C Dato). Eseguila di nuovo ed
+osserva l' effetto.  Oggetti Iniziali possono essere usati per conservare memoria
+(come in koch.sec) o per il loro effetto.
+
+<p>
+
+Nelle Costruzioni ricorsive, relativamente a oggetti Finale/Dato/Iniziale,
+KSEG fara' il suo meglio per prevenire configurazioni non valide
+o senza significato, come oggetti Iniziali o Dati aventi oggetti Finali
+per genitori.
+Puo' non essere ovvio cio' che sta facendo,
+ma e' solitamente corretto (se trovi un caso in cui non lo e',
+inviami un mail , per favore, con la Costruzione valida e una descrizione
+dell'azione che la rende non valida).
+
+<br><br><a href="#Top">Indietro</a>      
+      
+<p align = "right">
+Ilya Baran<br>
+ibaran@mit.edu<br>
+http://www.mit.edu/~ibaran/
+</p>
+
+</body>
+</html>
+  

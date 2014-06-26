@@ -1,0 +1,846 @@
+<html>
+<head>
+<title>KSEG Help</title>
+</head>
+    
+<body>
+<h1>KSEG Help</h1>
+
+<a name="Top"></a>
+<h2>Quick Jump:</h2>
+      
+<a href="#Walk">Getting Started/Brief Walkthrough</a><br>
+<a href="#Intro">Introduction</a><br>
+<a href="#Selecting">Selecting</a><br>
+<a href="#Constructing">Constructing</a><br>
+<a href="#Transforms">Transforms</a><br>
+<a href="#Measuring">Measuring and Calculating</a><br>
+<a href="#Editing">Editing and Reconstraining</a><br>
+<a href="#Views">Views and Image Exporting</a><br>
+<a href="#Constructions">Constructions</a><br>
+
+<a name="Walk"></a>
+<h2>Getting Started/Brief Walkthrough</h2>
+
+After doing the following, you should be familiar with the most basic usage of
+KSEG and can start playing around on your own.  For advanced features,
+read this entire document.
+
+<ol>
+
+<li> Start KSEG.  You should see a blank white canvas taking up most
+of the sketch window (surrounded by toolbars, scroll bars, menu, and
+status bar).
+
+<li> Right click in the middle of the white canvas to construct point A.
+
+<li> Hold SHIFT as you right click again in a different spot on the
+canvas to construct point B.  Since you are holding SHIFT, point A is
+not deselected, so after this step you should have two selected points.
+
+<li> Choose "New/Circle By Center And Point" from the menu.  This
+should construct a circle centered at point A and passing through
+point B.  The circle will appear selected and points A and B will be
+deselected.
+
+<li> Select point B by left clicking on it (this also deselects the
+circle).  Then hold SHIFT and left click on point A to select it.
+
+<li> Choose "New/Circle By Center And Point" from the menu again.  Now
+this should construct a circle centered at B (because you selected it
+first) passing through A.
+
+<li> Hold SHIFT and select the first circle you constructed by
+clicking on it.  You should now have both circles selected.
+
+<li> Choose "New/Intersection Points" from the menu.  Two points at
+the intersections of the two circles should appear, both of them
+selected.
+
+<li> Choose "New/Line" from the menu.  This will construct the
+perpendicular bisector of points A and B.
+
+<li> Now drag point A with the left mouse button.  This should give
+you an idea of what KSEG does.
+</ol>
+
+Of course, this is not the most efficient way to construct a
+perpendicular bisector in KSEG (although it's the
+compass-and-straightedge way), but the point is to show how
+construction and selection work.
+
+<br><br><a href="#Top">Back to top</a>
+
+<a name="Intro"></a>
+<h2>Introduction</h2>
+
+KSEG is a tool designed to let you easily visualize dynamic properties
+of compass-and-straightedge constructions and to make geometric
+exploration as fast and easy as possible.  Almost every time I sit
+down to play with KSEG, I discover a geometric property that I didn't
+know before.
+
+<p>
+
+With KSEG, you create a dynamic construction by first placing points
+on the screen and then using them to construct other objects, such as
+lines or circles.  Then you can drag the points you created and watch
+the entire construction respond.  There is much more to KSEG, of
+course, but this is the basic idea.  I also often use it to generate
+high-quality geometric diagrams for use with LaTeX.  I find that the
+easiest way to do this is to print from KSEG to a .ps file, convert
+it to EPS, annotate it in XFIG, and export to the PS/LaTeX format.
+
+<p> <b>A terminology problem:</b> I use the term "Construction" to
+refer to the macro-like document type in KSEG as well as to just a
+bunch of geometric objects that may depend on each other.  It is
+usually clear from the context which I mean, but in this document I
+will capitalize "Construction" to refer to the document type and will
+use the lower case "construction" to refer to a bunch of geometric
+objects.
+
+<h3>Geometric Objects</h3>
+
+Points, lines, measurements, calculations, loci, etc. are all
+"geometric objects".  A geometric object may have parent geometric
+objects on which it depends.  For example if you construct two points
+and a line through them, then the points are parents of the line and
+the line is a child of the points.  When you drag a free point, all of
+its descendants are recalculated.  When you drag an object that has
+parents (this is called reverse dragging), a complicated algorithm
+determines which parents to move in order to get the desired motion of
+the object you are dragging.
+
+<p>
+
+A geometric object may be "non-existent" in the geometric sense, such
+as the intersection point of circles that do not intersect.  If the
+circles are later moved closer together, the points begins to exist
+again.  Children of non-existent objects are also non-existent (with
+the exception of the locus, for details see locus documentation
+below).  So if you are dragging around a point and all of a sudden
+most of your construction disappears because two line segments ceased
+to intersect (the objects that disappeared are the descendants of the
+intersection point), don't worry, it will come back as soon as they
+intersect again.
+
+<br><br><a href="#Top">Back to top</a>
+
+<a name="Selecting"></a>
+<h2>Selecting</h2>
+
+In order to construct new objects, you usually need to select existing
+ones.  Here are your options for doing this:
+
+<ul>
+<li> Left clicking on an empty spot deselects all currently selected
+objects.
+
+<li>Left clicking on an unselected object selects that object
+and deselects all the other ones.
+
+<li>Pressing the left mouse button on an empty spot, dragging, and
+releasing will select all objects that intersect the dragged rectangle
+and deselect all others.
+
+<li>Holding down shift and left clicking on an object will select the
+object if it is not already selected and deselect it otherwise.  Other
+objects that may have been selected remain selected.
+
+<li>Holding down shift, pressing the left mouse button on an empty
+spot, dragging, and releasing will add all of the objects that
+intersect the dragged rectangle to the selection.
+
+<li>In a Construction, you also have the option of selecting objects
+through the Construction list.  You can click or drag or use shift.
+Note that unlike the other methods, this allows you to select
+invisible and non-existent objects.
+
+</ul>
+
+When you click on a spot where there is more than one object, things
+are more complicated (for KSEG, that is--for you it should seem very
+intuitive).  Objects have a selection "precedence": points first,
+curves and text and loci second, and filled objects last.  If objects
+with higher precedence are under the mouse then objects with lower
+precedence are ignored.  Within a single precedence, the algorithm is
+such that clicking multiple times cycles through some selection
+possibilities.  The status bar is always a good place to look to find
+out what will happen if you click.
+
+<h3>Selection Groups</h3>
+
+A more powerful way of selecting multiple objects is to use selection
+groups.  A selection group is a bunch of objects that you tell KSEG to
+group together to make it easy to do selection operations with them.
+Going to "Edit/Selection Groups..." brings up the selection groups
+manager window (associated to a document).  When you open it, it
+displays in a list box all selection groups you have for the document
+in addition to the built-in selection groups.  The built-in selection
+groups are marked with an asterisk--there is one for every type of
+object that groups all the objects of that type.
+
+<p>
+
+When you select a selection group (or several) in the listbox of the
+selection group manager and click the Select button, all objects of
+that group are selected and all other objects are deselected.  Holding
+shift while clicking the Select button will select the objects in that
+group without deselecting other objects that may be currently
+selected.  Clicking the Deselect button will deselect only the objects
+in the group.  When you have at least one selected object, the New
+Group button is enabled.  Click it to create a new group consisting of
+the selected objects.  You cannot delete built-in groups.
+
+<p>
+
+The Affect Invisible Items checkbox only affects the built-in
+selection groups.  When it is unchecked (default), "All Points" refers
+to only the non-hidden points; when it is checked, "All Points" refers
+to the hidden ones as well.  Groups that are not built-in always
+select/deselect all objects in them, including hidden ones.
+
+<p>
+
+A (non-built-in) group may become empty if all its items are deleted
+(directly or through undo).  Such groups are marked with a minus sign
+but are not automatically deleted (since undo/redo may bring objects
+in those groups back to life).  However, empty groups are not saved
+with the document.
+
+<br><br><a href="#Top">Back to top</a>
+
+<a name="Constructing"></a>
+<h2>Constructing</h2>
+
+When new objects are constructed, they are immediately selected and,
+with the exception of points constructed by right-clicking with shift
+held down, all other objects are deselected.
+
+<h3>Points</h3>
+
+<ul>
+
+<li> To construct a free point, right click on an empty area of the
+KSEG sheet.
+
+<li> To construct a point constrained to a curve (line, segment, ray,
+circle, arc), right click on the curve.
+
+<li> To construct a point constrained to an intersection of two
+curves, right click on the intersection.  Alternatively, select the
+two curves and choose "New/Intersection point(s)" from the menu.  When
+the two curves have two intersection points (at least potentially) the
+menu option will construct both of them, while right-clicking will
+only construct one.
+
+<li> To construct the midpoint(s) of one or more line segments, select
+them and choose "New/Midpoint(s)".
+
+</ul>
+
+There are also two other kinds of points--endpoints and center points.
+These are mostly useful for Constructions, where you may have as a
+Given a segment but not its endpoints or a circle but not its center.
+To construct the endpoint(s) of a segment, ray, or an arc, select it
+and go to "New/Endpoint(s)".  To construct the center point of a
+circle or an arc, select it and go to "New/Center Point".
+
+<h3>Segments</h3>
+
+There is only one way two make a line segment--select two or more
+points and choose "New/Segment(s)".  If two points are selected, one
+segment will be constructed.  If <i>n</i> &gt; 2 points are selected
+then <i>n</i> segments will be constructed.
+
+<h3>Rays</h3>
+
+<ul><li> You can construct a ray from one point through another by
+selecting the two points (in order) and going to "New/Ray".  Select
+more than two points to construct multiple rays.
+
+<li> To construct the bisector of an angle, select three points
+defining the angle and go to "New/Angle Bisector".  The bisector
+always bisects the acute part of the angle.
+
+</ul>
+
+<h3>Lines</h3>
+<ul>
+
+<li> To construct a line, select two or more points and go to "New/Line(s)".
+
+<li> To construct a line parallel to a given one through a point,
+select the point and the line (you can use a segment or a ray as well)
+and go to "New/Parallel Line".  You can select multiple points or multiple
+straight objects (but not both).
+
+<li> To construct a perpendicular line, select as for the parallel line, but
+choose "New/Perpendicular Line(s)" from the menu instead.
+
+</ul>
+
+<h3>Circles</h3>
+<ul>
+
+<li>To construct a circle with a given center through a given point, select
+the center and then the point through which the circle should pass and go
+to "New/Circle By Center And Point".
+
+<li>To construct a circle with a given center and a given radius, select
+the center point and a line segment whose length will be the radius and
+choose "New/Circle By Center And Radius".
+
+</ul>
+
+<h3>Arcs</h3>
+An arc can only be constructed by selecting three points and going to
+"New/Arc By Three Points".
+
+<h3>Loci</h3>
+
+A locus is a geometric object that represents the path of another
+geometric object (the "driven" object) as a point (the "driver") moves
+along a curve.  To construct a locus, select a point on a curve and a
+descendant of that point.  The driven object can be a point, a curve,
+or even another locus (but this can get really slow).  A locus could
+exist even if the driven object is non-existent, since the driven
+object may exist when the driver is in a different position.
+
+<p>
+
+For example, let <i>L</i> be a line, let
+<i>A</i> be a point on <i>L</i>, let <i>B</i> be a point not on
+<i>L</i>, and let <i>K</i> be the line through <i>A</i> perpendicular
+to <i>AB</i>.  Then if <i>K</i> is the driven object and <i>A</i> is
+the driver, the envelope of the locus traced by <i>K</i> is the
+parabola with <i>B</i> at its focus that is tangent to <i>L</i>.
+
+<p>
+
+Since a locus is an infinite set of geometric objects, KSEG cannot
+compute it exactly.  Instead, it approximates the locus by sampling.
+You can change the number of samples KSEG performs for a particular
+locus by either double-clicking on that locus or selecting it and
+choosing "Edit/Change Number Of Samples..."  A special case is when
+the driven object is a point.  In that case, KSEG automatically
+connects sampled points and uses an adaptive algorithm to try to make
+the locus smooth and accurate quickly.  In that case, the number of
+samples you specify is only an upper bound on the number of samples
+actually performed--the algorithm may decide to stop sampling if it
+thinks the locus is good enough.  This adaptive algorithm generally
+results in much better looking loci compared to those generated by
+programs similar to KSEG.
+
+<h3>Filled Objects</h3>
+<ul>
+
+<li>To construct a polygon interior, select three or more points and
+choose "New/Polygon".
+
+<li>To construct an arc sector, select an arc and choose "New/Arc
+Sector".  For an arc segment, select an arc and choose "New/Arc Segment".
+
+<li>To construct a circle interior, select a circle and choose
+"New/Circle Interior".
+
+</ul>
+
+<a href="#Top">Back to top</a>
+
+<a name="Transforms"></a>
+<h2>Transforms</h2>
+
+KSEG allows you to apply some affine transforms to geometric
+objects.  The general procedure is to "choose" some objects to define
+the transform using the "Transform/Choose *" menu items.  Then
+you select the objects to transform, choose the appropriate action
+from the transform menu, and transformed copies of the selected objects
+will be created.  Here are the details:
+
+<p>
+
+Choosing:
+
+<ul>
+
+<li> To choose a vector, select two points and go to "Transform/Choose
+Vector".  The vector will be from the first selected point to the
+second.
+
+<li> To choose a mirror, select a line, a segment, or a ray and go to
+"Transform/Choose Mirror".
+
+<li> To choose a center, select a point and go to "Transform/Choose
+Center".
+
+<li> To choose an angle, select either three points or a single
+measurement or calculation and go to "Transform/Choose Angle".
+
+<li> To choose a ratio, select either two line segments or a single
+measurement or calculation and go to "Transform/Choose Ratio".
+
+</ul>
+
+The currently chosen groups of objects are marked with yellow to let
+you know what the transforms will do.  If you are done with the
+transforms and want to get rid of the yellow markings (for aesthetic
+or screenshot purposes--they don't appear when printing), go to
+"Transform/Clear Chosen".
+
+<ul>
+
+<li> To translate objects you need to have a vector chosen.
+<li> To reflect objects, you need to have a mirror chosen.
+<li> To scale objects, you need a center and a ratio chosen.
+<li> To rotate objects, you need a center and an angle chosen.
+
+</ul>
+
+Being able to transform objects with a measurement or calculation
+chosen for the ratio or the angle easily allows you to create
+constructions impossible with a compass and a straightedge.  You may
+want to be careful with this, but it can also be fun--the example
+coord.seg file shows how it can make KSEG graph parametric curves as
+loci.
+
+<br><br><a href="#Top">Back to top</a>
+
+<a name="Measuring"></a>
+<h2>Measuring and Calculating</h2>
+
+You can measure various geometric quantities with KSEG and perform
+calculations with the measurements.  All distance units are in pixels
+and angles are in degrees.  Here's what you can measure:
+
+<ul>
+
+<li> To measure the distance between a point and either a curve or another
+point, select the two geometric objects and go to "Measure/Distance".
+
+<li> To measure the length of a line segment, select the line segment
+and go to "Measure/Length".
+
+<li> To measure the circumference of a circle, select the circle and
+go to "Measure/Circumference".
+
+<li> To measure the arc length of an arc, select the arc and go to
+"Measure/Arc Length".
+
+<li> To measure the radius of an arc or a circle, select the object
+and go to "Measure/Radius".
+
+<li> To measure the angle defined by three points, select the three
+points and go to "Measure/Angle".
+
+<li> To measure the ratio between the lengths of two line segments,
+select them and go to "Measure/Ratio".
+
+<li> To measure the slope of a line segment, a ray, or a line, select
+the object and go to "Measure/Slope".
+
+<li> To measure the area of a filled object, select the polygon, the
+arc sector, the arc segment, or the circle interior and go to
+"Measure/Area".  If you have a "bad" polygon (sides don't form a
+simple closed curve), its measured "area" will not be equal to the
+area on the screen that it appears to have.
+
+</ul>
+
+You can combine several measurements in a calculation.  To create a
+calculation, either choose "Measure/Calculate..." from the menu or
+double-click on an existing measurement.  The menu option creates an
+"empty" calculation if nothing was selected and but if an measurement
+or calculation was selected, it creates a calculation that references
+the selected one.  Double-clicking creates a calculation that
+references the measurement you double-clicked on.  In either case, the
+calculation editor window appears in which you can enter the formula
+you want calculated.  If you double-click on an existing calculation,
+a calculation editor window will come up allowing you to edit that
+calculation.
+
+<p>
+
+The undo stack in the calculation editor is completely separate from
+the undo stack in the rest of KSEG and is lost as soon as the
+calculation editor window is closed.
+
+<p>
+
+Within the calculation editor window, you can enter numbers, usual
+arithmetic operations, select roots, powers, and fractions from the
+toolbar (or use shortcut keys CTRL+2, CTRL+6, CTRL+/).  You can also
+use the following functions:
+
+<p> sqrt, log, exp, floor, ceil, fabs, sin, cos, tan, sinh, cosh,
+tanh, asin, acos, atan, asinh, acosh, atanh
+
+<p>
+
+Note that the above functions work with radians, in contrast to the
+measurements/transforms that are in degrees.  I know this sucks, but
+the only reasonable way to fix it is to add unit support.
+
+<p>
+
+Finally, you can reference other measurements and calculations by
+left-clicking on them in the main KSEG window while the calculation
+editor is open.  You will not be allowed to reference calculations
+that reference the one you are editing.
+
+<p>
+
+I must say that this is the part of KSEG I am least happy with.  There
+is no support for any reasonable units and the calculations are kind
+of awkward.  Finally, the formula code is ugly and slow (and somewhat
+buggy).
+
+<br><br><a href="#Top">Back to top</a>
+
+<a name="Editing"></a>
+<h2>Editing and Reconstraining</h2>
+
+<h3>Appearance Modification and Labels</h3>
+
+You can specify how you want a particular geometric object to be drawn
+by selecting the object (or several of them) and going to
+"Edit/Color", "Edit/Linestyle", "Edit/Pointstyle", or "Edit/Font", as
+appropriate.  Going to these menus with no objects selected will
+modify the default appearance of subsequently constructed objects.
+Even though colors, fonts, etc. are not available in a toolbar, you
+can click on the dashed line at the top of one of these menus to "tear
+it off" and get an effect similar to a toolbar.
+
+<p>
+
+Points and the various curves have labels that you can display (they
+are not shown by default) by selecting the object(s) and going to
+"Edit/Show Label(s)".  They can be modified by selecting the object
+and going to "Edit/Change Label" or double-clicking on the label if
+it is shown.  You can even give labels subscripts and superscripts
+as well as other stuff if you can figure out how :-)  You can drag
+a label to move it relative to the object it refers to.
+
+<h3>Reconstraining</h3>
+
+Nothing is more frustrating than spending half an hour on an elaborate
+construction and then discovering that you made a small mistake in the
+beginning.  KSEG's reconstraining mechanism will often let you easily
+fix it.
+
+To reconstrain a point, hold down CTRL, left-drag the point, and drop
+it onto the object(s) you would like to reconstrain it to.  
+
+<p>
+
+For
+example, suppose you construct a triangle <i>ABC</i> then do a long
+construction of a yet undiscovered center, and then decide to
+investigate its behavior when <i>ABC</i> is isosceles.  To make
+<i>AB=BC</i>, construct the circle with center <i>B</i> through
+<i>A</i>.  Then hold CTRL and drag point <i>C</i> onto the circle.
+After you release the mouse button, <i>C</i> will be constrained to
+lie on the circle and so <i>ABC</i> will be isosceles.  If you decide
+to make <i>ABC</i> arbitrary again, hold CTRL, and drag <i>C</i> of
+the circle and drop it to an empty spot.
+
+<p>
+
+So:
+
+<ul>
+<li>Holding CTRL and starting to drag a point immediately makes the
+point free.
+
+<li>Dropping the point on an empty spot makes the point stay free.
+
+<li>Dropping the point on a curve constrains the point to lie
+on that curve.
+
+<li>Dropping the point on the intersection of two curves constrains
+the point to lie on that intersection.
+
+<li>Dropping the point on another point will merge the two points.
+Internally, the point you dragged will disappear and all of its
+children will be transferred to the point you dragged onto.
+
+</ul>
+
+All of this is of course undoable with CTRL+Z ("Edit/Undo").  The
+status bar will do its best to keep you informed of what will happen
+if you drop the point.
+
+<p>
+
+Sometimes KSEG will not let you do the reconstraining you want.  This
+is for good reason (although there may be bugs): you cannot
+reconstrain a point to one of its descendants.  You also cannot
+reconstrain a point if doing so will break the dependence of a driven
+point in a locus on its driver (you also can never reconstrain a point
+that is the driver of some locus).  Finally, there are complicated
+rules in Constructions that try to ensure that you don't mess the
+Construction up with a reconstraint.  For example, you will not be
+able to reconstrain a "Given" point to a "Final" curve.  If you find
+that KSEG allows you to perform a reconstraint that makes the
+Construction invalid, please let me know.
+
+<br><br><a href="#Top">Back to top</a>
+
+<a name="Views"></a>
+<h2>Views and Image Exporting</h2>
+
+<h3>View Panning and Zooming</h3>
+
+In order to get a better look at your construction, KSEG allows you to
+zoom in or out and move it around.  To zoom, go to "View/Zoom".  The
+mouse cursor should change into a magnifying glass (when over the
+sketch area).  Press the left mouse button and drag up and down to
+zoom in or out.  The zoom is around the point where the mouse button
+was pressed.  After the mouse button is released, the mouse cursor
+will change back to the normal arrow.  The current magnification is
+always shown in the status bar.  Notice that regardless of
+magnification, things like points, line thicknesses, and fonts do not
+change size.  Pan works in a similar way to zoom--go to "View/Pan",
+press the left mouse button and drag around.  Alternatively, you can
+pan without going to the menu--just press the middle mouse button and
+drag.
+
+<p>
+
+If you go to "View/Zoom To Fit", KSEG will automatically pan and zoom
+the image so that it just fits in the view.  If you choose
+"View/Original Zoom(100%)", KSEG will set the magnification to 100%
+and will pan the image back to the origin.
+
+<h3>Multiple Views</h3>
+
+To create another view (in another window) of the current document, go
+to "View/New View".  A new window will appear.  Panning and zooming in
+one view will not affect any other views, but modifying the document
+or selecting objects in it is reflected in all views of that document.
+So if you drag a point around in one view, you will see it responding
+in all views.  You can use views to, for example work on a small part
+of a sketch (or make fine motions in a zoomed-in view) while
+simultaneously seeing the effects on the entire sketch in a different
+view.
+
+<h3>Image Exporting</h3>
+
+You can export the contents of the current view to an image file (in
+several popular formats).  To do this, go to "File/Export To
+Image...".  A dialog appears that allows you to choose the file format
+and whether you want the image to be "High Quality".  Click OK and
+then choose the filename in the dialog that appears.  The dimensions
+of the image will be the dimensions of the current view.
+
+<p>
+
+If you select "High Quality Image", KSEG will take longer to export,
+but the image will be antialiased and drawn with subpixel precision.
+This option is great for making web graphics, but it might look
+horrible if you print it (worse than the low quality version).  Also,
+be sure not to use the high quality setting if you are exporting to a
+black-and-white image (but grayscale is fine)--it will look ugly.
+Using low quality mode is "safer" since the image exported is exactly
+what is on the screen.
+
+<br><br><a href="#Top">Back to top</a>
+
+<a name="Constructions"></a>
+<h2>Constructions</h2>
+
+Constructions are probably the most powerful feature of KSEG.  A
+Construction is like a normal KSEG sketch, except that it can be
+played back to another KSEG sketch (or Construction).  First,
+a simple example:
+
+<h3>Circumcircle Example Walkthrough</h3>
+
+This part will walk you through the construction of the
+circumcircle.sec example Construction.  Along the way, I will explain
+what each step means.  This Construction will, given three points,
+construct the circle that goes through them.
+
+<ol>
+
+<li> Create a new Construction by going to "File/New Construction".
+
+<li> Construct three points A, B, and C.  These points will represent
+the ones given to the Construction.
+
+<li> Select A, B, and C and make them "Given" by going to
+"Construction/Make Given".  This lets KSEG know that these points will
+be given to the Construction when it is played back.
+
+<li> Construct line segments AB and BC and their midpoints, D, and E.
+
+<li> Construct the line through D perpendicular to AB and the line
+through E perpendicular to BC.  Construct their intersection F.
+This is the circumcenter of triangle ABC.
+
+<li> Now construct the circle with center F that goes through the
+point A.  This is the desired circumcircle.
+
+<li> Now select all the objects you constructed except for the
+circumcircle and the three Given points and go to "Edit/Hide Objects"
+to make them hidden.  We do this is because when we play back the
+Construction, we don't want the intermediate construction objects
+cluttering up the screen--we just want the circumcircle.
+
+<li> That's it!  Test the Construction by creating a new sketch (with
+"File/New Sketch"), constructing three points in the sketch, selecting
+them and going to "Play/Untitled" (assuming you didn't save the
+Construction).  A circumcircle should magically appear!
+
+</ol>
+
+<h3>Non-Recursive Constructions</h3>
+
+Most of the power of Constructions comes from their ability to be
+recursive.  Hence, non-recursive Constructions are very simple--the
+above circumcircle example covers almost everything there is to know
+about them.  Here are a few details (they apply to recursive
+Constructions as well):
+
+<ul>
+
+<li> Objects with parents can be marked as Given.  In that case, it
+often makes sense not to construct the parents, if they are not useful
+for anything else.  Such objects are marked "(not constructed)" in the
+Construction List.
+
+<p> Technically, this is the rule: Imagine the parent-child
+relationships as a directed graph on the objects.  If every path (in
+the directed graph) from object <i>A</i> to every object with no
+children has at least one Given object, then <i>A</i> is not
+constructed.
+
+<li> You will not be allowed to mark as Given objects that are
+necessary for the definition of a locus.  For example, you can't mark
+the driver point as Given because KSEG can't guarantee that it is
+constrained to a curve when the Construction is played back.
+
+<li> It is possible for the objects selected to be matched to Given
+objects whose types are different.  For example, if in a Construction,
+you create segment <i>S</i>, mark it as Given, and construct a point
+on it, you may select (in a different document) an arc, circle, ray,
+line, or segment, play this Construction, and a point will appear on
+the object you selected.  However, if in the Construction you
+construct a perpendicular line to <i>S</i> through the point, you will
+not be able to play that Construction on a circle or an arc.
+
+<p> The algorithm that matches selected objects to the Given objects
+is not trivial (but it's not very good theoretically either).  The
+first thing that is tried is matching the selected order to the Given
+order.  If that doesn't work, a search is tried (it really should do a
+bipartite matching, but it's more work to implement and the value is
+questionable).  Sometimes it may not be able to match the selected
+objects to the Givens even when such a match is possible (and the item
+in the Play menu will be disabled).  In that case, just select the
+objects in a different order, closer to the Given order.
+
+<li> Free points (as well as measurements and calculations) that are
+not marked as Given will be placed randomly.  Points constrained to
+curves will be placed at random positions on the curve.
+
+<li> Quick Play is a very handy feature for accessing a library of
+Constructions you commonly use.  Select the directory that stores
+your favorite Constructions with "Play/Quick Play/Change
+Directory...", then select some objects in your current document that
+correspond to the Givens of one of the Constructions in that directory
+and go to "Play/Quick Play/ConstructionFilename.sec" to play it without
+actually loading the Construction.  For this to work, KSEG scans the
+Constructions in the directory and enables those whose Givens match
+the currently selected objects.
+
+<li> Copy As Construction allows you to take a sketch and change it
+into a Construction document.  This is useful if you were playing
+around with a sketch and found something you'd like to apply to other
+sketches--go to "File/Copy As Construction" and a new Construction
+appears containing the same geometric objects as the sketch.  You can
+then delete objects you don't need, mark some Given objects and apply
+the Construction to other documents.
+
+</ul>
+
+<h3>Recursive Constructions</h3>
+
+The coolest way to use Constructions is recursively.  This allows you
+to construct fractals, as well as just repeat Constructions multiple
+times.  For a simple example, see tractix.sec (use a short segment and
+recursion depth of like 30).  For a more complicated one (with
+multiple recursion branches), see dragon.sec, which constructs a
+fractal.
+
+<p>
+
+A Construction becomes recursive when you insert loop "objects" into
+it (they aren't really geometric objects, they just pretend to be).
+To insert a loop, select some objects that can match to the Givens
+and go to "Construction/Recurse".  A loop tells KSEG that after all
+other steps in the Construction have been performed, it should repeat
+the Construction recursively, starting with the objects selected at
+the time the loop is specified.  Of course, KSEG doesn't do this
+forever--when you play back a recursive Construction, KSEG asks you
+for the maximum recursion depth.  Be careful--if you have more than
+one loop in the Construction, the number of objects KSEG has to
+construct is exponential in the maximum recursion depth--in other
+words, keep the recursion depth small.  On my old 350mhz system, KSEG
+can handle about 100,000 objects comfortably--this should be enough
+for anything I can think of.
+
+<p>
+
+Remember that as soon as you insert a loop into a Construction, the
+set of Given objects becomes fixed (you will not be able to mark new
+objects as Given, make currently Given objects normal, deleting a
+Given object deletes all the loops, etc.)  This is to prevent the
+loops from becoming invalid.  To change the set of Given objects,
+delete the loops first.
+
+<p>
+
+You can also make the objects in a recursive Construction "Final" or
+"Initial".  Final objects are straightforward: they are only
+constructed at the maximum recursion depth.  This is useful for many
+things, particularly for fractals that only show the highest level
+of detail--see dragon.sec or sierp2.sec.  Children of Final objects
+can also be constructed only at the maximum recursion depth--they are
+marked "(final)" in the Construction list.
+
+<p>
+
+Initial objects are complicated--it's an "advanced" feature.  It's not
+all that powerful, but it has enough weird effects for it to be really
+hard to figure out sometimes.  An Initial object is only constructed
+once (at the top level recursion depth).  Any object all of whose
+parents are Initial (or implicitly Initial) becomes implicitly Initial
+and is marked with "(initial)" in the Construction list.  For a good
+illustration, see sierp.sec: first play it back normally (notice that
+the largest sides of the triangle are constructed only once) and then
+construct a point P on the Initial segment s_9 and construct line
+segment PC (from P to the Given point C).  Play it back again and
+observe the effect.  Initial objects can be used to conserve memory
+(as in koch.sec) or for their effects.
+
+<p>
+
+In recursive Constructions, when dealing with Final/Given/Initial
+objects, KSEG will do its best to prevent invalid or meaningless
+configurations, such as Initial or Given objects having Final objects
+for parents.  It may not be obvious what it's doing, but it is usually
+correct (if you find a case where it isn't, email me please, with the
+valid Construction and a description of the action that makes it
+invalid).
+
+<br><br><a href="#Top">Back to top</a>      
+      
+<p align = "right">
+Ilya Baran<br>
+ibaran@mit.edu<br>
+http://www.mit.edu/~ibaran/
+</p>
+
+</body>
+</html>
+  

@@ -1,0 +1,771 @@
+<html><head><title>KSEG Help</title></head>
+<body>
+<h1>KSEG Help</h1>
+
+<a name="Top"></a>
+<h2>Inhoudsopgave:</h2>
+      
+<a href="#Walk">Aan de slag</a><br>
+<a href="#Intro">Introductie</a><br>
+<a href="#Selecting">Het selecteren</a><br>
+<a href="#Constructing">Construeren</a><br>
+<a href="#Transforms">Transformeren</a><br>
+<a href="#Measuring">Meten en berekenen</a><br>
+<a href="#Editing">Bewerken en reconstrueren</a><br>
+<a href="#Views">Weergaven en het exporteren van afbeeldingen</a><br>
+<a href="#Constructions">Macro's</a><br>
+
+<a name="Walk"></a>
+<h2>Aan de slag</h2>
+
+Nadat je de volgende stappen hebt gevolgd, beheers je waarschijnlijk de basisvaardigheden
+om KSEG te kunnen gebruiken. Je kan daarna zelfstandig verder spelen met het programma.
+Om meer geavanceerde mogelijkheden te ontdekken moet je eigenlijk de hele documentatie doorlezen.
+<ol>
+
+<li> Start KSEG. Je ziet een wit vlak omringd door werkbalken, scrollbalken, menu en een 
+statusbalk.
+
+</li><li> Om een punt A te construeren, druk met de rechtermuisknop op het witte tekenvlak waar
+je het punt wil hebben.
+
+</li><li> Houd SHIFT ingedrukt terwijl je ergens anders een nieuw punt B construeert. Punt A is dan
+nog steeds geselecteerd omdat je SHIFT ingedrukt hield. Punt A en B zijn dus nu beide geselecteerd.
+
+</li><li> Kies "Nieuw/Cirkel door middelpunt en punt" uit het menu. Dit construeert een cirkel
+met middelpunt A en gaat door punt B. De cirkel wordt automatisch geselecteerd, punt A en B
+worden echter gedeselecteerd.
+
+</li><li> Selecteer punt B door er met de linkermuisknop op te klikken (dit zal de cirkel deselecteren).
+Houd daarna SHIFT ingedrukt om daarna ook punt A te selecteren.
+
+</li><li> Kies weer "Nieuw/Cirkel door middelpunt en punt" uit het menu. Nu zal er een cirkel
+geconstrueerd worden met middelpunt B (je selecteerde die tenslotte het eerste) en door A gaat.
+
+</li><li> Houd SHIFT ingedrukt en selecteer de eerste cirkel door er op te klikken. Beide cirkels
+zijn nu geselecteerd.
+
+</li><li> Kies "Nieuw/Snijpunten" uit het menu. KSEG construeert nu twee punten waar de cirkels elkaar
+snijden. De punten zijn allebei geselecteerd.
+
+</li><li> Kies daarna uit het menu "Nieuw/Lijn" zodat er een middelloodlijn is geconstrueerd van A en B.
+
+</li><li> Als je nu punt A versleept met de linkermuisknop, krijg je al een aardig idee van wat KSEG
+eigenlijk doet.
+</li></ol>
+
+Natuurlijk is dit niet de beste manier om een middelloodlijn te construeren met KSEG,
+maar het is puur om te laten zien hoe het construeren en selecteren van objecten
+te werk gaat.
+
+<br><br><a href="#Top">Terug naar boven</a>
+
+<a name="Intro"></a>
+<h2>Introductie</h2>
+
+KSEG is een hulpmiddel dat ontworpen is om gemakkelijk bepaalde geometrische
+eigenschappen te bekijken en te verkennen. Bijna iedere keer wanneer ik
+er voor ga zitten om met KSEG te spelen, ontdek ik een nieuwe eigenschap die ik
+nog niet eerder wist.
+
+<p>
+
+Met KSEG is het mogelijk om een dynamische constructie te maken door een aantal
+punten te maken om ze vervolgens te gebruiken voor de constructie van andere
+objecten, zoals lijnen en cirkels. Je kan vervolgens de punten verslepen om te
+zien hoe de totale constructie daarop reageert. KSEG biedt natuurlijk veel meer,
+maar dit is het belangrijkste idee achter het programma.<br>
+Ik gebruik het ook om geometrische diagrammen te maken in hoge kwaliteit om het in LaTeX
+te gebruiken. Ik denk dat het de makkelijkste manier is om het KSEG af te laten drukken
+in een .ps-bestand, het om te zetten in EPS, bijwerken in XFIG en vervolgens exporteren
+naar het PS/LaTeX formaat.
+
+</p><h3>Geometrische objecten</h3>
+
+Punten, lijnen, metingen, berekeningen, loci, enz. zijn allemaal "geometrische
+objecten". Een geometrisch object kan afhankelijk zijn van andere objecten.
+Als je bijvoorbeeld twee punten construeert om ze vervolgens met een lijn te verbinden,
+dan is de lijn afhankelijk van de punten. Wanneer je een punt versleept, zullen alle objecten
+die van dat punt afhangen opnieuw berekend en getekend worden. Wanneer je een afhankelijk
+object versleept, zal een geavanceerd algoritme bepalen welke objecten ook verplaatst moeten
+worden om zo de gewenste beweging te krijgen.
+
+<p>
+
+Een geometrisch object hoeft niet noodzakelijk te "bestaan", in geometrisch perspectief gezien.
+Zoals je misschien in de introductie zag, hoeven de snijpunten van twee cirkels niet altijd te
+bestaan, namelijk in het geval dat de cirkels elkaar niet snijden. Wanneer je ze weer dichter
+op elkaar schuift zul je de punten ook weer in beeld zien. Objecten die van zulk type objecten
+afhangen zullen dan ook verdwijnen (met uitzondering van een locus, voor meer informatie hierover
+staat verder in dit document). Dus maak je niet druk als ineens een groot deel van je
+constructie verdwijnt na het verplaatsen van een object, want als je het weer terugsleept zal alles
+terug in beeld komen.
+
+<br><br><a href="#Top">Terug naar boven</a>
+
+<a name="Selecting"></a>
+</p><h2>Het selecteren</h2>
+
+Om nieuwe objecten te kunnen construeren, moet je normaal gesproken enkele bestaande
+objecten selecteren. Hiervoor gelden de volgende regels:
+
+<ul>
+<li> Klik met de linker muisknop op een lege plek om alle huidig geselecteerde objecten
+te deselecteren.
+
+</li><li> Klikken met de linker muisknop op een ongeselecteerd object zal dat object
+selecteren en al het andere deselecteren.
+
+</li><li>Het slepen van de muis vanuit een lege plek vormt een vierhoek. Alle objecten in
+dat vierhoek zullen dan geselecteerd worden en de rest wordt gedeselecteerd.
+
+</li><li>Het indrukken van SHIFT en klikken met de linker muisknop op een object zal het object
+selecteren indien het ongeselecteerd is en omgekeerd. Andere geselecteerde objecten
+behouden hun selectie.
+
+</li><li>Bij het slepen met SHIFT ingedrukt zullen de reeds geselecteerde objecten geselecteerd
+blijven.
+
+</li><li>In een macro is het ook mogelijk om objecten te selecteren met behulp van de lijst die je
+rechts in beeld ziet. Hierbij gelden dezelfde regels als in het gewone tekenveld.
+
+</li></ul>
+
+Wanneer je op een plek klikt waar zich meer dan 1 object bevindt, wordt het
+allemaal wat moeilijker (voor KSEG in ieder geval, want voor de gebruiker zou het duidelijk
+moeten zijn). Objecten hebben een selectievolgorde: eerst de punten, dan de bogen, tekst
+en loci en tenslotte de gevulde objecten.
+Als er objecten zijn met een hogere rang aangewezen worden, worden objecten met
+een lagere rang genegeerd. Als er objecten van dezelfde rang op elkaar liggen,
+kan je door er meerdere malen op te klikken de selectiemogelijkheden bekijken.
+De statusbalk is een goede plaats om te zien wat er gebeurt als je een object zal aanklikken.
+
+<h3>Selectiegroepen</h3>
+
+Een selectiegroep is een krachtigere manier om meerdere objecten te selecteren.
+Je vertelt KSEG dat je een aantal objecten wil groeperen om vervolgens de selectie met die
+objecten eenvoudiger te maken.
+Wanneer je naar "Bewerken/Selecteer groepen" gaat, krijg je het selectievenster te zien (gekoppeld
+aan een document). Hier zie je een lijst met alle selectiegroepen die je op
+het moment voor dit document beschikbaar hebt, met daarbij de ingebouwde selectiegroepen.
+De laatste zijn gemarkeerd met een sterretje, er is voor ieder type object een groep
+dat alle objecten van dat type selecteert.
+
+<p>
+
+Wanneer je een selectiegroep selecteert (of meerdere) in de lijst, en vervolgens
+klikt op "Selecteer", zullen alle objecten van dat type geselecteerd worden. De
+rest wordt gedeselecteerd. "Deselecteer" zal alle objecten van het geselecteerde
+type in de lijst deselecteren. Indien je meer dan &#233;&#233;n object geselecteerd
+hebt zal de "Nieuwe groep"-knop geactiveerd zijn. Als je dit selecteert zal er een
+nieuwe selectiegroep aangemaakt worden van de geselecteerde objecten.<br>
+Ingebouwde selectiegroepen kunnen niet verwijderd worden.
+
+</p><p>
+
+Het vinkje bij "(De)selecteer onzichtbare objecten" heeft alleen invloed op
+de ingebouwde selectiegroepen. Wanneer het vakje leeg is (standaard), zal de
+selectiegroep "Alle punten" alleen de zichtbare punten selecteren. Wanneer
+dat vakje aangevinkt is, zal het ook de verborgen punten selecteren.
+Niet-ingebouwde selectiegroepen (de)selecteren alle objecten die ze bevatten,
+inclusief de verborgen objecten.
+
+</p><p>
+
+Een (niet-ingebouwde) groep kan leeg raken als alle objecten verwijderd worden
+(bijv. Ongedaan maken"). Deze groepen worden gemarkeerd met een minteken, maar
+worden niet automatisch verwijderd (omdat Ongedaan maken/Opnieuw de verwijderde
+objecten weer nieuw leven kunnen inblazen). Maar houd er rekening mee dat lege groepen niet worden bewaard
+in het document.
+
+<br><br><a href="#Top">Terug naar boven</a>
+
+<a name="Constructing"></a>
+</p><h2>Construeren</h2>
+
+Wanneer er nieuwe objecten worden geconstrueerd, zijn ze meteen geselecteerd en alle
+andere objecten worden gedeselecteerd. Uitgezonderd is dat een punt werd geconstrueerd
+met de SHIFT-knop ingedrukt.
+
+<h3>Punten</h3>
+
+<ul>
+
+<li> Om een vrijstaand punt te construeren, klik met de rechtermuisknop op
+een lege plek in het tekenveld.
+
+</li><li> Om een punt te construeren op een lijn, lijnstuk, een halve lijn, cirkel, boog, enz.,
+druk met de rechtermuisknop op dat object waar je het punt wil hebben.
+
+</li><li> Om een punt te tekenen op een snijpunt, klik met de rechtermuisknop op
+dat snijpunt. Een andere manier is dat je de twee snijdende objecten selecteert
+en vervolgens "Nieuw/Snijpunt" selecteert. Wanneer er twee snijpunten nodig
+zijn (bijv. een cirkel en een lijn), zal de menu-optie alle twee de snijpunten
+construeren, terwijl het rechtsklikken maar &#233;&#233;n snijpunt construeert.
+
+</li><li> Om het middenpunt te construeren van &#233;&#233;n of meerdere lijnstukken, selecteer
+deze en kies in het menu voor "Nieuw/Midden(s)".
+
+</li></ul>
+
+Daarnaast zijn er nog twee andere soorten punten: eindpunten en middelpunten.
+Deze zijn vooral bruikbaar bij het maken van Macro's. Als je bijvoorbeeld
+een lijnstuk hebt maar geen eindpunten of een cirkel zonder middelpunt.
+Om een eindpunt(en) te construeren van een lijnstuk, halve lijn of een boog,
+selecteer "Nieuw/Eindpunten". Om een middelpunt te construeren van een cirkel of boog,
+kies dan "Nieuw/Middelpunt".
+
+<h3>Lijnstukken</h3>
+
+Er is maar &#233;&#233;n manier om een lijnstuk te maken: selecteer twee of meer
+punten en kies "Nieuw/Lijnstuk(ken)". Wanneer er twee punten geselecteerd
+zijn zal er maar &#233;&#233;n lijnstuk geconstrueerd worden. Wanneer <i>n</i>
+ &gt; 2 punten geselecteerd zijn, dan zullen er <i>n</i> lijnstukken
+ geconstrueerd worden.
+
+<h3>Halve lijnen</h3>
+
+<ul><li> Om een halve lijn te construeren van een punt naar een ander, selecteer
+je de twee punten (in de juiste volgorde) en ga dan naar "Nieuw/Halve lijn".
+Selecteer meer dan twee punten om meerdere halve lijnen te construeren.
+
+</li><li> Om een bisectrice te construeren van een bepaalde hoek, selecteer
+drie punten die de hoek defini&#235;ren (de hoek zelf als tweede selecteren) en
+ga naar "Nieuw/Bisectrice". The bisectice deelt altijd de scherpe zijde van een
+hoek.
+
+</li></ul>
+
+<h3>Lijnen</h3>
+<ul>
+
+<li> Om een lijn te construeren, selecteer twee of meerdere punten en ga naar
+"Nieuw/Lijn(en)".
+
+</li><li> Om een evenwijdige lijn te tekenen, selecteer de lijn en het punt waar die doorheen
+moet. Het is ook mogelijk om hem evenwijdig te laten lopen aan een lijnstuk of een halve lijn.
+Wanneer deze geselecteerd zijn ga je naar "Nieuw/Evenwijdige lijn". Je kan meerdere punten
+selecteren of meerdere rechte objecten (maar niet allebei).
+
+</li><li> Om een loodlijn te construeren, selecteer zoals beschreven bij de evenwijdige lijn,
+alleen kies je dan "Nieuw/Loodlijn(en)".
+
+</li></ul>
+
+<h3>Cirkels</h3>
+<ul>
+
+<li>Om een cirkel te construeren met een gegeven middelpunt en een punt, selecteer
+je eerst het midden en dan het punt waar de cirkel doorheen moet gaan en ga naar
+"Nieuw/Cirkel met middelpunt en door punt".
+
+</li><li>Om een cirkel te construeren met een gegeven middelpunt en de straal, selecteer
+het midden en dan het lijnstuk die de lengte van de straal representateert en ga
+vervolgens naar "Nieuw/Cirkel met middelpunt en straal".
+
+</li></ul>
+
+<h3>Bogen</h3>
+
+De enige manier om een boog te construeren is het selecteren van drie punten
+en vervolgens naar "Nieuw/Boog door drie punten" te gaan.
+
+<h3>Loci</h3>
+
+Een locus is een geometrisch object dat de baan van een ander geometrisch object representateert
+(het gereden object) wanneer een ander punt op een lijn of boog beweegt (de bestuurder).
+Om een locus te construeren, selecteer je het punt dat op een lijn of boog ligt en dan
+het afhankelijke punt waarvan je de baan wil tekenen. Het gereden object kan een punt,
+een lijn of boog of zelfs een andere locus zijn (maar dit maakt het hele proces erg traag).
+Een locus kan bestaan als het gereden object niet bestaat, omdat het object k&#224;n bestaan
+wanneer de bestuurder zich in een andere positie bevindt.
+
+<p>
+
+Op deze manier kan je bijvoorbeeld een parabool construeren:
+Je hebt een punt V op een lijn l dat zich vrij kan bewegen op deze lijn (de bestuurder).
+Daarnaast is er nog een vrij punt F dat het brandpunt is van deze parabool.
+Construeer lijn FV en teken de middelloodlijn van dat lijnstuk. Construeer ook
+een loodlijn door de lijn l en punt V. Het snijpunt P van de zojuist geconstrueerde
+loodlijnen is het gereden object. Wanneer je V over de lijn sleept, zie je dat V
+de baan van een parabool aflegt. Om deze parabool te tekenen, selecteer je eerst V en dan P
+en ga je naar "Nieuw/Locus".
+
+</p><p>
+
+Omdat een locus een oneindige reeks van geometrische objecten is, kan KSEG
+het niet volledig nauwkeurig berekenen en tekenen. Daarom benadert KSEG de
+locus. Door te dubbelklikken op de locus kan je de nauwkeurigheid veranderen door de waarde
+te verhogen of door "Bewerken/Verander aantal samples".
+Het is een speciaal geval als het gereden object een punt is. In dit geval zal KSEG
+automatisch de punten verbinden en een alternatief algoritme inzetten die tracht
+de locus vloeiend en nauwkeurig te tekenen. Het aantal samples hoeft dan niet altijd
+te gelden, het algoritme kan zelf bepalen wanneer een locus goed genoeg is en stoppen.
+Dit algoritme geeft veel beter uitziende loci vergeleken met andere programma's die ongeveer
+hetzelfde doen als KSEG.
+
+</p><h3>Gevulde objecten</h3>
+<ul>
+
+<li>Om een polygoon te maken, selecteer drie of meerdere punten en kies
+"Nieuw/Polygoon".
+
+</li><li>Om een booggebied te maken, selecteer een boog en kies "Nieuw/Booggebied".
+Om een boogstuk te maken, selecteer een boog en kies "Nieuw/Boogstuk".
+
+</li><li>Om een binnenste van een cirkel te maken, selecteer een cirkel en kies
+"Nieuw/Cirkelvulling".
+
+</li></ul>
+
+<a href="#Top">Terug naar boven</a>
+
+<a name="Transforms"></a>
+<h2>Transformeren</h2>
+
+KSEG maakt het mogelijk om bepaalde translaties uit te voeren op geometrische
+objecten. De algemene wijze van handeling is het kiezen van enkele objecten
+en vervolgens een translatie kiezen uit het Translatie-menu. Dan kies je
+een ander object en voert de translatie uit, ook d.m.v. het Translatie-menu.
+Nieuwe objecten worden aangemaakt volgens de translatie. Hier zijn de details:
+
+<p>
+
+Het kiezen:
+
+</p><ul>
+
+<li> Om een vector te maken, kies twee punten en ga naar "Translatie/Vector maken".
+De vector zal lopen van het eerste geselecteerde punt naar het tweede.
+
+</li><li> Om een spiegel te maken, selecteer een lijn(stuk) of een halve lijn en ga naar
+"Translatie/Spiegel maken".
+
+</li><li> Om een middelpunt te maken, selecteer een punt en ga naar "Translatie/Middelpunt maken".
+
+</li><li> Om een hoek te defini&#235;ren, selecteer drie punten of &#233;&#233;n hoekmeting
+en ga naar "Translatie/Hoek defini&#235;ren".
+
+</li><li> Om een verhouding te defini&#235;ren, selecteer twee lijnstukken of &#233;&#233;n
+meting en ga naar "Transleer/Verhouding defini&#235;ren".
+
+</li></ul>
+
+De objecten worden gemarkeerd met een geelgekleurd object om te laten zien
+wat een bepaalde translatie uit zal voeren. Als je deze markeringen weg wil hebben
+(bijv. voor screenshots) ga naar "Translatie/Wis aangemaakte hulpstukken". Deze
+objecten worden niet afgedrukt.
+
+<ul>
+
+<li> Om objecten te transleren, heb je een vector nodig.
+</li><li> Om objecten te reflecteren, heb je een spiegel nodig.
+</li><li> Om objecten te schalen, heb je een middelpunt en een verhouding nodig.
+</li><li> Om objecten te roteren, heb je een middelpunt en een hoek nodig.
+
+</li></ul>
+
+Omdat je bij het defini&#235;ren van een hoek of verhouding een meting of berekening
+aan kan klikken, is het mogelijk om constructies te maken die onmogelijk zijn
+met een passer of liniaal. Je moet hierbij wat voorzichtig zijn, maar het kan
+ook leuk zijn. Het coord.seg-bestand laat bijvoorbeeld zien hoe je met KSEG
+parametrische krommen kan maken als loci.
+
+<br><br><a href="#Top">Terug naar boven</a>
+
+<a name="Measuring"></a>
+<h2>Meten en berekenen</h2>
+
+Je kan bepaalde geometrische grootheden meten met KSEG en er berekeningen
+mee uitvoeren. De afstands-eenheden zijn in pixels en de hoeken gegeven
+in graden. Je kan het volgende meten:
+
+<ul>
+
+<li> Om de afstand te meten tussen een punt en een lijn(stuk) of een ander punt,
+selecteer de twee objecten en ga naar "Meting/Afstand".
+
+</li><li> Om de lengte van een lijnstuk te meten, selecteer het en kies
+"Meting/Lengte".
+
+</li><li> Om de omtrek te meten van een cirkel, selecteer de cirkel en ga naar
+"Meting/Omtrek".
+
+</li><li> Om de booglengte van een boog te meten, selecteer de boog en ga naar
+"Meting/Booglengte".
+
+</li><li> Om de straal van een boog of cirkel te meten, selecteer het object
+en ga naar "Meting/Straal".
+
+</li><li> Om een hoek te meten gedefinieerd door drie punten, selecteer de
+drie punten en ga naar "Meting/Hoek".
+
+</li><li> Om de verhouding te meten tussen twee lengstes van twee lijnstukken,
+selecteer ze en ga naar "Meting/Verhouding".
+
+</li><li> Om de helling te meten van een lijn(stuk) of halve lijn, selecteer
+het object en ga naar "Meting/Helling".
+
+</li><li> Om de oppervlakte te berekenen van een gevuld object, selecteer
+de polygoon, boogstuk, booggebied of cirkelvulling en ga naar
+"Meting/Oppervlakte". Wanneer de polygoon niet goed is (de zijden vormen
+geen gesloten vorm), zal het gemeten gebied niet gelijk zijn aan het
+gebied dat je op het scherm ziet.
+
+</li></ul>
+
+Het is mogelijk om meerdere metingen te combineren in een berekening. Om een berekening
+te maken, ga naar "Meting/Bereken..." of dubbelklik op een bestaande meting.
+Wanneer je de menu-optie kiest, is de berekening leeg. Wanneer je dubbelklikt, zal de
+betreffende meting automatisch in de berekening opgenomen worden. In beide gevallen
+zal het rekenscherm in beeld komen waar je een formule kan opstellen. Wanneer
+je dubbelklikt op een berekening, is het mogelijk om die te bewerken.
+
+<p>
+
+De functie "Ongedaan maken" in de formule editor staat compleet los
+van de "Ongedaan maken"-functie in de rest van KSEG. Wanneer het rekenvenster
+gesloten wordt zijn alle stappen in het rekenvenster verloren gegaan.
+
+</p><p>Binnenin de berekening kan je nummers en functies invoeren. De werkbalk
+biedt verschillende bewerkingen. De volgende functies kunnen ook
+handmatig getypt worden:
+
+</p><p>sqrt, log, exp, floor, ceil, fabs, sin, cos, tan, sinh, cosh, tanh,
+asin, acos, atan, asinh, acosh, atanh
+
+</p><p>
+
+Let er op dat de bovenstaande functies werken in radialen, in tegenstelling
+tot de metingen en translaties die in graden weergeven worden. Ik weet het,
+het is niet geweldig, maar de enige manier om dit te verhelpen is om ondersteuning
+toe te voegen van eenheden.
+
+</p><p>
+
+Tenslotte kan je ook metingen aanklikken in het KSEG-venster wanneer het rekenvenster
+nog open is. Je kan niet op een berekening klikken die je op dat moment al aan
+het berekenen bent.
+
+</p><p>
+
+Ik moet zeggen dat dit het gedeelte is van KSEG waar ik het minst tevreden
+over ben. Er is geen ondersteuning voor fatsoenlijke eenheden en de berekeningen
+zijn nogal onhandig. Daarnaast is de formule-code 'lelijk' en langzaam (en bevat
+nog bugs ook).
+
+<br><br><a href="#Top">Terug naar boven</a>
+
+<a name="Editing"></a>
+</p><h2>Bewerken en reconstrueren</h2>
+
+<h3>Opmaak van objecten en labels</h3>
+
+Je kan opgeven hoe je een bepaald object wil laten tekenen door het te selecteren
+om vervolgens naar "Bewerken/Kleur", "Bewerken/Lijntype", "Bewerken/Puntdikte" of
+"Bewerken/Lettertype" te selecteren. Wanneer je naar een van deze menu's
+gaat zonder een object te selecteren, kan je de standaardinstellingen van
+de opmaak veranderen. Deze eigenschappen vind je niet in de werkbalken, maar je kan
+ze toch altijd in het scherm hebben door bij het betreffende menu op de gestippelde
+streep te klikken. Het menu wordt losgekoppeld en is nu altijd in beeld.
+
+<p>
+
+Punten en verscheidene lijnen hebben labels die weergeven kunnen worden (ze
+zijn standaard verborgen). Je kan ze tevoorschijn halen door "Bewerken/Laat labels zien".
+Ze kunnen bewerkt worden door op zo'n label te klikken en dan naar
+"Bewerken/Bewerk label" of door op het betreffende label te dubbelklikken.
+Het is ook mogelijk om labels sub- en superscripten te geven als je dat weet uit te
+vinden :-) Je kan de labels verslepen ten opzichte van het object waar ze naar
+verwijzen.
+
+</p><h3>Reconstrueren</h3> 
+
+Niets is zo frustrerend wanneer je een half uur hebt besteed aan een geavanceerde
+constructie en er dan pas achter komen dat je in het begin een klein foutje
+hebt gemaakt. KSEG's reconstructie-mechanisme maakt het mogelijk om dit soort
+dingen makkelijk te laten repareren.
+
+Om een punt te reconstrueren, houd CTRL ingedrukt, en sleep met de linkermuisknop
+het punt naar een ander object waar je het eigenlijk wilde hebben.
+
+<p>
+
+Voorbeeld: Stel je wil bij een driehoek ABC een punt binnen de driehoek vinden
+waar een hele lange constructie voor nodig is. Maar nu wil je ook onderzoeken hoe
+zo'n punt werkt als de driehoek gelijkbenig is (AB=BC). Je kan dit onderzoeken zonder
+de hele constructie opnieuw uit te voeren. Teken twee cirkels met middelpunt A door B en
+met middelpunt B door A. Vervolgens houdt je CTRL ingedrukt en sleep C naar het snijpunt
+van de cirkels en laat de muisknop los. Nu ligt C op het snijpunt.
+
+</p><p>
+
+Dus:
+
+</p><ul>
+<li>Het indrukken van CTRL tijdens het slepen maakt het punt vrij.
+
+</li><li>Het punt op een lege plek plaatsen laat het punt vrij.
+
+</li><li>Het punt op een lijn(stuk) of boog slepen zorgt er voor dat
+het punt daadwerkelijk daarop ligt.
+
+</li><li>Het punt naar een ander punt slepen zal de twee punten samenvoegen.
+Alle afhankelijke objecten worden omgezet naar het punt waarnaar je gesleept hebt,
+het andere punt wordt (intern) vernietigd.
+
+</li></ul>
+
+Dit is natuurlijk allemaal ongedaan te maken door CTRL+Z te drukken of "Bewerken/Ongedaan maken".
+De statusbalk onderaan het scherm doet zijn best om je zo goed mogelijk
+te informeren wat er zal gebeuren als je een punt ergens naar toe
+zal slepen.
+
+<p>
+
+Soms laat KSEG niet elke reconstructie toe. Je kan bijvoorbeeld een punt
+niet verslepen op objecten die afhankelijk van dat punt zijn. Ook kan je geen
+punt slepen op een locus waarvan dat punt de 'bestuurder' is. Daarnaast
+zijn er nog complexe regels bij het maken van macro's, om te voorkomen dat
+je macro onmogelijk wordt. Je kan bijvoorbeeld een gegeven punt niet naar
+een definitief punt slepen. Indien je het toch voor elkaar krijgt om een onmogelijke
+constructie te maken, laat het dan weten.
+
+<br><br><a href="#Top">Terug naar boven</a>
+
+<a name="Views"></a>
+</p><h2>Weergaven en het exporteren van afbeeldingen</h2>
+
+<h3>Weergaven schuiven en zoomen</h3>
+
+Om een beter beeld te krijgen van je constructie, maakt KSEG het mogelijk
+om in- en uit te zoomen en door de constructie te schuiven. Om te zoomen,
+ga naar "Beeld/Zoomen". The muiscursor verandert in een vergrootglas (indien je
+je op het tekengebied bevindt). Houd de linkermuisknop ingedrukt en sleep
+naar boven of beneden om resp. in of uit te zoomen. Je zoomt in op het punt
+waar je de muisknop hebt ingedrukt. Wanneer je loslaat, verandert de cursor
+weer in een normale pijl. De huidige vergroting wordt altijd weergeven in
+de statusbalk. Ondanks het feit dat je inzoomt, blijven punten, lijndikte en
+lettertypes op dezelfde grootte. Het schuiven werkt ongeveer hetzelfde als zoomen.
+Houd de muis ingedrukt en sleep het veld. Je kan ook slepen door met de middelste
+muisknop te slepen.
+
+<p>
+
+Als je naar "Beeld/Passend inzoomen" gaat, zal KSEG het beeld automatisch
+zodanig aanpassen, dat de constructie precies in beeld past. Als je
+kiest voor "Beeld/Oorspronkelijk zoomniveau (100%)", zal KSEG de vergroting
+weer 100% worden en wordt het beeld naar de oorsprong verschoven.
+
+</p><h3>Meerdere weergaven</h3>
+
+Om een nieuw beeld te maken van je huidige constructie (in een nieuw venster), ga naar
+"Beeld/Nieuw beeld". Er verschijnt een nieuw venster. Schuiven en zoomen
+zal andere weergaven niet be&#239;nvloeden, maar veranderingen aanbrengen
+in het document of het selecteren van objecten worden in alle weergaven
+doorgevoerd. Als je dus bijvoorbeeld een punt versleept in een beeld,
+zie je het ook in alle andere weergaven verschuiven.
+
+<h3>Exporteren van afbeeldingen</h3>
+
+Je kan de inhoud van de huidige weergave exporteren naar een grafisch
+bestand (in enkele veel gebruikte formaten). Om dit te doen, ga naar
+"Beeld/Exporteren naar afbeelding". Een venster komt tevoorschijn om het
+bestandsformaat te kiezen en eventueel de mogelijkheid om op hogere kwaliteit
+op te slaan. Klik op OK en kies het bestand dat je kan opgeven in het
+dialoogvenster. Het formaat van de afbeelding is hetzelfde als
+het formaat van de huidige weergave.
+
+<p>
+
+Als je voor "Hoge kwaliteit" kiest, zal KSEG meer tijd nemen om te exporteren,
+maar het plaatje wordt ontkarteld en getekend met subpixel-precisie. Deze
+optie is geweldig voor het maken van web-graphics, maar kan verschrikkelijk
+lelijke resultaten opleveren wanneer je het afdrukt. Ook moet deze optie
+niet gebruiken als je het omzet naar een zwart-wit plaate (maar grijswaarden
+kunnen wel). De normale kwaliteits-modues is veiliger omdat het ge&#235;porteerde
+plaatje exact is aan de afbeelding op het scherm.
+
+<br><br><a href="#Top">Terug naar boven</a>
+
+<a name="Constructions"></a>
+</p><h2>Macro's</h2>
+
+Het maken van macro's is misschien wel het meest krachtige onderdeel
+van KSEG. Een macro lijkt op een gewone KSEG-tekening, alleen kan de
+constructie opnieuw afgespeeld worden in een andere tekening of macro.
+Om te beginnen een eenvoudig voorbeeld:
+
+<h3>Stap voor stap voorbeeld: Omgeschreven cirkel</h3>
+
+Dit voorbeeld zal je begeleiden bij het maken van een cirkel door drie gegeven punten.
+Zie ook circumcircle.sec in de examples-map van de KSEG-tarball.
+
+<ol>
+
+<li> Maak een nieuwe macro met "Bestand/Nieuwe macro".
+
+</li><li> Construeer drie punten A, B en C. Deze punten representateren
+de punten die gegeven worden aan de macro.
+
+</li><li> Selecteer A, B en C en markeer ze als gegeven door naar
+"Macro/Markeer als gegeven". Dit laat KSEG weten dat deze punten
+gegeven moeten zijn wanneer de macro later afgespeeld zal worden.
+
+</li><li> Construeer de lijnstukken AB en BC met hun middelpunten D en E.
+
+</li><li> Construeer een loodrechte lijn op AB door D en een loodrechte lijn
+op BC door E. Construeer vervolgens het punt F op het snijpunt van de twee
+loodlijnen.
+
+</li><li> Construeer nu een cirkel met middelpunt F en die door punt A gaat.
+Dit is de cirkel zoals we die willen hebben.
+
+</li><li> Selecteer nu alle objecten behalve de cirkel en de drie gegeven punten A, B en C.
+Ga naar "Bewerken/Verberg objecten" om de geselecteerde objecten te verbergen.
+Dit is omdat we bij het afspelen niet willen hebben dat het scherm vol extra lijnen
+komt te zitten, we willen enkel dat de cirkel in beeld zal komen.
+
+</li><li> Dat was het! Test de macro door een nieuwe tekening te openen ("Bestand/Nieuwe tekening"),
+en door drie vrije punten te tekenen. Ga naar "Speel af/Naamloos" (er van uitgaande dat
+je macro niet opgeslagen is). De omgescreven cirkel zal plotseling op het scherm
+verschijnen!
+
+</li></ol>
+
+<h3>Niet-recursieve macro's</h3>
+
+De grootste kracht van macro's is te danken aan het feit dat ze
+recursief kunnen zijn. Niet-recursieve macro's zijn daarom erg eenvoudig. Het
+voorbeeld hierboven omvat ongeveer alle aspecten van zo'n macro. Hier
+volgen nog enkele details (die ook van toepassing zijn bij recursieve
+macro's):
+
+<ul>
+
+<li> Afhankelijke objecten kunnen ook gemarkeerd worden als gegeven. In dit
+geval is het verstandig om de objecten waarvan ze afhankelijk zijn niet
+te construeren als ze nergens voor nodig zijn. Deze objecten worden weergeven
+met "ongeconstrueerd".
+
+<p> Technisch gesproken wordt de volgende regel gehanteerd. Daarbij moet je de
+afhankelijke en onafhankelijke objecten eigenlijk in een stamboom-structuur kunnen zien. Afhankelijke
+objecten (kinderen) staan onder het onafhankelijke object (ouder). Wanneer van een
+object A minstens &#233;&#233;n kind-object als gegeven is markeerd, is object
+A niet geconstrueerd.
+
+</p></li><li> Het is niet toegestaan om objecten die een locus defini&#235;ren als
+gegeven te markeren. Je kan bijvoorbeeld 'de bestuurder' niet als gegeven
+markeren omdat KSEG niet kan nagaan dat het punt inderdaad op een lijn
+ligt wanneer het afgespeeld wordt.
+
+</li><li> Het is toegestaan om in een normale tekening een ander object als gegeven
+object te laten dienen dan in de macro is gedefinieerd. Bijvoorbeeld,
+wanneer je in een constructie een lijnstuk S markeert als gegeven en daarop
+een punt construeert, en vervolgens in een ander document een boog, cirkel, halve lijn,
+of lijn selecteert om als gegeven object te dienen, zal het punt daar
+alsnog op geconstrueerd worden. Behalve als er een loodlijn wordt geconstrueerd
+door het punt en de lijn waar het op ligt, dan zal de constructie niet uitgevoerd worden
+als het gaat om een cirkel of boog.
+
+<p> Het algoritme dat de verschillende types vergelijkt (de geselecteerde van de constructie
+en de gegeven uit de macro) is vrij complex. Het eerste wat wordt geprobeerd is de
+selectievolgorde uit de macro overeen te laten komen met de selectievolgorde uit je
+huidige constructie. Als dat niet werkt, gaat KSEG zoeken naar de juiste objecten.
+Het kan gebeuren dat op deze manier bepaalde situaties niet worden toegelaten. Je moet
+dan de objecten in een andere volgorde selecteren, het liefst zo dicht mogelijk aan
+de volgorde die in de macro gehanteerd wordt.
+
+</p></li><li> Vrije punten, metingen en berekeningen die niet als gegeven gemarkeerd zijn
+worden op een willekeurige plek geplaatst. Punten die op een lijn geplaatst worden,
+worden willekeurig geplaatst op die lijn bij het uitvoeren.
+
+</li><li> Het Speel Af-menu is een handige manier om veelgebruikte macro's vlug
+uit te voeren. Selecteer de map waar deze macro's in staan in het dialoogvenster
+dat tevoorschijn komt wanneer je "Speel Af/Speel Af/Wijzig map". De macro's worden
+nu in het menu ingeladen, en worden automatisch geactiveerd wanneer de juiste objecten
+geselecteerd zijn.
+
+</li><li> Kopieer als macro zet een gewone constructie om in een macro-document.
+Dit is handig wanneer je tijdens een constructie er achter komt dat je een
+bepaalde handeling vaker wil uitvoeren. Je kan dan naar "Bestand/Kopieer als macro"
+gaan. Verwijder de onnodige objecten en markeer de nodige objecten als gegeven.
+
+</li></ul>
+
+<h3>Recursieve macro's</h3>
+
+De leukste manier om macro's te gebruiken is om ze automatisch te laten herhalen.
+Dit maakt het mogelijk om fractals te maken, maar ook om bepaalde macro's
+meerdere keren uit te voeren. Voor een eenvoudig voorbeeld verwijs ik
+naar tractix.sec, voor een meer geavanceerde macro verwijs ik naar
+dragon.sec (maakt een drakenfractal).
+
+<p>
+
+Een macro kan herhaald worden door er een lus van 'objecten' in te stoppen (het
+zijn in werkelijkheid geen geometrische objecten, maar doen alsof).
+Om een lus te maken, selecteer enkele objecten die overeenkomen met
+de gegeven objecten en ga naar "Macro/Herhaal". Een lus vertelt KSEG
+dat de constructie herhaald moet worden nadat het is uitgevoerd, waarbij
+de resulterende objecten doorgegeven worden als gegeven objecten. Dit kan
+oneindig doorgaan, maar om dat te voorkomen vraagt KSEG van tevoren hoe
+vaak de herhaling uitgevoerd moet worden. Wees echter voorzichtig, als je meer
+dan &#233;&#233;n lus hebt in een macro, zal het aantal objecten dat KSEG aanmaakt
+exponentieel toenemen. In andere woorden, houd het aantal herhalingen zo laag
+mogelijk. Op mijn oude 350 MHz-systeem, kan KSEG zo'n 100000 objecten normaal
+afhandelen. Dit zal waarschijnlijk genoeg voor iedere toepassing die je maar
+kan bedenken.
+
+</p><p>
+
+Houd er rekening mee dat wanneer je een lus in een macro aanbrengt,
+de gegeven objecten vast staan (je kan geen nieuwe objecten meer markeren
+als gegeven, gegeven objecten kunnen niet meer normale objecten worden en
+het verwijderen van een gegeven object verwijdert de lus). Dit is allemaal
+om te voorkomen dat een lus ongeldig is. Om de gegeven objecten toch te kunnen
+wijzigen moet de lus eerst verwijderd worden.
+
+</p><p>
+
+Je kan objecten in een recursieve macro als "Definitief" of als "Initieel" markeren.
+Definitieve objecten zijn vanzelfsprekend: ze worden alleen geconstrueerd
+op de maximale recursieve diepte. Dit is gemakkelijk voor veel toepassingen,
+vooral voor fractals die alleen het hoogste detailniveau laten zien (zie dragon.sec
+of sierp2.sec). Kind-objecten van definitieve objecten worden ook gemarkeerd
+als "(Definitief)" in de lijst.
+
+</p><p>
+
+Initi&#235;le objecten zijn complex. Het is niet zo verschrikkelijk krachtig,
+maar het geeft genoeg vreemde effecten om het erg moeilijk te maken om
+het te kunnen volgen. Een initieel object wordt maar &#233;&#233;n keer
+geconstrueerd (op het hoogste niveau van de recursie-diepte). Alle kind-objecten
+van een initieel object worden automatisch met "(initieel)" gemarkeerd in de lijst.
+Om een goed beeld van een initieel object te krijgen moet je eens kijken
+naar sierp.sec. Speel het eerst normaal af om te zien wat er gebeurt. Plaats
+daarna in de macro een punt P op lijnstuk s_9 en construeer lijn PC.
+Speel het opnieuw af en aanschouw het effect. Dit type objecten kunnen gebruikt
+worden om geheugen te besparen of vanwege hun vreemde effecten.
+
+</p><p>
+
+KSEG doet zijn best om ongeldige en zinloze constructies met gegeven, definitieve en initi&#235;le objecten
+te voorkomen. Bijvoorbeeld dat een definitief object gegeven of initi&#235;le objecten als kind-object
+heeft. Het is niet altijd even duidelijk wat het allemaal doet, maar meestal zal het wel kloppen.
+Als je een geval tegenkomt dat het niet klopt, stuur me dan een e-mail. Voeg de juiste macro bij en
+geef een omschrijving van de handelingen die de constructie ongeldig maken.
+
+<br><br><a href="#Top">Terug naar boven</a>
+
+</p><p align="left">
+Vertaling door Bram Schoenmakers.
+</p>
+      
+<p align="right">
+Ilya Baran<br>
+ibaran@mit.edu<br>
+http://www.mit.edu/~ibaran/
+</p>
+
+</body></html>
