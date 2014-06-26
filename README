@@ -1,0 +1,131 @@
+KSEG v1.0_pre20140603
+
+  This is Qt4 port of Ilya Baran's KSEG. No new functional have been added yet.
+  It seams that most part is working normaly.
+
+  Newest versions are now available at http://fedorchenko.net/kseg.php
+  
+  Yury P. Fedorchenko 
+  yuryfdr@users.sf.net
+
+
+----Old README:
+KSEG v0.403
+
+Now that I wrote the kseg_help_en.html file, this is kind of outdated.
+Read that file instead--it is much more readable.  For help to
+work, make sure it is in the same directory as the language
+files (*.qm)
+
+
+This document has all the non-intuitive stuff.  It's very dense. 
+
+------------------Stuff in v0.1:--------------------------
+
+RIGHT-CLICK to construct points!  I expect that will be the most
+common problem--in order to construct anything you must first have
+points.
+
+Select objects (by clicking or dragging--multiple objects by holding
+shift) and make new objects.
+
+To construct a locus, select a point on a path (circle, line, arc,
+segment, or ray) and an object that depends on that point.  The locus
+that the object traces will be constructed if you hit ALT+O, which
+is a shortcut for New/Locus
+
+Hold CTRL and drag a point to reconstrain it.  You can drag a point
+off a line, or circle, for example, and move it onto an intersection.
+Experiment with this--it is very useful.
+
+----------------Stuff in v0.2:------------------------------
+
+To create a calculation involving measured values, double click on one
+of the measurements.  Then enter the formula.  You can use functions,
+such as sin, cos, floor, exp, etc. in it.  To insert other
+measurements or calculations, click on them in the sketch.
+
+Constructions are sort of like macros: you first define them, and then
+play them back in a sketch or in another construction.  A construction
+can have different types of objects.  Most objects are normal
+geometric objects, the same as you would have in a sketch.  You can
+mark some objects given, (meaning the construction will be performed
+on them) and then in order to play the construction, you will have to
+select objects of the same type as the givens.  For example, if you
+want to make a construction that creates a circumcircle given three
+points, you would draw three points, construct their circumcircle, and
+then mark the three points as given (using the construction menu).  To
+play the construction in a sketch, you would just select three points,
+select the construction from the play menu, and a circumcircle will
+magically appear.  See the circumcircle.sec example file for this.
+
+A lot of the power of constructions comes from their ability to be
+recursive.  To recurse in a construction, select a set of objects of
+types corresponding to the givens, and choose Recurse from the
+Construction menu.  A loop will be created.  Notice that once you have
+loops in your construction, the set of givens is fixed.  To change the
+givens, you must first delete the loops (they would become invalid
+anyway if the givens were changed).  When you play back a construction
+with loops, a dialog will appear asking for the desired recursion
+depth.  Be careful: the size of a construction may be exponential with
+depth and KSEG will easily let you exhaust your memory--make sure you
+don't construct too many objects.
+
+Another type of construction objects are final.  They are only
+constructed at the greatest recursion depth.  They can be well used
+for cosmetic purposes.
+
+The "initial" type of objects is the most difficult to understand and
+use.  Even I often have trouble telling what they may do.  If you are
+not a super-power KSEG user, skip the rest of this paragraph and don't
+use them.  The idea behind initial objects is to let you save memory
+by constructing them only once and keeping them the same across the
+entire recursion tree.  So if you need the same independent
+subconstruction at all depths, you can mark it as initial.  You can
+also confuse the hell out of yourself.
+
+Often, when dealing with constructions, you will not be allowed to do
+something which you think you should be able to do.  While there are
+certainly bugs, most of the time you really shouldn't be able to do
+it.  Just think about it for a while and it should become clear why.
+
+All of this is way easier done than said.
+
+-------------------Stuff in v0.3-----------------------------------
+Quick play is a way of having quick access to a bunch of
+constructions in a directory through the menu without loading
+each one--it's useful if you've created a library of constructions
+and want to use them without loading them.  Just choose the
+directory from the menu (Play/Quick Play) and when your selected
+objects match the givens for a construction, the construction
+becomes enabled in the menu.
+
+*IMPORTANT*:
+In order to allow this (quickly scanning tons of constructions
+without wasting time or memory), I've had to change the file
+format for constructions.  So constructions written by a version
+of KSEG before 0.3 will not be available from the menu.  Just
+load them and save them again and they'll be saved in the new
+format.
+
+I have now allowed the marking of a measurement or calculation to
+be used for scaling or rotation (this means you can do things
+like scale by the value of an angle and other horrible things).
+While this violates the Euclidean nature of KSEG by allowing you
+to create constructions you wouldn't be able to with just a
+compass and a straightedge, it provides extra flexibility and
+even a clumsy way for some analytic geometry.  But be careful
+with this in the classroom, so that students don't trisect angles
+or square circles by mistake.
+
+
+Play around with KSEG to find out more featrues.  Have fun with it
+and be sure to tell me if you like it or have success using it in
+the classroom!
+
+	-Ilya Baran
+	ibaran@mit.edu
+	http://www.mit.edu/~ibaran/
+
+
+
