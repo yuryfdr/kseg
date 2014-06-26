@@ -1,0 +1,6 @@
+- 2014-06-26
+  - rewrite svg export
+  - remove more Q3support classes
+  - fix charset in russian help
+- 2014-06-03
+  - initial port to qt4
