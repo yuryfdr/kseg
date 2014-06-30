@@ -413,7 +413,7 @@ void KFormula::redraw(QPainter &p)
 
 //-------------------------------SET BOXES-------------------------
 //duh
-void KFormula::setBoxes(QVector<box *> newBoxes)
+/*void KFormula::setBoxes(QVector<box *> newBoxes)
 {
   while(boxes.size()) {
     delete boxes[boxes.size() - 1];
@@ -421,14 +421,14 @@ void KFormula::setBoxes(QVector<box *> newBoxes)
   }
   boxes = newBoxes;//.copy();
 }
-
+*/
 //--------------------------------GET BOXES------------------------
 //an even bigger DUH than the previous one.
-QVector<box *> KFormula::getBoxes()
+/*QVector<box *> KFormula::getBoxes()
 {
   //QVector<box*> ret;
   return boxes;//.copy();
-}
+}*/
 
 void KFormula::setPos(int x, int y)
 {
@@ -464,7 +464,7 @@ double KFormula::evaluate(const QMap<QString,double>& variables,
   }
 
   if(b->type == TEXT) {
-    QString temptext = b->text.stripWhiteSpace();
+    QString temptext = b->text.trimmed();
 
     if(temptext.length() > 0) { //is it empty?
       double x;
@@ -562,7 +562,7 @@ double KFormula::evaluate(const QMap<QString,double>& variables,
       return 0;
     }
 
-    QString fun = b->b1->text.stripWhiteSpace();
+    QString fun = b->b1->text.trimmed();
 
     if(fun == "sqrt") return sqrt(b2);
     if(fun == "log") return log(b2);

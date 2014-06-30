@@ -28,14 +28,15 @@ G_locus::G_locus(const G_locus &l) : G_geometry()
 {
   int i;
   
-  objects.setAutoDelete(true);
+  //objects.setAutoDelete(true);
+  for(int i=0;i<objects.size();++i){delete objects[i];}
   objects.clear();
 
-  Q3PtrListIterator<G_geometry> it(l.objects);
+  //Q3PtrListIterator<G_geometry> it(l.objects);
 
   for(i = 0; i < (int)l.objects.count(); i++) {
-    objects.append((*it)->copy());
-    ++it;
+    objects.append(l.objects[i]->copy());
+    //++it;
   }
 }
 
@@ -44,14 +45,16 @@ G_locus & G_locus::operator=(const G_locus &l)
 {
   int i;
   
-  objects.setAutoDelete(true);
+  //objects.setAutoDelete(true);
+  for(int i=0;i<objects.size();++i){delete objects[i];}
   objects.clear();
 
-  Q3PtrListIterator<G_geometry> it(l.objects);
+  //Q3PtrListIterator<G_geometry> it(l.objects);
 
   for(i = 0; i < (int)l.objects.count(); i++) {
-    objects.append((*it)->copy());
-    ++it;
+    objects.append(l.objects[i]->copy());
+//    objects.append((*it)->copy());
+    //++it;
   }
 
   return *this;
@@ -69,16 +72,14 @@ void G_locus::draw(QPainter &p, const G_drawstyle &d, bool selected)
 
 QRect G_locus::getExtents(void) const
 {
-  int i;
   QRect r;
 
-  if(objects.count() == 0) return r;
+  if(objects.empty()) return r;
 
-  Q3PtrListIterator<G_geometry> it(objects);
+  QVector<G_geometry*>::const_iterator it=objects.begin();
   r = (*it)->getExtents();
-
-  for(i = 1; i < (int)objects.count(); i++) {
-    ++it;
+  ++it;
+  for(; it <objects.end(); ++it) {
     r |= (*it)->getExtents();
   }
 
@@ -87,16 +88,13 @@ QRect G_locus::getExtents(void) const
 
 G_point G_locus::getNearestPoint(const G_point &p) const
 {
-  int i;
-
-  Q3PtrListIterator<G_geometry> it(objects);
+  QVector<G_geometry*>::const_iterator it=objects.begin();
   G_point m = (*it)->getNearestPoint(p);
 
   //fix it so it's replaced by the first valid point
   if(!m.isValid()) m = G_point(BIG, BIG);
-
-  for(i = 1; i < (int)objects.count(); i++) {
-    ++it;
+  ++it;
+  for(; it <objects.end(); ++it) {
 
     G_point q = (*it)->getNearestPoint(p);
     if(!q.isValid()) continue;
@@ -111,13 +109,9 @@ G_point G_locus::getNearestPoint(const G_point &p) const
 
 bool G_locus::inRect(const QRect &r) const
 {
-  int i;
-
-  Q3PtrListIterator<G_geometry> it(objects);
-
-  for(i = 0; i < (int)objects.count(); i++) {
+  for(QVector<G_geometry*>::const_iterator it=objects.begin();
+       it <objects.end(); ++it) {
     if((*it)->inRect(r)) return true;
-    ++it;
   }
 
   return false;

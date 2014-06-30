@@ -22,8 +22,6 @@
 
 
 #include "G_object.H"
-//Added by qt3to4:
-#include <Q3PtrList>
 
 //structure for storing adaptively sampled points
 //in a "linked heap"
@@ -318,7 +316,7 @@ void G_locusObject::generatePointLocus()
     if(points[i].prev == -1) break; //it's the one without a previous member.
   }
 
-  Q3PtrList<G_geometry> myList;
+  QVector<G_geometry*> myList;
 
   while(--numSamples) { //make numSamples - 1 segments
     int j = points[i].next;

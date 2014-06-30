@@ -25,15 +25,16 @@
 #define G_LOCUS_H
 
 #include "G_point.H"
-#include <q3ptrlist.h>
+#include <QVector>
 
 class G_locus : public G_geometry
 {
   friend class G_locusObject;
 public:
-  G_locus() { objects.setAutoDelete(true); }
+  G_locus() { /*objects.setAutoDelete(true);*/ }
   G_locus(const G_locus &l);
-  G_locus(const Q3PtrList<G_geometry> &l) { objects.setAutoDelete(true); objects = l; }
+  G_locus(const QVector<G_geometry*> &l) { /*objects.setAutoDelete(true);*/ objects = l; }
+  ~G_locus(){for(int i=0;i<objects.size();++i){delete objects[i];}}
 
   G_locus & operator=(const G_locus &l);
 
@@ -58,7 +59,7 @@ public:
   bool isValid() const { return objects.count() > 0; }
 
 private:
-  Q3PtrList<G_geometry> objects;
+  QVector<G_geometry*> objects;
 };
 
 #endif //G_LOCUS_H

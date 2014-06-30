@@ -24,8 +24,6 @@
 #include <stdio.h>
 
 #include "G_object.H"
-//Added by qt3to4:
-#include <Q3PtrList>
 
 void G_locusObject::update()
 {
@@ -51,7 +49,7 @@ void G_locusObject::update()
 
 void G_locusObject::generateObjectLocus()
 {
-  Q3PtrList<G_geometry> myList;
+  QVector<G_geometry*> myList;
 
   G_refs updateQueue;
 

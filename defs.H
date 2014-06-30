@@ -38,7 +38,7 @@ using namespace std;
 inline bool myFinite(double x) { return x < BIG && x > -BIG && x == x; }
 inline int ROUND(double x) { return ((int)(x + 0.5)); }
 inline int SIGN(double x) { return (x < 0) ? -1 : 1; }
-inline int INTRAND(int a, int b) { return QMIN(a, b) + rand() % abs(a - b); }
+inline int INTRAND(int a, int b) { return qMin(a, b) + rand() % abs(a - b); }
 #define SQR(x) ((x) * (x))
 #define CUBE(x) ((x) * (x) * (x))
 #define QUAD(x) (((x) * (x)) * ((x) * (x)))

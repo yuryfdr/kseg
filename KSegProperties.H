@@ -34,7 +34,7 @@ struct hash<QString>
   size_t operator ()(QString s) const
   {
     unsigned long l = 0;
-    unsigned int i;
+    int i;
     for(i = 0; i < s.length(); ++i) {
       l = 5 * l + s[i].unicode();
     }

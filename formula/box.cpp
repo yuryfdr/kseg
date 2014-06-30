@@ -138,7 +138,7 @@ void box::offset(int xoffs, int yoffs)
   b1y += yoffs;
   b2x += xoffs;
   b2y += yoffs;
-  rect.moveBy(xoffs, yoffs);
+  rect.translate(xoffs, yoffs);
 }
 
 //-------------------------------CALCULATE-------------------------
@@ -191,7 +191,7 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
 	// the size of + is the size of the square.
 	rect = fm.boundingRect("+");
 	rect.setRect(-SPACE, rect.y(), SPACE * 2, rect.height());
-	rect.moveBy(0, -rect.center().y());
+	rect.translate(0, -rect.center().y());
 
 	//operators where the left box is optional don't get a little
 	//square drawn.  These are the -, the parentheses, the square
@@ -232,7 +232,7 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
 	rect.setBottom(heightRect.bottom());
       }
 
-      rect.moveBy(0, -fm.boundingRect("+").center().y());
+      rect.translate(0, -fm.boundingRect("+").center().y());
       break;
 
     case SYMBOL:
@@ -253,11 +253,11 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
       relx += rect.right() + 1; //where the operator will be drawn
       rely += -fm.boundingRect("+").center().y();
       if(rect.width() == 1) relx -= tmp1.left() - rect.left();
-      tmp1.moveBy(relx, rely);
+      tmp1.translate(relx, rely);
       rect = rect.unite(tmp1);
       b2x += -b2->getRect().left() + rect.right() + SPACE - 1;
       tmp1 = b2->getRect();
-      tmp1.moveBy(b2x, 0);
+      tmp1.translate(b2x, 0);
       if(tmp1.width() > 1) rect = rect.unite(tmp1);
 
       break;
@@ -269,7 +269,7 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
       rect = b1->getRect();
       b2x += -b2->getRect().left() + rect.right() + SPACE;
       tmp1 = b2->getRect();
-      tmp1.moveBy(b2x, 0);
+      tmp1.translate(b2x, 0);
       rect = rect.unite(tmp1);
       break;
 
@@ -283,11 +283,11 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
 
       tmp1 = QRect(1, -DOTSIZE / 2, DOTSIZE + 1, DOTSIZE);
       relx += rect.right() + SPACE + 1; //where the dot will be drawn.
-      tmp1.moveBy(relx, rely);
+      tmp1.translate(relx, rely);
       rect = rect.unite(tmp1);
       b2x += -b2->getRect().left() + rect.right() + SPACE;
       tmp1 = b2->getRect();
-      tmp1.moveBy(b2x, 0);
+      tmp1.translate(b2x, 0);
       rect = rect.unite(tmp1);
       break;
 
@@ -299,8 +299,8 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
 
       relx += tmp1.right() + SPACE;
       b2x += -tmp2.left() + tmp1.right() + SPACE * 3 +
-	QMAX(tmp1.height(), tmp2.height()) / 2;
-      tmp2.moveBy(b2x, 0);
+	qMax(tmp1.height(), tmp2.height()) / 2;
+      tmp2.translate(b2x, 0);
 
       rect = tmp1.unite(tmp2);
 
@@ -317,10 +317,10 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
       tmp1 = b2->getRect();
       rely += rect.bottom() + SPACE; //where the bar will be drawn
       tmp2 = tmp1;
-      tmp1.moveBy(0, rect.bottom() - tmp1.top() + SPACE * 3);
+      tmp1.translate(0, rect.bottom() - tmp1.top() + SPACE * 3);
       b2x += rect.center().x() - tmp1.center().x();
       b2y += rect.bottom() - tmp2.top() + SPACE * 3;
-      tmp2.moveBy(b2x, b2y);
+      tmp2.translate(b2x, b2y);
       rect = rect.unite(tmp2);
       rect.setRect(rect.x() - SPACE * 2, rect.y(),
 		   rect.width() + SPACE * 4, rect.height());
@@ -372,29 +372,29 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
       if(type == POWER) {
 	tmp1 = b2->getRect();
 	b2x += -tmp1.left() + rect.right() + SPACE;
-	b2y += rect.top() - tmp1.bottom() + QMIN(SPACE, rect.height() / 3);
-	tmp1.moveBy(b2x, b2y);
+	b2y += rect.top() - tmp1.bottom() + qMin(SPACE, rect.height() / 3);
+	tmp1.translate(b2x, b2y);
       }
 
       if(type == SUB) {
 	tmp1 = b2->getRect();
 	b2x += -tmp1.left() + rect.right() + SPACE;
-	b2y += rect.bottom() - tmp1.top() - QMIN(SPACE, rect.height() / 3);
-	tmp1.moveBy(b2x, b2y);
+	b2y += rect.bottom() - tmp1.top() - qMin(SPACE, rect.height() / 3);
+	tmp1.translate(b2x, b2y);
       }
 
       if(type == LSUP) {
 	tmp1 = b1->getRect();
 	b1x += rect.left() - tmp1.right() - SPACE;
-	b1y += rect.top() - tmp1.bottom() + QMIN(SPACE, rect.height() / 3);
-	tmp1.moveBy(b1x, b1y);
+	b1y += rect.top() - tmp1.bottom() + qMin(SPACE, rect.height() / 3);
+	tmp1.translate(b1x, b1y);
       }
 
       if(type == LSUB) {
 	tmp1 = b1->getRect();
 	b1x += rect.left() - tmp1.right() - SPACE;
-	b1y += rect.bottom() - tmp1.top() - QMIN(SPACE, rect.height() / 3);
-	tmp1.moveBy(b1x, b1y);
+	b1y += rect.bottom() - tmp1.top() - qMin(SPACE, rect.height() / 3);
+	tmp1.translate(b1x, b1y);
       }
 
       rect = rect.unite(tmp1);
@@ -413,7 +413,7 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
       tmp1 = b2->getRect();
       b2y += -tmp1.bottom() + rect.top() - SPACE;
       b2x += -tmp1.center().x() + rect.center().x();
-      tmp1.moveBy(b2x, b2y);
+      tmp1.translate(b2x, b2y);
       rect = rect.unite(tmp1);
       rect.setRect(rect.x() - SPACE / 2, rect.y(),
 		   rect.width() + SPACE, rect.height());
@@ -426,7 +426,7 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
       tmp1 = b2->getRect();
       b2y += -tmp1.top() + rect.bottom() + SPACE;
       b2x += -tmp1.center().x() + rect.center().x();
-      tmp1.moveBy(b2x, b2y);
+      tmp1.translate(b2x, b2y);
       rect = rect.unite(tmp1);
       rect.setRect(rect.x() - SPACE / 2, rect.y(),
 		   rect.width() + SPACE, rect.height());
@@ -436,7 +436,7 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
     case SQRT:
       b2->calculate(p, fontsize);
       rect = b2->getRect();
-      i = QMIN((SPACE + rect.height()) / 2, SPACE * 8);
+      i = qMin((SPACE + rect.height()) / 2, SPACE * 8);
       rect.setRect(rect.x() - i - SPACE * 2, rect.y() - SPACE,
 		   rect.width() + i + SPACE * 3,
 		   rect.height() + SPACE * 2);
@@ -445,7 +445,7 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
 	tmp1 = b1->getRect();
 	b1x += -tmp1.right() + rect.x() + SPACE + i / 3;
 	b1y += -tmp1.bottom() + rect.center().y() - SPACE;
-	tmp1.moveBy(b1x, b1y);
+	tmp1.translate(b1x, b1y);
 	rect = rect.unite(tmp1);
       }
       break;
@@ -453,9 +453,9 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
     case PAREN:
       b2->calculate(p, fontsize);
       rect = b2->getRect();
-      rect.setRect(rect.x(), QMIN(rect.top(), -rect.bottom()),
-		   rect.width(), QMAX(-rect.top(), rect.bottom()) * 2);
-      b2x += QMAX(fontsize / 4 + rect.height() / 10, SPACE);
+      rect.setRect(rect.x(), qMin(rect.top(), -rect.bottom()),
+		   rect.width(), qMax(-rect.top(), rect.bottom()) * 2);
+      b2x += qMax(fontsize / 4 + rect.height() / 10, SPACE);
       rect.setRect(rect.x() - SPACE / 2, rect.y() - b2x * 3 / 4,
 		   rect.width() + b2x * 2 + SPACE,
 		   rect.height() + b2x * 3 / 2);
@@ -465,8 +465,8 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
     case ABS:
       b2->calculate(p, fontsize);
       rect = b2->getRect();
-      rect.setRect(rect.x(), QMIN(rect.top(), -rect.bottom()),
-		   rect.width(), QMAX(-rect.top(), rect.bottom()) * 2);
+      rect.setRect(rect.x(), qMin(rect.top(), -rect.bottom()),
+		   rect.width(), qMax(-rect.top(), rect.bottom()) * 2);
       b2x += SPACE + 2;
       rect.setRect(rect.x(), rect.y() - b2x,
 		   rect.width() + b2x * 2, rect.height() + b2x * 2);
@@ -483,8 +483,8 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
 	rect.moveCenter(c);
       }
 	
-      rect.setRect(rect.x(), QMIN(rect.top(), -rect.bottom()),
-		   rect.width(), QMAX(-rect.top(), rect.bottom()) * 2);
+      rect.setRect(rect.x(), qMin(rect.top(), -rect.bottom()),
+		   rect.width(), qMax(-rect.top(), rect.bottom()) * 2);
       b2x += SPACE + 2;
       rect.setRect(rect.x(), rect.y() - b2x,
 		   rect.width() + b2x * 2, rect.height() + b2x * 2);
@@ -509,7 +509,7 @@ void box::calculate(QPainter &p, int setFontsize, QFont *f_, QColor *, QColor *)
 QRect box::getLastRect()
 {
   QRect tmp = rect;
-  tmp.moveBy(offsx - 1, offsy - 1);
+  tmp.translate(offsx - 1, offsy - 1);
   tmp.setWidth(tmp.width() + 2);
   tmp.setHeight(tmp.height() + 2);
   return tmp;
@@ -545,7 +545,7 @@ void box::draw(QPainter &p, int x, int y, QFont *f_, QColor *bc, QColor *fc)
 #if 0  // draw bounding boxes?
   p.setPen(QColor(255, 0, 0));
   QRect tmpxx = rect;
-  tmpxx.moveBy(x, y);
+  tmpxx.translate(x, y);
   p.drawRect(tmpxx);
   p.setPen(QColor(0, 0, 0));
 #endif
@@ -634,8 +634,8 @@ void box::draw(QPainter &p, int x, int y, QFont *f_, QColor *bc, QColor *fc)
 
   case SQRT:
     tmp = b2->getRect();
-    tmp.moveBy(b2x, b2y);
-    i = QMIN((SPACE + tmp.height()) / 2, SPACE * 8);
+    tmp.translate(b2x, b2y);
+    i = qMin((SPACE + tmp.height()) / 2, SPACE * 8);
 
     p.setPen(QPen(p.pen().color(), 1));
 
@@ -816,7 +816,7 @@ QRect box::symbolRect(QPainter &p, SymbolType s, int size)
 
     QRect r = fm.boundingRect(QString(QChar(s - SYMBOL_ABOVE)));
 
-    r.moveBy(0, - fm.boundingRect('+').center().y());
+    r.translate(0, - fm.boundingRect('+').center().y());
 
     return r;
   }

@@ -1,8 +1,8 @@
 TEMPLATE	= app
-QT		+= qt3support svg
+QT		+= svg
 CONFIG		= qt warn_on release
 LIBS           += -lz
-CFLAGS		+= -std=c++11
+CXXFLAGS	+=-DQT3_SUPPORT
 
 HEADERS = defs.H \
 	  formula/box.H \

@@ -55,7 +55,7 @@ protected:
   bool shiftDown;
   bool eventFilter(QObject *, QEvent *ev) {
     if(ev->type() == QEvent::MouseButtonPress) 
-      shiftDown = ((QMouseEvent *)ev)->state() && Qt::ShiftButton;
+      shiftDown = ((QMouseEvent *)ev)->modifiers() && Qt::ShiftModifier;
     return false;
   }
 

@@ -114,8 +114,8 @@ public:
     virtual ~KFormula();
 
     void redraw(QPainter &p);
-    void setBoxes(QVector<box *> newBoxes);
-    QVector<box *> getBoxes();
+    //void setBoxes(QVector<box *> newBoxes);
+    //QVector<box *> getBoxes();
     void setPos(int x, int y); //sets the position for the center of the formula
     void parse(QString text, QVector<charinfo> *info = NULL);
     QRect getCursorPos(charinfo i);
