@@ -122,7 +122,7 @@ QString KFormula::toUgly(QString ugly)
   if(ugly.isNull() || ugly.isEmpty()) return QString("");
 
   //look for roots
-  i = ugly.find(QChar(SQRT));
+  i = ugly.indexOf(QChar(SQRT));
   while(i != -1) {
     if(ugly[i - 2] == L_GROUP) { // we have a square root
       ugly.remove(i - 2, 3);
@@ -133,11 +133,11 @@ QString KFormula::toUgly(QString ugly)
       ugly.remove(i, 1);
     }
 
-    i = ugly.find(QChar(SQRT), i);
+    i = ugly.indexOf(QChar(SQRT), i);
   }
 
   //look for brackets
-  i = ugly.find(QChar(BRACKET));
+  i = ugly.indexOf(QChar(BRACKET));
   while(i != -1) {
     i -= 2;
     ugly.remove(i, 3);  // {}[{...}  -->  {...}
@@ -145,7 +145,7 @@ QString KFormula::toUgly(QString ugly)
     ugly[ findMatch(ugly, i) ] = ']';
     ugly[i] = '[';  // {...}  -->  [...]
 
-    i = ugly.find(QChar(BRACKET), i + 1); // find next parentheses
+    i = ugly.indexOf(QChar(BRACKET), i + 1); // find next parentheses
   }
 
   //do all other replacements.
@@ -178,7 +178,7 @@ QString KFormula::fromUgly(QString ugly)
   int i;
 
   //search for absolute value:
-  i = ugly.find("abs(", 0, FALSE); // case insensitive
+  i = ugly.indexOf("abs(", 0, Qt::CaseInsensitive); // case insensitive
   while(i != -1) {
     if( (i == 0 || !ugly[i - 1].isLetter()) ) { //we really have an abs
       int tmp = findMatch( ugly, i + 3);
@@ -186,18 +186,18 @@ QString KFormula::fromUgly(QString ugly)
       ugly[tmp] = R_GROUP;
     }
 
-    i = ugly.find("abs(", i + 1, FALSE);
+    i = ugly.indexOf("abs(", i + 1, Qt::CaseInsensitive);
   }
 
   //search for square roots:
-  i = ugly.find("sqrt(", 0, FALSE); // case insensitive
+  i = ugly.indexOf("sqrt(", 0, Qt::CaseInsensitive); // case insensitive
   while(i != -1) {
     if( (i == 0 || !ugly[i - 1].isLetter()) ) { //we really have an sqrt
       ugly[ findMatch( ugly, i + 4) ] = R_GROUP;
       ugly.replace(i, 5, QString(L_GROUP) + R_GROUP + QChar(SQRT) + L_GROUP); // abs( --> {}|{
     }
 
-    i = ugly.find("sqrt(", i + 1, FALSE);
+    i = ugly.indexOf("sqrt(", i + 1, Qt::CaseInsensitive);
   }
 
   //search for brackets:
@@ -211,7 +211,7 @@ QString KFormula::fromUgly(QString ugly)
   }
 
   //look for division:
-  i = ugly.find(")/("); //if it doesn't have parentheses around it, it will be a slash not a fraction.
+  i = ugly.indexOf(")/("); //if it doesn't have parentheses around it, it will be a slash not a fraction.
   while(i != -1) {
     ugly[ findMatch(ugly, i) ] = L_GROUP;
     ugly[i] = R_GROUP;
@@ -219,26 +219,26 @@ QString KFormula::fromUgly(QString ugly)
     ugly[ findMatch(ugly, i + 2) ] = R_GROUP;
     ugly[i + 2] = L_GROUP;
 
-    i = ugly.find(")/(", i + 1);
+    i = ugly.indexOf(")/(", i + 1);
   }
 
   //the quest for power (and subscript):
-  i = ugly.find("^("); // it will just remain a caret if it has no parentheses
+  i = ugly.indexOf("^("); // it will just remain a caret if it has no parentheses
   while(i != -1) {
     ugly[ findMatch(ugly, i + 1) ] = R_GROUP;
     ugly[i + 1] = L_GROUP;
     ugly[i] = QChar(POWER);
 
-    i = ugly.find("^(", i + 1);
+    i = ugly.indexOf("^(", i + 1);
   }
 
-  i = ugly.find("_("); // it will just remain an underscore if it has no parentheses
+  i = ugly.indexOf("_("); // it will just remain an underscore if it has no parentheses
   while(i != -1) {
     ugly[ findMatch(ugly, i + 1) ] = R_GROUP;
     ugly[i + 1] = L_GROUP;
     ugly[i] = QChar(SUB);
 
-    i = ugly.find("_(", i + 1);
+    i = ugly.indexOf("_(", i + 1);
   }
 
   //finally, take care of all the remaining parentheses:
@@ -613,7 +613,7 @@ void KFormula::parse(QString text, QVector<charinfo> *info)
 
   if(info) { //initialize info
 
-    info->reserve(text.length() + 1);
+    info->resize(text.length() + 1);
 
     for(i = 0; i <= (int)text.length(); i++) {
       charinfo inf;
@@ -623,7 +623,7 @@ void KFormula::parse(QString text, QVector<charinfo> *info)
       inf.posinstr = i;
       inf.left = 0;
 
-      info->push_back(inf);
+      (*info)[i]=inf;
     }
 
     //make empty boxes and put cursor into them if necessary:

@@ -41,7 +41,7 @@
 
 class box;
 class KFormula;
-struct charinfo;
+//struct charinfo;
 
 // now the fake chars used for control for passing to insertChar:
 #define CUT_CHAR 0

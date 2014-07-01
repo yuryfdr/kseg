@@ -69,13 +69,15 @@ QString KFormulaEdit::clipText;
 
 KFormulaEdit::KFormulaEdit(QWidget * parent, const char *name,
 			   Qt::WFlags flags, bool r) :
-  QWidget(parent, name, flags)
+  QWidget(parent,/* name,*/ flags),pm(width(),height())
 {
   restricted = r;
   form = new KFormula(r);
-  // setMinimumSize(QSize(200,80));
-  pm.resize(width(), height());
-  setBackgroundMode(Qt::PaletteBase);
+  //setMinimumSize(QSize(200,80));
+  //pm.resize(width(), height());
+  //setBackgroundMode(Qt::PaletteBase);
+  
+  setBackgroundRole(QPalette::Base);
   setFocusPolicy(Qt::StrongFocus);
   setCursor(Qt::ibeamCursor);
   cursorPos = 0;
